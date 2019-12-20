@@ -109,7 +109,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
     enable = true
     appId = 'o6kNKVy8OrAHuF71KC2EPujN-MdYXbMMI'
     appKey = 'to5t9x8LMWghJuruIljDWsvP'
-    avatar = 'identicon' 
+    avatar = 'retro' 
     placeholder = '嘤嘤嘤～'
     visitor = true
 
