@@ -10,8 +10,6 @@ tags:
   - 折腾日志
 ---
 
-![Cover](https://images.unsplash.com/photo-1559617089-592e02083239?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
-
 ---
 
 <!-- require APlayer -->
