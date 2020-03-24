@@ -1,4 +1,106 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on An's Blog</title><link>https://explore-space.github.io/posts/</link><description>Recent content in Posts on An's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Dec 2019 22:31:18 +0800</lastBuildDate><atom:link href="https://explore-space.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Primitive</title><link>https://explore-space.github.io/posts/primitive/</link><pubDate>Tue, 24 Dec 2019 22:31:18 +0800</pubDate><guid>https://explore-space.github.io/posts/primitive/</guid><description>0x00 摘要 0x01 起源 0x02 运行 安装Go 具体安装配置流程可参考官方文档 运行primitive go get -u github.com/fogleman/primitive primitive -i input.png -o output.png -n 100 0x04 致谢 primitive by fogleman</description><content type="html"><![CDATA[<p><img src="https://images.unsplash.com/photo-1560953470-9e400a5bb7c3?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=100" alt="Cover"></p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on An's Blog</title><link>https://explore-space.github.io/posts/</link><description>Recent content in Posts on An's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Mar 2020 08:30:23 +0800</lastBuildDate><atom:link href="https://explore-space.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>JetsonNano</title><link>https://explore-space.github.io/posts/jetsonnano/</link><pubDate>Tue, 24 Mar 2020 08:30:23 +0800</pubDate><guid>https://explore-space.github.io/posts/jetsonnano/</guid><description>0x00 摘要 JetsonNano 「待完善」 0x01 简介 0x02 简介 0x03 首次使用 入门文档 烧录镜像 下载 标准镜像 后，将其烧录至 microSD 卡 P.s. 笔者推荐使用Etcher 设置和首次启动 准备 将micr</description><content type="html"><![CDATA[<hr>
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<p><meting-js
+server="netease"
+type="song"
+id="35625821">
+</meting-js></p>
+<h2 id="0x00-">0x00 摘要</h2>
+<p>JetsonNano</p>
+<p><em><strong>「待完善」</strong></em></p>
+<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x02-">0x02 简介</h2>
+<h2 id="0x03-">0x03 首次使用</h2>
+<p><a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit">入门文档</a></p>
+<h3 id="heading">烧录镜像</h3>
+<p>下载 <a href="https://developer.nvidia.com/jetson-nano-sd-card-image">标准镜像</a> 后，将其烧录至 microSD 卡</p>
+<p>P.s. 笔者推荐使用<a href="https://www.balena.io/etcher">Etcher</a></p>
+<h3 id="heading1">设置和首次启动</h3>
+<p><img src="/Image/posts/JetsonNano/002.gif" alt=""></p>
+<h4 id="heading2">准备</h4>
+<ol>
+<li>将microSD卡（已写入系统映像）插入Jetson Nano模块底部的插槽中</li>
+</ol>
+<p><img src="/Image/posts/JetsonNano/003.png" alt=""></p>
+<ol start="2">
+<li>连接显示器与鼠标键盘</li>
+<li>连接Micro-USB电源（5V⎓2A），Micro-USB连接器旁边的绿色LED会点亮 (Jetson Nano缺省上电自启)</li>
+</ol>
+<h4 id="heading3">首次启动</h4>
+<p>Jetson Nano Developer Kit将进行一些初始设置，包括：</p>
+<ul>
+<li>查看并接受NVIDIA Jetson软件EULA</li>
+<li>选择系统语言，键盘布局和时区</li>
+<li>创建用户名，密码和计算机名</li>
+<li>登录</li>
+</ul>
+<h4 id="heading4">登录后</h4>
+<p>将显示以下画面</p>
+<p><img src="/Image/posts/JetsonNano/004.png" alt=""></p>
+<h3 id="faq">FAQ</h3>
+<h4 id="heading5">功率</h4>
+<p>如果 Jetson Nano Developer Kit 无法启动或突然断电重启，有可能是电源功率不足，可尝试更换更大功率的电源</p>
+<p><em><strong>P.S. 关于电源问题后文将详述</strong></em></p>
+<h4 id="heading6">显示</h4>
+<p>Jetson Nano Developer Kit 支持 HDMI/DP 视频输出，但不支持HDMI到DVI适配器</p>
+<h2 id="0x04-">0x04 配置</h2>
+<h3 id="heading7">更换软件源</h3>
+<p><a href="https://developer.nvidia.com/embedded/jetpack">JetPack</a> 缺省软件源为国外的源，国内使用不方便故更换为清华源</p>
+<ol>
+<li>防止误操作无法恢复，首先备份原本的 <code>source.list</code></li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+</code></pre></div><p>2.更换为清华源</p>
+<p>用以下内容替换 <code>source.list</code> 中所有内容</p>
+<pre><code class="language-list" data-lang="list">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main multiverse restricted universe
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main multiverse restricted universe
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main multiverse restricted universe
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main multiverse restricted universe
+deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main multiverse restricted universe
+deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main multiverse restricted universe
+deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main multiverse restricted universe
+deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main multiverse restricted universe
+</code></pre><h2 id="0x0-">0x0 致谢</h2>
+<ul>
+<li>
+<p><a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit">Jetson Nano Developer Kit入门</a> by <a href="https://developer.nvidia.com/embedded-computing">NVIDIA</a></p>
+</li>
+<li>
+<p><a href="https://github.com/NVIDIA-AI-IOT/jetcard">jetcard</a> by <a href="https://github.com/NVIDIA-AI-IOT">NVIDIA-AI-IOT</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/qq_36396941/article/details/88903094">Jetson Nano更换软件源</a> by <a href="https://blog.csdn.net/qq_36396941">Yeah2333</a></p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+<li>
+<p>[]() by []()</p>
+</li>
+</ul>
+]]></content></item><item><title>Primitive</title><link>https://explore-space.github.io/posts/primitive/</link><pubDate>Tue, 24 Dec 2019 22:31:18 +0800</pubDate><guid>https://explore-space.github.io/posts/primitive/</guid><description>0x00 摘要 0x01 起源 0x02 运行 安装Go 具体安装配置流程可参考官方文档 运行primitive go get -u github.com/fogleman/primitive primitive -i input.png -o output.png -n 100 0x04 致谢 primitive by fogleman</description><content type="html"><![CDATA[<p><img src="https://images.unsplash.com/photo-1560953470-9e400a5bb7c3?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=100" alt="Cover"></p>
 <hr>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -2377,8 +2479,7 @@ call plug#end()
 <p><a href="http://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a> by <a href="http://www.ruanyifeng.com/home.html">阮一峰</a></p>
 </li>
 </ul>
-]]></content></item><item><title>Manjaro:KDE</title><link>https://explore-space.github.io/posts/manjaro/</link><pubDate>Mon, 16 Sep 2019 23:31:18 +0800</pubDate><guid>https://explore-space.github.io/posts/manjaro/</guid><description>0x00 摘要 Manjaro 的安装与配置 0x01 起源 在看过TheCW的系列视频后，被其使用的 Linux 发行版 Manjaro 深深的吸引，更精致的外观，更优雅的操作。 笔者从接触 Linux 到现在，一直</description><content type="html"><![CDATA[<p><img src="https://images.unsplash.com/photo-1559617089-592e02083239?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=100" alt="Cover"></p>
-<hr>
+]]></content></item><item><title>Manjaro:KDE</title><link>https://explore-space.github.io/posts/manjaro/</link><pubDate>Mon, 16 Sep 2019 23:31:18 +0800</pubDate><guid>https://explore-space.github.io/posts/manjaro/</guid><description>0x00 摘要 Manjaro 的安装与配置 0x01 起源 在看过TheCW的系列视频后，被其使用的 Linux 发行版 Manjaro 深深的吸引，更精致的外观，更优雅的操作。 笔者从接触 Linux 到现在，一直</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
