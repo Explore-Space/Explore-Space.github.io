@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on An's Blog</title><link>https://explore-space.github.io/posts/</link><description>Recent content in Posts on An's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 May 2020 16:38:13 +0800</lastBuildDate><atom:link href="https://explore-space.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ventoy</title><link>https://explore-space.github.io/posts/ventoy/</link><pubDate>Sun, 17 May 2020 16:38:13 +0800</pubDate><guid>https://explore-space.github.io/posts/ventoy/</guid><description>0x00 摘要 有趣的API汇总 「持续更新」 0x01 简介 API(Application Programming Interface，应用程序接口)是一些预先定义的函数，或指软件系统不同组成部分衔接的约定。目的</description><content type="html"><![CDATA[<hr>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on An's Blog</title><link>https://explore-space.github.io/posts/</link><description>Recent content in Posts on An's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 May 2020 16:38:13 +0800</lastBuildDate><atom:link href="https://explore-space.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ventoy</title><link>https://explore-space.github.io/posts/ventoy/</link><pubDate>Sun, 17 May 2020 16:38:13 +0800</pubDate><guid>https://explore-space.github.io/posts/ventoy/</guid><description>0x00 摘要 「未完成」 0x01 简介 Ventoy 是一个制作可启动U盘的开源工具。有了Ventoy就无需反复地格式化U盘，只需要把ISO文件拷贝到U盘里面就可以启动。</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -10,38 +10,61 @@ type="song"
 id="19711382">
 </meting-js></p>
 <h2 id="0x00-">0x00 摘要</h2>
-<p>有趣的API汇总</p>
-<p><em><strong>「持续更新」</strong></em></p>
+<p><em><strong>「未完成」</strong></em></p>
 <h2 id="0x01-">0x01 简介</h2>
-<p>API(Application Programming Interface，应用程序接口)是一些预先定义的函数，或指软件系统不同组成部分衔接的约定。目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问原码，或理解内部工作机制的细节。</p>
-<h2 id="0x02-api">0x02 优秀的API</h2>
-<h3 id="heading">翻译</h3>
-<h3 id="heading1">摄影</h3>
+<p><em>Ventoy</em> 是一个制作可启动U盘的开源工具。有了Ventoy就无需反复地格式化U盘，只需要把ISO文件拷贝到U盘里面就可以启动。</p>
+<h2 id="0x02-">0x02 使用说明</h2>
+<blockquote>
+<p><a href="https://www.ventoy.net/cn/index.html">Ventoy使用说明</a></p>
+<p><a href="https://www.ventoy.net/cn/download.html">Ventoy下载地址</a></p>
+</blockquote>
+<h3 id="heading">安装</h3>
+<h4 id="windows">Windows</h4>
+<h5 id="heading1">下载</h5>
+<p>下载安装包，例如 <code>ventoy-1.0.00-windows.zip</code> ，然后解压</p>
+<h5 id="heading2">运行</h5>
+<p>直接执行 <code>Ventoy2Disk.exe</code> 如下图所示，选择U盘设备，然后点击 <code>安装</code> 或 <code>升级</code> 即可。</p>
+<p><img src="/Image/posts/Ventoy/001.png" alt="界面"></p>
+<h5 id="heading3">说明</h5>
+<blockquote>
+<p><em>安装包内 Ventoy 版本</em>：当前安装包中的Ventoy版本号</p>
+<p><em>设备内部 Ventoy 版本</em>：U盘中已安装的Ventoy版本号，如果为空则表示未安装</p>
+<p><em>安装</em>：把Ventoy安装到U盘，只有第一次的时候需要，其他情况就只需要Update升级即可</p>
+<p><em>升级</em>：升级U盘中的Ventoy版本，升级不会影响ISO文件</p>
+</blockquote>
+<h4 id="linux">Linux</h4>
+<h5 id="heading4">下载</h5>
+<p>下载安装包，例如 <code>ventoy-1.0.00-linux.tar.gz</code> ，然后解压</p>
+<h5 id="heading5">运行</h5>
+<p>在该文件夹根目录下以 <em><strong>root</strong></em> 权限执行 <code>sh Ventoy2Disk.sh -i /dev/XXX</code> ,其中 <code>/dev/XXX</code> 是U盘对应的设备名，比如 <code>/dev/sdb</code></p>
+<h5 id="heading6">说明</h5>
+<blockquote>
+<p>Ventoy2Disk.sh  选项  /dev/XXX</p>
+<p>选项含义:
+-i   安装ventoy到磁盘中 (如果对应磁盘已经安装了ventoy则会返回失败)
+-I   强制安装ventoy到磁盘中 (不管原来有没有安装过)
+-u   升级磁盘中的ventoy版本</p>
+</blockquote>
+<h3 id="iso">拷贝ISO文件</h3>
+<p>安装完成之后，U盘会被分成两个区。第一个分区将会被格式化为exFAT文件系统，只需要把ISO文件拷贝到这里面即可。你可以把ISO文件放在任意目录以及子目录下。 Ventoy会遍历所有的目录和子目录，找出所有的ISO文件，并按照字母排序之后显示在菜单中。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>ISO文件的全路径中(包括目录、子目录和文件名)不能包含中文或者空格</p>
+</blockquote>
+<h3 id="-ventoy">升级 Ventoy</h3>
+<p>如果Ventoy发布了新版本之后，可以点击 <code>升级</code> 进行升级，或者Linux系统中使用 <code>-u</code> 选项进行升级。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>升级操作是安全的，不会影响原有的ISO文件</p>
+</blockquote>
+<h2 id="0x03-">0x03 致谢</h2>
 <ul>
-<li><a href="https://unsplash.com/">Unsplash</a></li>
-<li><a href="https://picsum.photos/">Lorem Picsum</a></li>
-</ul>
-<h3 id="heading2">天气</h3>
-<ul>
-<li><a href="https://www.kancloud.cn/ccjin/yingq/603579">看云</a></li>
-</ul>
-<h3 id="heading3">天文</h3>
-<ul>
-<li><a href="https://api.arcsecond.io/">arcsecond.io</a></li>
-<li><a href="https://github.com/r-spacex/SpaceX-API">SpaceX</a></li>
-<li><a href="https://launchlibrary.net/docs/1.3/api.html">Launch Library</a></li>
-</ul>
-<h3 id="heading4">体育</h3>
-<ul>
-<li><a href="https://www.football-data.org/index">football-data</a></li>
-</ul>
-<h2 id="0x03-">0x03 工具</h2>
-<ul>
-<li><a href="https://www.getpostman.com/">Postman</a></li>
-</ul>
-<h2 id="0x04-">0x04 致谢</h2>
-<ul>
-<li><a href="https://github.com/public-apis/public-apis">public-apis</a> by <a href="https://github.com/public-apis">public-apis</a></li>
+<li>
+<p><a href="https://www.ventoy.net/">Ventoy-official</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ventoy/Ventoy">Ventoy-Github</a> by <a href="https://github.com/ventoy">Ventoy</a></p>
+</li>
 </ul>
 ]]></content></item><item><title>JetsonNano</title><link>https://explore-space.github.io/posts/jetsonnano/</link><pubDate>Tue, 24 Mar 2020 08:30:23 +0800</pubDate><guid>https://explore-space.github.io/posts/jetsonnano/</guid><description>0x00 摘要 JetsonNano 「待完善」 0x01 简介 0x02 简介 0x03 首次使用 入门文档 烧录镜像 下载 标准镜像 后，将其烧录至 microSD 卡 P.s. 笔者推荐使用Etcher 设置和首次启动 准备 将micr</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
