@@ -8,7 +8,7 @@ tags:
   - RaspberryPi
 ---
 
-![Cover](https://images.unsplash.com/photo-1560614196-3f8c2daf6677?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 

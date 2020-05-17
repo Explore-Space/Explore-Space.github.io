@@ -9,7 +9,7 @@ tags:
   - Github Actions
 ---
 
-![Cover](https://images.unsplash.com/photo-1560953470-9e400a5bb7c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 

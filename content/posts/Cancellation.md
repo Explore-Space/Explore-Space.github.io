@@ -7,7 +7,7 @@ toc: true
 tags: 
 ---
 
-![Cover](https://images.unsplash.com/photo-1559808472-8686fbe5931e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 

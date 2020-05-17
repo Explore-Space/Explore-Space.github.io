@@ -9,7 +9,7 @@ tags:
   - HID
 ---
 
-![Cover](https://images.unsplash.com/photo-1560614220-60011c1d2139?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 

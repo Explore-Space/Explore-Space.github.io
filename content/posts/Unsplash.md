@@ -8,7 +8,7 @@ tags:
   - Unsplash
 ---
 
-![Cover](https://images.unsplash.com/photo-1559275608-a600f8b7e110?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 

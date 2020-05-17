@@ -8,7 +8,7 @@ tags:
   - 折腾日志
 ---
 
-![Cover](https://images.unsplash.com/photo-1559536425-f8a672042621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 

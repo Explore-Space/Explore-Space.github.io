@@ -8,7 +8,7 @@ tags:
   - Markdown
 ---
 
-![Cover](https://images.unsplash.com/photo-1559275139-68afaf324084?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 

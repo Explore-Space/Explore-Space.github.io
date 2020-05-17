@@ -10,7 +10,7 @@ tags:
   - 折腾日志
 ---
 
-![Cover](https://images.unsplash.com/photo-1559274604-bf3a06409885?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=100)
+
 
 ---
 
