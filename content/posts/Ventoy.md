@@ -50,7 +50,7 @@ tags:
 
 直接执行 `Ventoy2Disk.exe` 如下图所示，选择U盘设备，然后点击 `安装` 或 `升级` 即可。
 
-![界面](/Image/posts/Ventoy/001.png)
+![界面](/Image/posts/Ventoy/001.PNG)
 
 ##### 说明
 
