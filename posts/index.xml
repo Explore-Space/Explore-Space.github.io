@@ -24,7 +24,7 @@ id="19711382">
 <p>下载安装包，例如 <code>ventoy-1.0.00-windows.zip</code> ，然后解压</p>
 <h5 id="heading2">运行</h5>
 <p>直接执行 <code>Ventoy2Disk.exe</code> 如下图所示，选择U盘设备，然后点击 <code>安装</code> 或 <code>升级</code> 即可。</p>
-<p><img src="/Image/posts/Ventoy/001.png" alt="界面"></p>
+<p><img src="/Image/posts/Ventoy/001.PNG" alt="界面"></p>
 <h5 id="heading3">说明</h5>
 <blockquote>
 <p><em>安装包内 Ventoy 版本</em>：当前安装包中的Ventoy版本号</p>
@@ -2947,7 +2947,7 @@ id="19945735">
 <h4 id="heading2">尝试单线多拨</h4>
 <p>在多次尝试后，最多能以4拨实现约 400 Mbps ，效果比较理想</p>
 <p>但目前尚不清楚现有架构中瓶颈在哪，笔者觉得很大可能在硬路由，日后有机会组1台软路由再折腾</p>
-<p><img src="/Image/posts/Opticalmodem/001.jpg" alt="多拨测速"></p>
+<p><img src="/Image/posts/Network_1/001.jpg" alt="多拨测速"></p>
 <h4 id="-ssssr">尝试 SS/SSR</h4>
 <p>很无奈的是，笔者目前并没有找到一个多拨与 SS/SSR 可以兼顾的 K2P 固件，通过刷写不同固件可分别两项功能。在综合考虑后，笔者选择实现单线多拨，摒弃 SS/SSR</p>
 <hr>
@@ -2956,7 +2956,7 @@ id="19945735">
 <h2 id="0x03-">0x03 继续</h2>
 <p>开学全部入住后，网速有明显下降。笔者在纠结很久后终于下定决心，购买软路由，希望能够改善网络情况。</p>
 <p>在接入软路由后，进行多拨，网速有明显提高</p>
-<p><img src="/Image/posts/Opticalmodem/002.jpg" alt="多拨测速"></p>
+<p><img src="/Image/posts/Network_1/002.jpg" alt="多拨测速"></p>
 <p>软路由的开放性更高，后续可能会详细写相关专题</p>
 <h2 id="0x04-">0x04 致谢</h2>
 <ul>
