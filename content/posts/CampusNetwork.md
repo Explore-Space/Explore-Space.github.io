@@ -1,7 +1,6 @@
 ---
 title: "探索校园网"
-date: .Date
-timezone: UTC+8
+date: 2020-12-29 15:04 +0800
 author: "An"
 draft: false
 toc: true
