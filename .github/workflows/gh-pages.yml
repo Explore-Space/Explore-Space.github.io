@@ -21,6 +21,7 @@ jobs:
 
     - name: Build
       run: |
+        cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
         git clone https://github.com/Track3/hermit.git themes/hermit
         hugo --minify
 
