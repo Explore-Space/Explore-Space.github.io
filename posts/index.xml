@@ -1,191 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on An's Blog</title><link>https://explore-space.github.io/posts/</link><description>Recent content in Posts on An's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 29 Dec 2020 15:00:00 +0000</lastBuildDate><atom:link href="https://explore-space.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>探索校园网</title><link>https://explore-space.github.io/posts/campusnetwork/</link><pubDate>Tue, 29 Dec 2020 15:00:00 +0000</pubDate><guid>https://explore-space.github.io/posts/campusnetwork/</guid><description>0x00 摘要 简要记述笔者所在大学的校园网基础结构与特性，及部分探索过程 受限于笔者的知识水平及精力，文中部分假设或结果可能会存在错误，欢迎指正 0x01 历史</description><content type="html"><![CDATA[<h2 id="0x00-">0x00 摘要</h2>
-<p>简要记述笔者所在大学的校园网基础结构与特性，及部分探索过程</p>
-<p><strong>受限于笔者的知识水平及精力，文中部分假设或结果可能会存在错误，欢迎指正</strong></p>
-<h2 id="0x01-">0x01 历史</h2>
-<p>笔者所在大学于2017年12月至2018年6月进行校园网计费系统的改造升级，于2018年12月10日全面完成，计费系统由 <em><a href="http://www.ruijie.com.cn">锐捷</a></em> 升级为 <em><a href="https://www.srun.com">深澜</a></em> (下文笔者分别以 <em>锐捷时代</em> 与 <em>深澜时代</em> 代指计费系统改造前后的校园网)</p>
-<ul>
-<li>
-<p>笔者在锐捷时代对相关知识了解较少，并没有做过细致的测试，但无线信号、连接稳定性、认真策略，套餐价格等等方面问题突出。无线网络在很多区域存在断连的问题，几乎每次连接时都需要输入账号验证(存疑，目前没有找到关于锐捷无线认证策略的文档，但从笔者使用的角度的确是这样)，最大的套餐月流量&lt;100GB，且平均在1元/GB左右(具体数值笔者由于时间原因，笔者不太确定)。总之，锐捷时代的校园网只能说可用但远不及好用。</p>
-</li>
-<li>
-<p>笔者在深澜时代初期由于住校外宿舍区，在校园内仅使用免费WIFI，所以感知并不明显，似乎套餐价格有所下降。今年笔者搬回校内的宿舍后，深澜的使用体验有了很明显的改善。</p>
-</li>
-</ul>
-<p>综述：笔者目前在大学的三年半里随着校园网基础设施的建设与升级，使用体验也逐渐变好(AP的覆盖范围、信号强度、连接速度，总出口带宽，套餐价格等)，但安全性方面有比较突出的问题，后文详述。</p>
-<h2 id="0x02-">0x02 特性</h2>
-<blockquote>
-<p>P.S. 关于IPV4与IPV6</p>
-<p>由于笔者对IPV6相关知识了解较少，且客观讲目前国内IPV6建设并不成熟，下文非特别指出的内容均基于IPV4</p>
-</blockquote>
-<h3 id="heading">总体情况</h3>
-<p>目前校园网的接入主要包含三类：</p>
-<ul>
-<li><code>NWPU-FREE</code> : 在两校区主要教学区，活动场馆及餐厅等提供免费校园网WLAN接入
-<ul>
-<li>带宽限制:单个设备20Mbps</li>
-<li>认证方式:基于MAC地址的无感知认证</li>
-</ul>
-</li>
-<li><code>NWPU-WLAN</code> : 在两校区宿舍区等提供计费校园网WLAN接入
-<ul>
-<li>带宽限制:无(受限于AP连接速度)</li>
-<li>认证方式:基于MAC地址的无感知认证</li>
-</ul>
-</li>
-<li><code>有线</code> : 在两校区宿舍区，教研室等提供计费校园网有线接入
-<ul>
-<li>带宽限制:无(大部分宿舍区域墙插网线接口速率为1Gbps，部分可能为100Mbps，存疑)</li>
-<li>认证方式:PPPOE拨号</li>
-</ul>
-</li>
-</ul>
-<p>校园目前大部分区域无线网AP为 WIFI4(802.11n)，小部分新建楼宇为WIFI5(802.11ac)，极少部分新建会议室为 WIFI6(802.11ax) <em>(存疑，该项待进一步验证)</em></p>
-<blockquote>
-<p><strong>AP</strong>，即无线访问接入点</p>
-<p>常见的家用无线路由器虽称作“路由器”，但实际整合了三部分的功能：路由+交换机+AP(目前较新的路由器实际整合了更多功能，比如流控、行为管理等，但核心的仍为上述三部分)，较高的耦合使得家用路由器部署更容易。而在企业级/商用网络中，路由/防火墙/行为管理/流控/交换/无线等每一部分都是由独立的硬件设备完成的，低耦合带来更高的稳定性，可维护性，可定展性及可扩展性等。</p>
-</blockquote>
-<p>目前 <code>NWPU-FREE</code>与<code>NWPU-WLAN</code> 均采用基于网卡MAC地址的无感知认证，的确极大的改善了使用体验，可以即连即用，不需要每次输入账号及密码认证，但便利往往伴随着风险。笔者用修改设备MAC地址的方法成功使未认证设备连入校园网 <strong>(该测试使用笔者自己的校园网账号及已认证设备)</strong> ，Android，Windows，Linux 三个平台均可自行修改MAC地址，笔者未测试两个同MAC地址的设备是否可以同时接入校园网。</p>
-<h3 id="heading1">带宽</h3>
-<blockquote>
-<p>引自《校园网络运行情况通报》</p>
-<p>目前(2020.12.18)，我校校园网出口带宽总计44Gbps。核心链路带宽40Gbps，跨校区互联链路带宽40Gbps，各区域汇聚链路带宽10Gbps。</p>
-</blockquote>
-<p>笔者不是特别了解企业级网络带宽水平，但在使用体验方面很不错。笔者在宿舍通过有线接入，<strong>上下行峰值带宽均为940+Mbps</strong> ，非高峰期下行稳定700+Mbps，上行稳定200+Mbps，目前民用宽带下行1Gbps接入比较常见，但上行1Gbps还是比较少的。</p>
-<h3 id="heading2">连接性</h3>
-<p>笔者测试过 <code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code> 三种接入方式下的设备互通，两校区互通，无任何隔离，即两校区校园网下所有设备均在同一局域网下。这带来无限的可能性，同时也伴随着巨大的风险。</p>
-<ol>
-<li>便利的远程连接/共享</li>
-</ol>
-<p>笔者没有具体了解过是否有相关的具体应用，但可以设想以下应用场景：宿舍与教研室互通，以及两校区不同教研室/实验室互通等等，这无疑会极大的提高协同工作以及文件共享效率。</p>
-<blockquote>
-<p>引自《校园网络运行情况通报》</p>
-<p>12月1日-12月15日，校园网接入终端的最大并发数为45615，最高下载带宽33.2Gbps，较上月增长22.5%。各楼宇接入交换机的CPU和内存等资源实际消耗不足50%。</p>
-</blockquote>
-<p>从学校信息化建设与管理处发布的情况通报看，目前局域网内网硬件资源有较多冗余。</p>
-<ol start="2">
-<li>绕过限速(笑)</li>
-</ol>
-<blockquote>
-<p>背景</p>
-<blockquote>
-<ul>
-<li>大部分教学区域覆盖的校园网为 <code>NWPU-FREE</code> ，免费但单个设备限速20Mbps</li>
-<li>笔者的校园网套餐为 50元/月(不限流量)</li>
-</ul>
-</blockquote>
-</blockquote>
-<ul>
-<li>探索过程</li>
-</ul>
-<p>限速20Mbps可用但不好用，耽误上课扣手机(bushi)。笔者在意识到校园网完全互通后，在宿舍搭建<a href="https://github.com/librespeed/speedtest">局域网测速服务</a>，以探索限速策略。笔者在教学区域内连接 <code>NWPU-FREE</code> 后，访问宿舍测速服务器，发现：<strong><code>NWPU-FREE</code>下的终端设备局域网内互联速度不受限，互联网连接速度受限。</strong></p>
-<p>P.S. 关于笔者宿舍网络架构后文详述</p>
-<ul>
-<li>实现思路</li>
-</ul>
-<p>通过校园网不限速的接入方式(<code>NWPU-WLAN</code> / <code>有线</code>)搭建代理服务器，<code>NWPU-FREE</code> 下的终端设备通过该代理服务器访问互联网。</p>
-<p>P.S. <em>FanQiang</em> 由于与代理服务相关 ，故在国内网络环境下能直接搜索到的相关知识较少</p>
-<ul>
-<li>实践过程</li>
-</ul>
-<p>笔者在宿舍的软路由上搭建 V2ray 代理服务器，<code>NWPU-FREE</code> 下的设备连接该代理服务器，互联网访问速度突破限速20Mbps，实际速度受限于终端与AP的连接状态等其他因素，达到了绕过限速的目标，但访问延时提高。</p>
-<ul>
-<li>思考</li>
-</ul>
-<p>关于“绕过限速”，笔者认为探索意义大于实用。其实学校实行<code>NWPU-FREE</code>限速是比较合理的，在有限的总出口带宽下，优先保障计费校园网接入的带宽，同时完全解除教学区域免费网络的限速可能会有其他问题。</p>
-<h2 id="0x03-">0x03 安全性</h2>
-<blockquote>
-<p>笔者的相关扫描与测试，均以学习探索为目的，并未造成任何破坏，且无意造成破坏</p>
-</blockquote>
-<h3 id="heading3">无隔离</h3>
-<p>当笔者意识到<code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code>三种接入方式下的设备互通后，进行了比较大规模的扫描，结果出乎我的意料，不仅师生所有接入校园网的设备之间没有隔离，就连部分教室监控摄像头/录机，区域汇聚链路交换机，部分实验设备Web管理界面，教室与控制室通话系统，大型打印机，工作站等设备均完全暴露在局域网下没有隔离。</p>
-<p>笔者无法完全遍历整个校园网并验证设备种类，且对校园网基础硬件设备及拓扑结构了解甚少，但大致可以认为学校接入校园网的设备均未做隔离(可从安防设备未做隔离推断)。</p>
-<p>笔者无法量化校园网设备间无任何隔离带来的风险，但毫不夸张的说这颗“巨型炸弹”离爆炸只差一个“火星”。</p>
-<ul>
-<li>笔者认为较为合理的解决方案：
-<ul>
-<li>校园网整体以隔离为主，具体实行隔离等级有待商榷(AP间隔离，地理区域隔离或完全隔离等)</li>
-<li>如部分教研室或实验室需要互联，可向相关部门报备，进行有限制的开放</li>
-</ul>
-</li>
-</ul>
-<h3 id="heading4">弱口令</h3>
-<p>笔者在扫描到未隔离的教室监控摄像头/录机，尝试了几组弱口令，就进入Web管理界面。最近信息化建设与管理处还发送通知提示师生修改弱口令，但校园安防领域的弱口令至今尚未修复。</p>
-<h3 id="heading5">校园网？靶场？</h3>
-<blockquote>
-<p>引自《我校荣获第二届“网鼎杯”网络安全大赛三等奖》</p>
-<p>由公安部主办，国家网络与信息安全信息通报中心、深圳市人民政府、广东省公安厅支持的第二届“网鼎杯”网络安全大赛于2020年11月29日在深圳圆满收官。在此次比赛上，我校代表队夺得全国网络安全行业第十名的优异成绩并荣获三等奖，这一成绩是全国各参赛高校所获得最好成绩。</p>
-<p>本次赛事集结了来自全国各行业领域的14724支战队，报名参与人数高达50165人。历经四场官方资格赛，我校两支队伍成功晋级2000人超大规模的线下半决赛。半决赛分为青龙组（高校为主）、白虎组（通信、交通、国防、政务等行业）、朱雀组（能源、金融、政法等为主）、玄武组（科研、科技互联网、网安等行业）四组，我校代表队以半决赛青龙组第三的好成绩踏入终极大战。终极大战中，各行业不再进行行业分组，高校代表队迎来各行业精英的强势冲击。愈战愈勇的50支精英强队在同时开启的“AWD PLUS+”网络靶场挑战攻防双赛场中展开激烈角逐。值得一提的是，本次大赛采用平行仿真技术深度模拟了关键信息基础设施和重要行业的典型业务场景，并融合大量实际业务安全风险，构成超大规模靶场空间，真实检验了参赛选手的实战能力和风险应急处置能力。</p>
-<p>信息化处将进一步加大网络安全人才培养的支持力度，多创造赛事平台，以赛代练，在实战中多维度锻炼学生队伍，进一步巩固和扩大实践育人成果，为网络强国建设贡献更多力量。。</p>
-</blockquote>
-<h2 id="0x04-">0x04 宿舍网络架构</h2>
-<p>笔者宿舍共有 <strong>主网络</strong> 及 <strong>副网络</strong> 两条网络链路，互为冗余，同时各有侧重</p>
-<h3 id="heading6">主网络</h3>
-<p><strong>入户墙插</strong> ⇒ <strong>软路由</strong> ⇒ <strong>硬路由K2P</strong></p>
-<ul>
-<li>
-<p><strong>软路由</strong></p>
-<ul>
-<li>作用：PPPOE, DHCP, 代理服务, Docker, 其他脚本</li>
-<li>硬件：
-<ul>
-<li>CPU：Intel(R) Atom(TM) E3950</li>
-<li>Mem: 8GB</li>
-<li>SSD: 512G(mSATA)</li>
-<li>NIC: i211 * 2</li>
-</ul>
-</li>
-<li>软件：
-<ul>
-<li>OS：OpenWrt R20.10.20 GDQ v12.1[2020] Compiled by eSir / LuCI Master</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>硬路由K2P</strong></p>
-<ul>
-<li>作用：AP, 交换机</li>
-<li>OS：Openwrt</li>
-</ul>
-</li>
-</ul>
-<p>P.S. 资料补充：</p>
-<ul>
-<li><a href="https://openwrt.org/">OpenWrt</a></li>
-<li><a href="https://github.com/coolsnowwolf/lede">lede</a> by <a href="https://github.com/coolsnowwolf">coolsnowwolf</a></li>
-<li><a href="https://www.youtube.com/channel/UCOhkliOps3IS48ly-MgPC2A">eSir</a></li>
-<li><a href="https://github.com/openwrt/luci">LuCI</a></li>
-</ul>
-<p>综述：该网络提供宿舍主要网络，由软路由拨号，提供DHCP服务，提供代理服务，软路由上运行部分脚本及Docker服务，软路由下联硬路由(关闭DHCP，指定LAN地址与软路由为同一网段，软路由LAN连接硬路由LAN)，有线提供1Gbps接入，无线提供WIFI5(866Mbps)接入。</p>
-<blockquote>
-<p>软路由</p>
-<p>“软路由”主要区别于“硬路由”，常见的家用路由器即为“硬路由”，多为MIPS，ARM平台处理器，再加上基于硬件深度定制优化的路由系统，使得其整体运行效率较高而功耗偏低，但功能较少。而“软路由”则是在通用X86架构上运行定制操作系统，以软件形式实现路由及其他高级功能，其整体效率低于“硬路由”，但功能会丰富许多，关于软路由的相关知识，笔者以后应该会写专题文章。</p>
-</blockquote>
-<h3 id="heading7">副网络</h3>
-<p><strong>入户墙插</strong> ⇒ <strong>硬路由AX3Pro</strong></p>
-<ul>
-<li><strong>硬路由AX3Pro</strong>
-<ul>
-<li>作用：PPPOE，AP</li>
-</ul>
-</li>
-</ul>
-<p>综述：该网络提供宿舍辅助网络，同时提供IPV6接入，副网络相比主网络更稳定，但无法提供代理服务。有线提供1Gbps接入，无线提供WIFI6(2.4Gbps)接入</p>
-<h2 id="0x05-eduroam">0x05 eduroam</h2>
-<p>笔者的学校提供eduroam服务，但周围很多同学似乎对其了解较少</p>
-<blockquote>
-<p>引自《关于提供eduroam全球无线网络漫游服务的通知》(2019.04.01)</p>
-<p>为方便我校师生在国内外学术交流合作中便捷的使用互联网，我校已正式加入eduroam全球无线网络漫游服务联盟。我校师生可通过本人校园网账号和密码，在其他支持eduroam服务的国内外大学及科研机构免费使用无线网络。</p>
-<p>eduroam是education roaming的缩写，是一种安全的全球无线漫游服务，为各国的教育科研网广泛采用，目前覆盖了全球89个国家和地区的6000多个高校与科研机构，我国北京大学等170余所大学已开通此项服务。使用eduroam时不会将个人身份信息提供给到访机构，而是由用户所属机构完成认证，保障了用户身份信息的安全性。</p>
-<p>eduroam使用说明如下：</p>
-<p>本校师生若在校外联盟机构搜索到名为“eduroam”的无线信号，连接后可使用我校深澜上网账号和密码登录。账号格式为：深澜上网账号@nwpu.edu.cn，如“2018100001@nwpu.edu.cn”。获取eduroam使用手册请访问信息中心主页的“下载专区”。</p>
-<p>了解国内eduroam联盟成员，请点击：https://www.eduroam.edu.cn/list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1004。</p>
-<p>如需了解更多关于eduroam的内容，请点击：</p>
-<p>全球站点：https://www.eduroam.org/。</p>
-<p>教育网站点：http://www.eduroam.edu.cn/。</p>
-</blockquote>
-<p>P.S. 笔者使用过学校的 <code>eduroam</code> 网络，未进行详细的测试，但使用体验并不好，连接速度似乎有相当低的限速(低于8Mbps，存疑)，且与 <code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code>三者构成的局域网隔离不互通。</p>
-]]></content></item><item><title>Ventoy</title><link>https://explore-space.github.io/posts/ventoy/</link><pubDate>Sun, 17 May 2020 16:38:13 +0800</pubDate><guid>https://explore-space.github.io/posts/ventoy/</guid><description>0x00 摘要 「未完成」 0x01 简介 Ventoy 是一个制作可启动U盘的开源工具。有了Ventoy就无需反复地格式化U盘，只需要把ISO文件拷贝到U盘里面就可以启动。</description><content type="html"><![CDATA[<hr>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on An's Blog</title><link>https://explore-space.github.io/posts/</link><description>Recent content in Posts on An's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 May 2020 16:38:13 +0800</lastBuildDate><atom:link href="https://explore-space.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ventoy</title><link>https://explore-space.github.io/posts/ventoy/</link><pubDate>Sun, 17 May 2020 16:38:13 +0800</pubDate><guid>https://explore-space.github.io/posts/ventoy/</guid><description>0x00 摘要 「未完成」 0x01 简介 Ventoy 是一个制作可启动U盘的开源工具。有了Ventoy就无需反复地格式化U盘，只需要把ISO文件拷贝到U盘里面就可以启动。</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -3991,4 +3804,191 @@ Hard blocked: no
 <h2 id="0x03-">0x03 尾巴</h2>
 <p>今天西安初雪，听说初雪许的愿望想的祝福都会实现,嗯~</p>
 <p><img src="/Image/posts/Ubuntu/003.jpeg" alt="雪景 (Photo by 谭浩声)"></p>
+]]></content></item><item><title>探索校园网</title><link>https://explore-space.github.io/posts/campusnetwork/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://explore-space.github.io/posts/campusnetwork/</guid><description>0x00 摘要 简要记述笔者所在大学的校园网基础结构与特性，及部分探索过程 受限于笔者的知识水平及精力，文中部分假设或结果可能会存在错误，欢迎指正 0x01 历史</description><content type="html"><![CDATA[<h2 id="0x00-">0x00 摘要</h2>
+<p>简要记述笔者所在大学的校园网基础结构与特性，及部分探索过程</p>
+<p><strong>受限于笔者的知识水平及精力，文中部分假设或结果可能会存在错误，欢迎指正</strong></p>
+<h2 id="0x01-">0x01 历史</h2>
+<p>笔者所在大学于2017年12月至2018年6月进行校园网计费系统的改造升级，于2018年12月10日全面完成，计费系统由 <em><a href="http://www.ruijie.com.cn">锐捷</a></em> 升级为 <em><a href="https://www.srun.com">深澜</a></em> (下文笔者分别以 <em>锐捷时代</em> 与 <em>深澜时代</em> 代指计费系统改造前后的校园网)</p>
+<ul>
+<li>
+<p>笔者在锐捷时代对相关知识了解较少，并没有做过细致的测试，但无线信号、连接稳定性、认真策略，套餐价格等等方面问题突出。无线网络在很多区域存在断连的问题，几乎每次连接时都需要输入账号验证(存疑，目前没有找到关于锐捷无线认证策略的文档，但从笔者使用的角度的确是这样)，最大的套餐月流量&lt;100GB，且平均在1元/GB左右(具体数值笔者由于时间原因，笔者不太确定)。总之，锐捷时代的校园网只能说可用但远不及好用。</p>
+</li>
+<li>
+<p>笔者在深澜时代初期由于住校外宿舍区，在校园内仅使用免费WIFI，所以感知并不明显，似乎套餐价格有所下降。今年笔者搬回校内的宿舍后，深澜的使用体验有了很明显的改善。</p>
+</li>
+</ul>
+<p>综述：笔者目前在大学的三年半里随着校园网基础设施的建设与升级，使用体验也逐渐变好(AP的覆盖范围、信号强度、连接速度，总出口带宽，套餐价格等)，但安全性方面有比较突出的问题，后文详述。</p>
+<h2 id="0x02-">0x02 特性</h2>
+<blockquote>
+<p>P.S. 关于IPV4与IPV6</p>
+<p>由于笔者对IPV6相关知识了解较少，且客观讲目前国内IPV6建设并不成熟，下文非特别指出的内容均基于IPV4</p>
+</blockquote>
+<h3 id="heading">总体情况</h3>
+<p>目前校园网的接入主要包含三类：</p>
+<ul>
+<li><code>NWPU-FREE</code> : 在两校区主要教学区，活动场馆及餐厅等提供免费校园网WLAN接入
+<ul>
+<li>带宽限制:单个设备20Mbps</li>
+<li>认证方式:基于MAC地址的无感知认证</li>
+</ul>
+</li>
+<li><code>NWPU-WLAN</code> : 在两校区宿舍区等提供计费校园网WLAN接入
+<ul>
+<li>带宽限制:无(受限于AP连接速度)</li>
+<li>认证方式:基于MAC地址的无感知认证</li>
+</ul>
+</li>
+<li><code>有线</code> : 在两校区宿舍区，教研室等提供计费校园网有线接入
+<ul>
+<li>带宽限制:无(大部分宿舍区域墙插网线接口速率为1Gbps，部分可能为100Mbps，存疑)</li>
+<li>认证方式:PPPOE拨号</li>
+</ul>
+</li>
+</ul>
+<p>校园目前大部分区域无线网AP为 WIFI4(802.11n)，小部分新建楼宇为WIFI5(802.11ac)，极少部分新建会议室为 WIFI6(802.11ax) <em>(存疑，该项待进一步验证)</em></p>
+<blockquote>
+<p><strong>AP</strong>，即无线访问接入点</p>
+<p>常见的家用无线路由器虽称作“路由器”，但实际整合了三部分的功能：路由+交换机+AP(目前较新的路由器实际整合了更多功能，比如流控、行为管理等，但核心的仍为上述三部分)，较高的耦合使得家用路由器部署更容易。而在企业级/商用网络中，路由/防火墙/行为管理/流控/交换/无线等每一部分都是由独立的硬件设备完成的，低耦合带来更高的稳定性，可维护性，可定展性及可扩展性等。</p>
+</blockquote>
+<p>目前 <code>NWPU-FREE</code>与<code>NWPU-WLAN</code> 均采用基于网卡MAC地址的无感知认证，的确极大的改善了使用体验，可以即连即用，不需要每次输入账号及密码认证，但便利往往伴随着风险。笔者用修改设备MAC地址的方法成功使未认证设备连入校园网 <strong>(该测试使用笔者自己的校园网账号及已认证设备)</strong> ，Android，Windows，Linux 三个平台均可自行修改MAC地址，笔者未测试两个同MAC地址的设备是否可以同时接入校园网。</p>
+<h3 id="heading1">带宽</h3>
+<blockquote>
+<p>引自《校园网络运行情况通报》</p>
+<p>目前(2020.12.18)，我校校园网出口带宽总计44Gbps。核心链路带宽40Gbps，跨校区互联链路带宽40Gbps，各区域汇聚链路带宽10Gbps。</p>
+</blockquote>
+<p>笔者不是特别了解企业级网络带宽水平，但在使用体验方面很不错。笔者在宿舍通过有线接入，<strong>上下行峰值带宽均为940+Mbps</strong> ，非高峰期下行稳定700+Mbps，上行稳定200+Mbps，目前民用宽带下行1Gbps接入比较常见，但上行1Gbps还是比较少的。</p>
+<h3 id="heading2">连接性</h3>
+<p>笔者测试过 <code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code> 三种接入方式下的设备互通，两校区互通，无任何隔离，即两校区校园网下所有设备均在同一局域网下。这带来无限的可能性，同时也伴随着巨大的风险。</p>
+<ol>
+<li>便利的远程连接/共享</li>
+</ol>
+<p>笔者没有具体了解过是否有相关的具体应用，但可以设想以下应用场景：宿舍与教研室互通，以及两校区不同教研室/实验室互通等等，这无疑会极大的提高协同工作以及文件共享效率。</p>
+<blockquote>
+<p>引自《校园网络运行情况通报》</p>
+<p>12月1日-12月15日，校园网接入终端的最大并发数为45615，最高下载带宽33.2Gbps，较上月增长22.5%。各楼宇接入交换机的CPU和内存等资源实际消耗不足50%。</p>
+</blockquote>
+<p>从学校信息化建设与管理处发布的情况通报看，目前局域网内网硬件资源有较多冗余。</p>
+<ol start="2">
+<li>绕过限速(笑)</li>
+</ol>
+<blockquote>
+<p>背景</p>
+<blockquote>
+<ul>
+<li>大部分教学区域覆盖的校园网为 <code>NWPU-FREE</code> ，免费但单个设备限速20Mbps</li>
+<li>笔者的校园网套餐为 50元/月(不限流量)</li>
+</ul>
+</blockquote>
+</blockquote>
+<ul>
+<li>探索过程</li>
+</ul>
+<p>限速20Mbps可用但不好用，耽误上课扣手机(bushi)。笔者在意识到校园网完全互通后，在宿舍搭建<a href="https://github.com/librespeed/speedtest">局域网测速服务</a>，以探索限速策略。笔者在教学区域内连接 <code>NWPU-FREE</code> 后，访问宿舍测速服务器，发现：<strong><code>NWPU-FREE</code>下的终端设备局域网内互联速度不受限，互联网连接速度受限。</strong></p>
+<p>P.S. 关于笔者宿舍网络架构后文详述</p>
+<ul>
+<li>实现思路</li>
+</ul>
+<p>通过校园网不限速的接入方式(<code>NWPU-WLAN</code> / <code>有线</code>)搭建代理服务器，<code>NWPU-FREE</code> 下的终端设备通过该代理服务器访问互联网。</p>
+<p>P.S. <em>FanQiang</em> 由于与代理服务相关 ，故在国内网络环境下能直接搜索到的相关知识较少</p>
+<ul>
+<li>实践过程</li>
+</ul>
+<p>笔者在宿舍的软路由上搭建 V2ray 代理服务器，<code>NWPU-FREE</code> 下的设备连接该代理服务器，互联网访问速度突破限速20Mbps，实际速度受限于终端与AP的连接状态等其他因素，达到了绕过限速的目标，但访问延时提高。</p>
+<ul>
+<li>思考</li>
+</ul>
+<p>关于“绕过限速”，笔者认为探索意义大于实用。其实学校实行<code>NWPU-FREE</code>限速是比较合理的，在有限的总出口带宽下，优先保障计费校园网接入的带宽，同时完全解除教学区域免费网络的限速可能会有其他问题。</p>
+<h2 id="0x03-">0x03 安全性</h2>
+<blockquote>
+<p>笔者的相关扫描与测试，均以学习探索为目的，并未造成任何破坏，且无意造成破坏</p>
+</blockquote>
+<h3 id="heading3">无隔离</h3>
+<p>当笔者意识到<code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code>三种接入方式下的设备互通后，进行了比较大规模的扫描，结果出乎我的意料，不仅师生所有接入校园网的设备之间没有隔离，就连部分教室监控摄像头/录机，区域汇聚链路交换机，部分实验设备Web管理界面，教室与控制室通话系统，大型打印机，工作站等设备均完全暴露在局域网下没有隔离。</p>
+<p>笔者无法完全遍历整个校园网并验证设备种类，且对校园网基础硬件设备及拓扑结构了解甚少，但大致可以认为学校接入校园网的设备均未做隔离(可从安防设备未做隔离推断)。</p>
+<p>笔者无法量化校园网设备间无任何隔离带来的风险，但毫不夸张的说这颗“巨型炸弹”离爆炸只差一个“火星”。</p>
+<ul>
+<li>笔者认为较为合理的解决方案：
+<ul>
+<li>校园网整体以隔离为主，具体实行隔离等级有待商榷(AP间隔离，地理区域隔离或完全隔离等)</li>
+<li>如部分教研室或实验室需要互联，可向相关部门报备，进行有限制的开放</li>
+</ul>
+</li>
+</ul>
+<h3 id="heading4">弱口令</h3>
+<p>笔者在扫描到未隔离的教室监控摄像头/录机，尝试了几组弱口令，就进入Web管理界面。最近信息化建设与管理处还发送通知提示师生修改弱口令，但校园安防领域的弱口令至今尚未修复。</p>
+<h3 id="heading5">校园网？靶场？</h3>
+<blockquote>
+<p>引自《我校荣获第二届“网鼎杯”网络安全大赛三等奖》</p>
+<p>由公安部主办，国家网络与信息安全信息通报中心、深圳市人民政府、广东省公安厅支持的第二届“网鼎杯”网络安全大赛于2020年11月29日在深圳圆满收官。在此次比赛上，我校代表队夺得全国网络安全行业第十名的优异成绩并荣获三等奖，这一成绩是全国各参赛高校所获得最好成绩。</p>
+<p>本次赛事集结了来自全国各行业领域的14724支战队，报名参与人数高达50165人。历经四场官方资格赛，我校两支队伍成功晋级2000人超大规模的线下半决赛。半决赛分为青龙组（高校为主）、白虎组（通信、交通、国防、政务等行业）、朱雀组（能源、金融、政法等为主）、玄武组（科研、科技互联网、网安等行业）四组，我校代表队以半决赛青龙组第三的好成绩踏入终极大战。终极大战中，各行业不再进行行业分组，高校代表队迎来各行业精英的强势冲击。愈战愈勇的50支精英强队在同时开启的“AWD PLUS+”网络靶场挑战攻防双赛场中展开激烈角逐。值得一提的是，本次大赛采用平行仿真技术深度模拟了关键信息基础设施和重要行业的典型业务场景，并融合大量实际业务安全风险，构成超大规模靶场空间，真实检验了参赛选手的实战能力和风险应急处置能力。</p>
+<p>信息化处将进一步加大网络安全人才培养的支持力度，多创造赛事平台，以赛代练，在实战中多维度锻炼学生队伍，进一步巩固和扩大实践育人成果，为网络强国建设贡献更多力量。。</p>
+</blockquote>
+<h2 id="0x04-">0x04 宿舍网络架构</h2>
+<p>笔者宿舍共有 <strong>主网络</strong> 及 <strong>副网络</strong> 两条网络链路，互为冗余，同时各有侧重</p>
+<h3 id="heading6">主网络</h3>
+<p><strong>入户墙插</strong> ⇒ <strong>软路由</strong> ⇒ <strong>硬路由K2P</strong></p>
+<ul>
+<li>
+<p><strong>软路由</strong></p>
+<ul>
+<li>作用：PPPOE, DHCP, 代理服务, Docker, 其他脚本</li>
+<li>硬件：
+<ul>
+<li>CPU：Intel(R) Atom(TM) E3950</li>
+<li>Mem: 8GB</li>
+<li>SSD: 512G(mSATA)</li>
+<li>NIC: i211 * 2</li>
+</ul>
+</li>
+<li>软件：
+<ul>
+<li>OS：OpenWrt R20.10.20 GDQ v12.1[2020] Compiled by eSir / LuCI Master</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>硬路由K2P</strong></p>
+<ul>
+<li>作用：AP, 交换机</li>
+<li>OS：Openwrt</li>
+</ul>
+</li>
+</ul>
+<p>P.S. 资料补充：</p>
+<ul>
+<li><a href="https://openwrt.org/">OpenWrt</a></li>
+<li><a href="https://github.com/coolsnowwolf/lede">lede</a> by <a href="https://github.com/coolsnowwolf">coolsnowwolf</a></li>
+<li><a href="https://www.youtube.com/channel/UCOhkliOps3IS48ly-MgPC2A">eSir</a></li>
+<li><a href="https://github.com/openwrt/luci">LuCI</a></li>
+</ul>
+<p>综述：该网络提供宿舍主要网络，由软路由拨号，提供DHCP服务，提供代理服务，软路由上运行部分脚本及Docker服务，软路由下联硬路由(关闭DHCP，指定LAN地址与软路由为同一网段，软路由LAN连接硬路由LAN)，有线提供1Gbps接入，无线提供WIFI5(866Mbps)接入。</p>
+<blockquote>
+<p>软路由</p>
+<p>“软路由”主要区别于“硬路由”，常见的家用路由器即为“硬路由”，多为MIPS，ARM平台处理器，再加上基于硬件深度定制优化的路由系统，使得其整体运行效率较高而功耗偏低，但功能较少。而“软路由”则是在通用X86架构上运行定制操作系统，以软件形式实现路由及其他高级功能，其整体效率低于“硬路由”，但功能会丰富许多，关于软路由的相关知识，笔者以后应该会写专题文章。</p>
+</blockquote>
+<h3 id="heading7">副网络</h3>
+<p><strong>入户墙插</strong> ⇒ <strong>硬路由AX3Pro</strong></p>
+<ul>
+<li><strong>硬路由AX3Pro</strong>
+<ul>
+<li>作用：PPPOE，AP</li>
+</ul>
+</li>
+</ul>
+<p>综述：该网络提供宿舍辅助网络，同时提供IPV6接入，副网络相比主网络更稳定，但无法提供代理服务。有线提供1Gbps接入，无线提供WIFI6(2.4Gbps)接入</p>
+<h2 id="0x05-eduroam">0x05 eduroam</h2>
+<p>笔者的学校提供eduroam服务，但周围很多同学似乎对其了解较少</p>
+<blockquote>
+<p>引自《关于提供eduroam全球无线网络漫游服务的通知》(2019.04.01)</p>
+<p>为方便我校师生在国内外学术交流合作中便捷的使用互联网，我校已正式加入eduroam全球无线网络漫游服务联盟。我校师生可通过本人校园网账号和密码，在其他支持eduroam服务的国内外大学及科研机构免费使用无线网络。</p>
+<p>eduroam是education roaming的缩写，是一种安全的全球无线漫游服务，为各国的教育科研网广泛采用，目前覆盖了全球89个国家和地区的6000多个高校与科研机构，我国北京大学等170余所大学已开通此项服务。使用eduroam时不会将个人身份信息提供给到访机构，而是由用户所属机构完成认证，保障了用户身份信息的安全性。</p>
+<p>eduroam使用说明如下：</p>
+<p>本校师生若在校外联盟机构搜索到名为“eduroam”的无线信号，连接后可使用我校深澜上网账号和密码登录。账号格式为：深澜上网账号@nwpu.edu.cn，如“2018100001@nwpu.edu.cn”。获取eduroam使用手册请访问信息中心主页的“下载专区”。</p>
+<p>了解国内eduroam联盟成员，请点击：https://www.eduroam.edu.cn/list.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1004。</p>
+<p>如需了解更多关于eduroam的内容，请点击：</p>
+<p>全球站点：https://www.eduroam.org/。</p>
+<p>教育网站点：http://www.eduroam.edu.cn/。</p>
+</blockquote>
+<p>P.S. 笔者使用过学校的 <code>eduroam</code> 网络，未进行详细的测试，但使用体验并不好，连接速度似乎有相当低的限速(低于8Mbps，存疑)，且与 <code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code>三者构成的局域网隔离不互通。</p>
 ]]></content></item></channel></rss>
