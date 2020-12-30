@@ -199,8 +199,7 @@
 <p>教育网站点：http://www.eduroam.edu.cn/。</p>
 </blockquote>
 <p>P.S. 笔者使用过学校的 <code>eduroam</code> 网络，未进行详细的测试，但使用体验并不好，连接速度似乎有相当低的限速(低于8Mbps，存疑)，且与 <code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code>三者构成的局域网隔离不互通。</p>
-<hr>
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5fbmspfjv0d&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>]]></content></item><item><title>Ventoy</title><link>https://explore-space.github.io/posts/ventoy/</link><pubDate>Sun, 17 May 2020 16:38:13 +0800</pubDate><guid>https://explore-space.github.io/posts/ventoy/</guid><description>0x00 摘要 「未完成」 0x01 简介 Ventoy 是一个制作可启动U盘的开源工具。有了Ventoy就无需反复地格式化U盘，只需要把ISO文件拷贝到U盘里面就可以启动。</description><content type="html"><![CDATA[<hr>
+]]></content></item><item><title>Ventoy</title><link>https://explore-space.github.io/posts/ventoy/</link><pubDate>Sun, 17 May 2020 16:38:13 +0800</pubDate><guid>https://explore-space.github.io/posts/ventoy/</guid><description>0x00 摘要 「未完成」 0x01 简介 Ventoy 是一个制作可启动U盘的开源工具。有了Ventoy就无需反复地格式化U盘，只需要把ISO文件拷贝到U盘里面就可以启动。</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
