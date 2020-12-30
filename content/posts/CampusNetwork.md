@@ -209,3 +209,6 @@ P.S. 资料补充：
 
 P.S. 笔者使用过学校的 `eduroam` 网络，未进行详细的测试，但使用体验并不好，连接速度似乎有相当低的限速(低于8Mbps，存疑)，且与 `NWPU-FREE`，`NWPU-WLAN` ，`有线`三者构成的局域网隔离不互通。
 
+---
+
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5fbmspfjv0d&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
