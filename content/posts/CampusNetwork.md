@@ -8,6 +8,8 @@ tags:
   - Network
 ---
 
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5fbmspfjv0d&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
 ## 0x00 摘要
 
 简要记述笔者所在大学的校园网基础结构与特性，及部分探索过程
@@ -211,4 +213,3 @@ P.S. 笔者使用过学校的 `eduroam` 网络，未进行详细的测试，但�
 
 ---
 
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5fbmspfjv0d&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
