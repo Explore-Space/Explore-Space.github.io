@@ -10,23 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-      # with:
-      #   submodules: true
+      with:
+        submodules: true
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.60.1'
+        hugo-version: '0.79.1'
         # extended: true
 
     - name: Build
       run: |
         cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-        git clone https://github.com/Track3/hermit.git themes/hermit
         hugo --minify
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2
+      uses: peaceiris/actions-gh-pages@v3
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: master
