@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on An's Blog</title><link>https://unsplash.top/posts/</link><description>Recent content in Posts on An's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 29 Dec 2020 14:15:59 +0800</lastBuildDate><atom:link href="https://unsplash.top/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>探索校园网</title><link>https://unsplash.top/posts/campusnetwork/</link><pubDate>Tue, 29 Dec 2020 14:15:59 +0800</pubDate><guid>https://unsplash.top/posts/campusnetwork/</guid><description>0x00 摘要 简要记述笔者所在大学的校园网基础结构与特性，及部分探索过程 受限于笔者的知识水平及精力，文中部分假设或结果可能会存在错误，欢迎指正 0x01 历史</description><content type="html"><![CDATA[<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5fbmspfjv0d&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>简要记述笔者所在大学的校园网基础结构与特性，及部分探索过程</p>
 <p><strong>受限于笔者的知识水平及精力，文中部分假设或结果可能会存在错误，欢迎指正</strong></p>
-<h2 id="0x01-">0x01 历史</h2>
+<h2 id="0x01-历史">0x01 历史</h2>
 <p>笔者所在大学于2017年12月至2018年6月进行校园网计费系统的改造升级，于2018年12月10日全面完成，计费系统由 <em><a href="http://www.ruijie.com.cn">锐捷</a></em> 升级为 <em><a href="https://www.srun.com">深澜</a></em> (下文笔者分别以 <em>锐捷时代</em> 与 <em>深澜时代</em> 代指计费系统改造前后的校园网)</p>
 <ul>
 <li>
@@ -13,12 +13,12 @@
 </li>
 </ul>
 <p>综述：笔者目前在大学的三年半里随着校园网基础设施的建设与升级，使用体验也逐渐变好(AP的覆盖范围、信号强度、连接速度，总出口带宽，套餐价格等)，但安全性方面有比较突出的问题，后文详述。</p>
-<h2 id="0x02-">0x02 特性</h2>
+<h2 id="0x02-特性">0x02 特性</h2>
 <blockquote>
 <p>P.S. 关于IPV4与IPV6</p>
 <p>由于笔者对IPV6相关知识了解较少，且客观讲目前国内IPV6建设并不成熟，下文非特别指出的内容均基于IPV4</p>
 </blockquote>
-<h3 id="heading">总体情况</h3>
+<h3 id="总体情况">总体情况</h3>
 <p>目前校园网的接入主要包含三类：</p>
 <ul>
 <li><code>NWPU-FREE</code> : 在两校区主要教学区，活动场馆及餐厅等提供免费校园网WLAN接入
@@ -46,13 +46,13 @@
 <p>常见的家用无线路由器虽称作“路由器”，但实际整合了三部分的功能：路由+交换机+AP(目前较新的路由器实际整合了更多功能，比如流控、行为管理等，但核心的仍为上述三部分)，较高的耦合使得家用路由器部署更容易。而在企业级/商用网络中，路由/防火墙/行为管理/流控/交换/无线等每一部分都是由独立的硬件设备完成的，低耦合带来更高的稳定性，可维护性，可定展性及可扩展性等。</p>
 </blockquote>
 <p>目前 <code>NWPU-FREE</code>与<code>NWPU-WLAN</code> 均采用基于网卡MAC地址的无感知认证，的确极大的改善了使用体验，可以即连即用，不需要每次输入账号及密码认证，但便利往往伴随着风险。笔者用修改设备MAC地址的方法成功使未认证设备连入校园网 <strong>(该测试使用笔者自己的校园网账号及已认证设备)</strong> ，Android，Windows，Linux 三个平台均可自行修改MAC地址，笔者未测试两个同MAC地址的设备是否可以同时接入校园网。</p>
-<h3 id="heading1">带宽</h3>
+<h3 id="带宽">带宽</h3>
 <blockquote>
 <p>引自《校园网络运行情况通报》</p>
 <p>目前(2020.12.18)，我校校园网出口带宽总计44Gbps。核心链路带宽40Gbps，跨校区互联链路带宽40Gbps，各区域汇聚链路带宽10Gbps。</p>
 </blockquote>
 <p>笔者不是特别了解企业级网络带宽水平，但在使用体验方面很不错。笔者在宿舍通过有线接入，<strong>上下行峰值带宽均为940+Mbps</strong> ，非高峰期下行稳定700+Mbps，上行稳定200+Mbps，目前民用宽带下行1Gbps接入比较常见，但上行1Gbps还是比较少的。</p>
-<h3 id="heading2">连接性</h3>
+<h3 id="连接性">连接性</h3>
 <p>笔者测试过 <code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code> 三种接入方式下的设备互通，两校区互通，无任何隔离，即两校区校园网下所有设备均在同一局域网下。这带来无限的可能性，同时也伴随着巨大的风险。</p>
 <ol>
 <li>便利的远程连接/共享</li>
@@ -93,11 +93,11 @@
 <li>思考</li>
 </ul>
 <p>关于“绕过限速”，笔者认为探索意义大于实用。其实学校实行<code>NWPU-FREE</code>限速是比较合理的，在有限的总出口带宽下，优先保障计费校园网接入的带宽，同时完全解除教学区域免费网络的限速可能会有其他问题。</p>
-<h2 id="0x03-">0x03 安全性</h2>
+<h2 id="0x03-安全性">0x03 安全性</h2>
 <blockquote>
 <p>笔者的相关扫描与测试，均以学习探索为目的，并未造成任何破坏，且无意造成破坏</p>
 </blockquote>
-<h3 id="heading3">无隔离</h3>
+<h3 id="无隔离">无隔离</h3>
 <p>当笔者意识到<code>NWPU-FREE</code>，<code>NWPU-WLAN</code> ，<code>有线</code>三种接入方式下的设备互通后，进行了比较大规模的扫描，结果出乎我的意料，不仅师生所有接入校园网的设备之间没有隔离，就连部分教室监控摄像头/录机，区域汇聚链路交换机，部分实验设备Web管理界面，教室与控制室IP通话系统，大型打印机，工作站等设备均完全暴露在局域网下没有隔离。</p>
 <p>笔者无法遍历整个校园网并验证设备种类，且对校园网基础硬件设备及拓扑结构了解甚少，但大致可以认为学校接入校园网的设备均未做隔离(可从安防设备未做隔离推断)。</p>
 <p>笔者无法量化校园网设备间无任何隔离带来的风险，但毫不夸张的说这颗“巨型炸弹”离爆炸只差一个“火星”。</p>
@@ -109,18 +109,18 @@
 </ul>
 </li>
 </ul>
-<h3 id="heading4">弱口令</h3>
+<h3 id="弱口令">弱口令</h3>
 <p>笔者在扫描到未隔离的教室监控摄像头/录机，尝试了几组弱口令，就成功进入Web管理界面。最近信息化建设与管理处还发送通知提醒师生修改弱口令，但校园安防领域的弱口令至今尚未修复。</p>
-<h3 id="heading5">校园网？靶场？</h3>
+<h3 id="校园网靶场">校园网？靶场？</h3>
 <blockquote>
 <p>引自《我校荣获第二届“网鼎杯”网络安全大赛三等奖》</p>
 <p>由公安部主办，国家网络与信息安全信息通报中心、深圳市人民政府、广东省公安厅支持的第二届“网鼎杯”网络安全大赛于2020年11月29日在深圳圆满收官。在此次比赛上，我校代表队夺得全国网络安全行业第十名的优异成绩并荣获三等奖，这一成绩是全国各参赛高校所获得最好成绩。</p>
 <p>本次赛事集结了来自全国各行业领域的14724支战队，报名参与人数高达50165人。历经四场官方资格赛，我校两支队伍成功晋级2000人超大规模的线下半决赛。半决赛分为青龙组（高校为主）、白虎组（通信、交通、国防、政务等行业）、朱雀组（能源、金融、政法等为主）、玄武组（科研、科技互联网、网安等行业）四组，我校代表队以半决赛青龙组第三的好成绩踏入终极大战。终极大战中，各行业不再进行行业分组，高校代表队迎来各行业精英的强势冲击。愈战愈勇的50支精英强队在同时开启的“AWD PLUS+”网络靶场挑战攻防双赛场中展开激烈角逐。值得一提的是，本次大赛采用平行仿真技术深度模拟了关键信息基础设施和重要行业的典型业务场景，并融合大量实际业务安全风险，构成超大规模靶场空间，真实检验了参赛选手的实战能力和风险应急处置能力。</p>
 <p>信息化处将进一步加大网络安全人才培养的支持力度，多创造赛事平台，以赛代练，在实战中多维度锻炼学生队伍，进一步巩固和扩大实践育人成果，为网络强国建设贡献更多力量。。</p>
 </blockquote>
-<h2 id="0x04-">0x04 宿舍网络架构</h2>
+<h2 id="0x04-宿舍网络架构">0x04 宿舍网络架构</h2>
 <p>笔者宿舍共有 <strong>主网络</strong> 及 <strong>副网络</strong> 两条网络链路，互为冗余，同时各有侧重</p>
-<h3 id="heading6">主网络</h3>
+<h3 id="主网络">主网络</h3>
 <p><strong>入户墙插</strong> ⇒ <strong>软路由</strong> ⇒ <strong>硬路由K2P</strong></p>
 <ul>
 <li>
@@ -176,7 +176,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="heading7">副网络</h3>
+<h3 id="副网络">副网络</h3>
 <p><strong>入户墙插</strong> ⇒ <strong>硬路由AX3Pro</strong></p>
 <ul>
 <li><a href="https://consumer.huawei.com/cn/routers/ax3-pro/"><strong>硬路由AX3Pro</strong></a>
@@ -212,23 +212,23 @@ server="netease"
 type="song"
 id="19711382">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p><em><strong>「未完成」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <p><em>Ventoy</em> 是一个制作可启动U盘的开源工具。有了Ventoy就无需反复地格式化U盘，只需要把ISO文件拷贝到U盘里面就可以启动。</p>
-<h2 id="0x02-">0x02 使用说明</h2>
+<h2 id="0x02-使用说明">0x02 使用说明</h2>
 <blockquote>
 <p><a href="https://www.ventoy.net/cn/index.html">Ventoy使用说明</a></p>
 <p><a href="https://www.ventoy.net/cn/download.html">Ventoy下载地址</a></p>
 </blockquote>
-<h3 id="heading">安装</h3>
+<h3 id="安装">安装</h3>
 <h4 id="windows">Windows</h4>
-<h5 id="heading1">下载</h5>
+<h5 id="下载">下载</h5>
 <p>下载安装包，例如 <code>ventoy-1.0.00-windows.zip</code> ，然后解压</p>
-<h5 id="heading2">运行</h5>
+<h5 id="运行">运行</h5>
 <p>直接执行 <code>Ventoy2Disk.exe</code> 如下图所示，选择U盘设备，然后点击 <code>安装</code> 或 <code>升级</code> 即可。</p>
 <p><img src="/Image/posts/Ventoy/001.PNG" alt="界面"></p>
-<h5 id="heading3">说明</h5>
+<h5 id="说明">说明</h5>
 <blockquote>
 <p><em>安装包内 Ventoy 版本</em>：当前安装包中的Ventoy版本号</p>
 <p><em>设备内部 Ventoy 版本</em>：U盘中已安装的Ventoy版本号，如果为空则表示未安装</p>
@@ -236,11 +236,11 @@ id="19711382">
 <p><em>升级</em>：升级U盘中的Ventoy版本，升级不会影响ISO文件</p>
 </blockquote>
 <h4 id="linux">Linux</h4>
-<h5 id="heading4">下载</h5>
+<h5 id="下载-1">下载</h5>
 <p>下载安装包，例如 <code>ventoy-1.0.00-linux.tar.gz</code> ，然后解压</p>
-<h5 id="heading5">运行</h5>
+<h5 id="运行-1">运行</h5>
 <p>在该文件夹根目录下以 <em><strong>root</strong></em> 权限执行 <code>sh Ventoy2Disk.sh -i /dev/XXX</code> ,其中 <code>/dev/XXX</code> 是U盘对应的设备名，比如 <code>/dev/sdb</code></p>
-<h5 id="heading6">说明</h5>
+<h5 id="说明-1">说明</h5>
 <blockquote>
 <p>Ventoy2Disk.sh  选项  /dev/XXX</p>
 <p>选项含义:
@@ -248,19 +248,19 @@ id="19711382">
 -I   强制安装ventoy到磁盘中 (不管原来有没有安装过)
 -u   升级磁盘中的ventoy版本</p>
 </blockquote>
-<h3 id="iso">拷贝ISO文件</h3>
+<h3 id="拷贝iso文件">拷贝ISO文件</h3>
 <p>安装完成之后，U盘会被分成两个区。第一个分区将会被格式化为exFAT文件系统，只需要把ISO文件拷贝到这里面即可。你可以把ISO文件放在任意目录以及子目录下。 Ventoy会遍历所有的目录和子目录，找出所有的ISO文件，并按照字母排序之后显示在菜单中。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>ISO文件的全路径中(包括目录、子目录和文件名)不能包含中文或者空格</p>
 </blockquote>
-<h3 id="-ventoy">升级 Ventoy</h3>
+<h3 id="升级-ventoy">升级 Ventoy</h3>
 <p>如果Ventoy发布了新版本之后，可以点击 <code>升级</code> 进行升级，或者Linux系统中使用 <code>-u</code> 选项进行升级。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>升级操作是安全的，不会影响原有的ISO文件</p>
 </blockquote>
-<h2 id="0x03-">0x03 致谢</h2>
+<h2 id="0x03-致谢">0x03 致谢</h2>
 <ul>
 <li>
 <p><a href="https://www.ventoy.net/">Ventoy-official</a></p>
@@ -280,19 +280,19 @@ server="netease"
 type="song"
 id="35625821">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>JetsonNano</p>
 <p><em><strong>「待完善」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
-<h2 id="0x02-">0x02 简介</h2>
-<h2 id="0x03-">0x03 首次使用</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
+<h2 id="0x02-简介">0x02 简介</h2>
+<h2 id="0x03-首次使用">0x03 首次使用</h2>
 <p><a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit">入门文档</a></p>
-<h3 id="heading">烧录镜像</h3>
+<h3 id="烧录镜像">烧录镜像</h3>
 <p>下载 <a href="https://developer.nvidia.com/jetson-nano-sd-card-image">标准镜像</a> 后，将其烧录至 microSD 卡</p>
 <p>P.s. 笔者推荐使用<a href="https://www.balena.io/etcher">Etcher</a></p>
-<h3 id="heading1">设置和首次启动</h3>
+<h3 id="设置和首次启动">设置和首次启动</h3>
 <p><img src="/Image/posts/JetsonNano/002.gif" alt=""></p>
-<h4 id="heading2">准备</h4>
+<h4 id="准备">准备</h4>
 <ol>
 <li>将microSD卡（已写入系统映像）插入Jetson Nano模块底部的插槽中</li>
 </ol>
@@ -301,7 +301,7 @@ id="35625821">
 <li>连接显示器与鼠标键盘</li>
 <li>连接Micro-USB电源（5V⎓2A），Micro-USB连接器旁边的绿色LED会点亮 (Jetson Nano缺省上电自启)</li>
 </ol>
-<h4 id="heading3">首次启动</h4>
+<h4 id="首次启动">首次启动</h4>
 <p>Jetson Nano Developer Kit将进行一些初始设置，包括：</p>
 <ul>
 <li>查看并接受NVIDIA Jetson软件EULA</li>
@@ -309,17 +309,17 @@ id="35625821">
 <li>创建用户名，密码和计算机名</li>
 <li>登录</li>
 </ul>
-<h4 id="heading4">登录后</h4>
+<h4 id="登录后">登录后</h4>
 <p>将显示以下画面</p>
 <p><img src="/Image/posts/JetsonNano/004.png" alt=""></p>
 <h3 id="faq">FAQ</h3>
-<h4 id="heading5">功率</h4>
+<h4 id="功率">功率</h4>
 <p>如果 Jetson Nano Developer Kit 无法启动或突然断电重启，有可能是电源功率不足，可尝试更换更大功率的电源</p>
 <p><em><strong>P.S. 关于电源问题后文将详述</strong></em></p>
-<h4 id="heading6">显示</h4>
+<h4 id="显示">显示</h4>
 <p>Jetson Nano Developer Kit 支持 HDMI/DP 视频输出，但不支持HDMI到DVI适配器</p>
-<h2 id="0x04-">0x04 配置</h2>
-<h3 id="heading7">更换软件源</h3>
+<h2 id="0x04-配置">0x04 配置</h2>
+<h3 id="更换软件源">更换软件源</h3>
 <p><a href="https://developer.nvidia.com/embedded/jetpack">JetPack</a> 缺省软件源为国外的源，国内使用不方便故更换为清华源</p>
 <ol>
 <li>防止误操作无法恢复，首先备份原本的 <code>source.list</code></li>
@@ -335,7 +335,7 @@ deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main multiverse
 deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main multiverse restricted universe
 deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main multiverse restricted universe
 deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main multiverse restricted universe
-</code></pre><h2 id="0x0-">0x0 致谢</h2>
+</code></pre><h2 id="0x0-致谢">0x0 致谢</h2>
 <ul>
 <li>
 <p><a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit">Jetson Nano Developer Kit入门</a> by <a href="https://developer.nvidia.com/embedded-computing">NVIDIA</a></p>
@@ -347,28 +347,28 @@ deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main 
 <p><a href="https://blog.csdn.net/qq_36396941/article/details/88903094">Jetson Nano更换软件源</a> by <a href="https://blog.csdn.net/qq_36396941">Yeah2333</a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 <li>
-<p>[]() by []()</p>
+<p><a href=""></a> by <a href=""></a></p>
 </li>
 </ul>
 ]]></content></item><item><title>Primitive</title><link>https://unsplash.top/posts/primitive/</link><pubDate>Tue, 24 Dec 2019 22:31:18 +0800</pubDate><guid>https://unsplash.top/posts/primitive/</guid><description>0x00 摘要 0x01 起源 0x02 运行 安装Go 具体安装配置流程可参考官方文档 运行primitive go get -u github.com/fogleman/primitive primitive -i input.png -o output.png -n 100 0x04 致谢 primitive by fogleman</description><content type="html"><![CDATA[<hr>
@@ -382,17 +382,17 @@ server="netease"
 type="song"
 id="27759600">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
-<h2 id="0x01-">0x01 起源</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
+<h2 id="0x01-起源">0x01 起源</h2>
 <p><img src="/Image/posts/Primitive/000_000.gif" alt="000"></p>
 <p><img src="/Image/posts/Primitive/000.jpeg" alt="000"></p>
-<h2 id="0x02-">0x02 运行</h2>
-<h3 id="go">安装Go</h3>
+<h2 id="0x02-运行">0x02 运行</h2>
+<h3 id="安装go">安装Go</h3>
 <p>具体安装配置流程可参考<a href="https://golang.org/doc/install">官方文档</a></p>
-<h3 id="primitive">运行primitive</h3>
+<h3 id="运行primitive">运行primitive</h3>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="k">go</span> <span class="nx">get</span> <span class="o">-</span><span class="nx">u</span> <span class="nx">github</span><span class="p">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">fogleman</span><span class="o">/</span><span class="nx">primitive</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">primitive -i input.png -o output.png -n <span class="m">100</span>
-</code></pre></div><h2 id="0x04-">0x04 致谢</h2>
+</code></pre></div><h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li><a href="https://github.com/fogleman/primitive">primitive</a> by <a href="https://github.com/fogleman">fogleman</a></li>
 </ul>
@@ -407,12 +407,12 @@ server="netease"
 type="song"
 id="27759600">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>基于 Hugo 的 Blog 搭建与自动部署配置</p>
-<h2 id="0x01-">0x01 起源</h2>
+<h2 id="0x01-起源">0x01 起源</h2>
 <p>起初，笔者觉得 <a href="https://hexo.io/">Hexo</a> 无疑是最好的博客框架，友好的配置与丰富的主题及插件。但极慢的加载速度消耗着笔者的耐心，最终下定决心再一次重构 Blog。这次笔者采用对加载速度优化更好的 <a href="https://gohugo.io/">Hugo</a> 框架。笔者之前采用 <a href="https://travis-ci.org">Travis-ci</a> 实现自动部署，目前其网站处于被墙的边缘，而且属于第三方服务，目前 <a href="https://github.com/features/actions">Github Actions</a> 已发布正式版，故笔者决定采用 Actions 实现自动部署。</p>
 <p>最终，新 Blog 的方案确定: <del><a href="https://hexo.io/">Hexo</a></del> <em><strong><a href="https://gohugo.io/">Hugo</a></strong></em> + <del><a href="https://travis-ci.org">Travis-ci</a></del> <em><strong><a href="https://github.com/features/actions">Github Actions</a></strong></em></p>
-<h2 id="0x02-">0x02 搭建</h2>
+<h2 id="0x02-搭建">0x02 搭建</h2>
 <p>笔者本地环境为:</p>
 <ul>
 <li>OS: <em>Manjaro 18.1.4 Juhraya</em></li>
@@ -429,15 +429,15 @@ id="27759600">
 <p>2.利用 Github Actions 实现自动部署，即: 向 source 分支推送文章或配置更改，由 Actions 编译生成静态页面，推送至 master 分支，更新 Github Page 实现对 Blog 的更改</p>
 </blockquote>
 <p>P.S. 方案不止这一种，但笔者觉得这样最方便，最符合笔者需求，故下文均以此方案为基础</p>
-<h3 id="heading">创建仓库</h3>
+<h3 id="创建仓库">创建仓库</h3>
 <p>在 Github 上创建仓库，仓库名为 <em><strong><code>□□□□□.github.io</code></strong></em> 。创建时为方便下部操作建议勾选 <em>Initialize this repository with a README</em> 。</p>
 <p>P.S. □□□□□ 为你的 Github 用户名</p>
-<h3 id="heading1">创建分支</h3>
+<h3 id="创建分支">创建分支</h3>
 <p>仓库创建完成后，点击左侧 <em>Branch: master</em> ，输入  <em><strong><code>source</code></strong></em></p>
 <p>P.S. <em><strong><code>source</code></strong></em> 可自行更改，下文 source 分支均指存储 Blog 所有源代码的分支</p>
-<h3 id="heading2">更改默认分支</h3>
+<h3 id="更改默认分支">更改默认分支</h3>
 <p>仓库创建后默认分支为 master 分支，为方便管理，需更改 source 为默认分支。将仓库的 <em>Settings</em> → <em>Branches</em> → <em>Default branch</em> 修改为 <em><strong><code>source</code></strong></em> 分支</p>
-<h3 id="ssh">添加SSH部署密钥</h3>
+<h3 id="添加ssh部署密钥">添加SSH部署密钥</h3>
 <p>在本地终端执行以下命令生成部署密钥。执行完成后，会在当前目录下生成 <code>gh-pages.pub</code> 「公钥」 和 <code>gh-pages</code> 「私钥」</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;</span><span class="k">$(</span>git config user.email<span class="k">)</span><span class="s2">&#34;</span> -f gh-pages -N <span class="s2">&#34;&#34;</span>
 </code></pre></div><p>P.S. 上述命令中 <code>$(git config user.email)</code> 可直接替换为邮箱地址</p>
@@ -478,12 +478,12 @@ id="27759600">
 </code></pre></div><p>在 <em>Secrets</em> 中 <strong>Value</strong> 需填入<code>gh-pages</code> 所有内容。即包括 <code>-----BEGIN OPENSSH PRIVATE KEY-----</code> 和 <code>-----END OPENSSH PRIVATE KEY-----</code> 以及之间的密钥</p>
 <p>笔者在部署时，并没有意识到这一点，在这里卡了很久。笔者只在 <strong>Value</strong> 中填入其中的密钥部分。在之后的 Github Actions 部署过程中总是报错，大致意思是 没有仓库的写入权限 。</p>
 </blockquote>
-<h3 id="-hugo-">创建 Hugo 站点</h3>
+<h3 id="创建-hugo-站点">创建 Hugo 站点</h3>
 <p>执行以下命令，会在当前目录下生成 Hugo 站点的标准文件</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hugo new site Blog
 </code></pre></div><p>P.S. 上述命令中 <code>Blog</code> 可自行定义</p>
 <p>使用 <code>git clone</code> 命令将远端的 <em><strong><code>□□□□□.github.io</code></strong></em> 仓库 clone 到本地，然后将生成的 Blog 文件夹下所有内容复制至本地 <em><strong><code>□□□□□.github.io</code></strong></em> 仓库，并进入该仓库文件夹</p>
-<h3 id="heading3">添加主题</h3>
+<h3 id="添加主题">添加主题</h3>
 <blockquote>
 <p>主题来源:<a href="https://themes.gohugo.io/">Hugo Themes</a></p>
 <p>以下以笔者使用的主题 <a href="https://github.com/Track3/hermit">hermit</a> 为例</p>
@@ -499,7 +499,7 @@ id="27759600">
 </code></pre></div><ul>
 <li>删除主题存储库下的 <code>.git</code> 文件夹，将主题文件直接作为 <em><strong><code>□□□□□.github.io</code></strong></em> 仓库的组成</li>
 </ul>
-<h3 id="-github-actions-">添加配置 Github Actions 配置文件</h3>
+<h3 id="添加配置-github-actions-配置文件">添加配置 Github Actions 配置文件</h3>
 <p>参考: <a href="https://github.com/peaceiris/actions-gh-pages/blob/master/README.md">actions-gh-pages</a></p>
 <blockquote>
 <p>简单说明一下 Github Actions 的工作原理(以 Blog 自动部署为例)，不一定准确但简单易懂：</p>
@@ -508,38 +508,38 @@ id="27759600">
 </blockquote>
 <p>在 Hugo 站点的根目录(即本地 <em><strong><code>□□□□□.github.io</code></strong></em> 仓库)下，新建 <code>.github/workflows/gh-pages.yml</code> 文件</p>
 <p>以下为笔者的配置文件</p>
-<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML">name<span class="p">:</span><span class="w"> </span>github<span class="w"> </span>pages<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">github pages</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>on<span class="p">:</span><span class="w">
-</span><span class="w">  </span>push<span class="p">:</span><span class="w">
-</span><span class="w">    </span>branches<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>source<span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="l">source</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>jobs<span class="p">:</span><span class="w">
-</span><span class="w">  </span>build-deploy<span class="p">:</span><span class="w">
-</span><span class="w">    </span>runs-on<span class="p">:</span><span class="w"> </span>ubuntu<span class="m">-18.04</span><span class="w">
-</span><span class="w">    </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>uses<span class="p">:</span><span class="w"> </span>actions/checkout@v1<span class="w">
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">build-deploy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-18.04</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v1</span><span class="w">
 </span><span class="w">      </span><span class="c"># with:</span><span class="w">
 </span><span class="w">      </span><span class="c">#   submodules: true</span><span class="w">
 </span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Setup<span class="w"> </span>Hugo<span class="w">
-</span><span class="w">      </span>uses<span class="p">:</span><span class="w"> </span>peaceiris/actions-hugo@v2<span class="w">
-</span><span class="w">      </span>with<span class="p">:</span><span class="w">
-</span><span class="w">        </span>hugo-version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.59.1&#39;</span><span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span><span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.59.1&#39;</span><span class="w">
 </span><span class="w">        </span><span class="c"># extended: true</span><span class="w">
 </span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Build<span class="w">
-</span><span class="w">      </span>run<span class="p">:</span><span class="w"> </span><span class="sd">|
-</span><span class="sd">       </span><span class="sd"> </span><span class="sd">git clone https://github.com/Track3/hermit.git themes/hermit</span><span class="w">
-</span><span class="w">        </span>hugo<span class="w"> </span>--minify<span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">        git clone https://github.com/Track3/hermit.git themes/hermit
+</span><span class="sd">        hugo --minify</span><span class="w">        
 </span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Deploy<span class="w">
-</span><span class="w">      </span>uses<span class="p">:</span><span class="w"> </span>peaceiris/actions-gh-pages@v2<span class="w">
-</span><span class="w">      </span>env<span class="p">:</span><span class="w">
-</span><span class="w">        </span>ACTIONS_DEPLOY_KEY<span class="p">:</span><span class="w"> </span>${{<span class="w"> </span>secrets.ACTIONS_DEPLOY_KEY<span class="w"> </span>}}<span class="w">
-</span><span class="w">        </span>PUBLISH_BRANCH<span class="p">:</span><span class="w"> </span>master<span class="w">
-</span><span class="w">        </span>PUBLISH_DIR<span class="p">:</span><span class="w"> </span>./public<span class="w">
+</span><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v2</span><span class="w">
+</span><span class="w">      </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">ACTIONS_DEPLOY_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class="w">
+</span><span class="w">        </span><span class="nt">PUBLISH_BRANCH</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w">
+</span><span class="w">        </span><span class="nt">PUBLISH_DIR</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
 </span></code></pre></div><ul>
 <li>
 <p>P.S.</p>
@@ -547,10 +547,10 @@ id="27759600">
 <li>
 <p>分支相关</p>
 <p>配置文件头部以下部分中，<code>source</code> 为站点源代码存储分支，需根据实际情况修改</p>
-<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML">on<span class="p">:</span><span class="w">
-</span><span class="w">  </span>push<span class="p">:</span><span class="w">
-</span><span class="w">    </span>branches<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>source<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="l">source</span><span class="w">
 </span></code></pre></div></li>
 <li>
 <p>hugo-version 相关</p>
@@ -567,7 +567,7 @@ id="27759600">
 </ul>
 </li>
 </ul>
-<h3 id="heading4">推送</h3>
+<h3 id="推送">推送</h3>
 <p>完成上述步骤后，将本地仓库推送至远端，等待 Action 完成自动部署，完成后稍等即可访问 <code>□□□□□.github.io</code> 查看站点内容。</p>
 <p>P.S. □□□□□ 为你的 Github 用户名</p>
 <ul>
@@ -589,19 +589,19 @@ id="27759600">
 </ul>
 </li>
 </ul>
-<h2 id="0x03-">0x03 问题</h2>
+<h2 id="0x03-问题">0x03 问题</h2>
 <blockquote>
 <p>笔者觉得相比于结果解决问题的过程和思路更重要，故记录笔者遇到问题及解决的思路</p>
 </blockquote>
-<h3 id="heading5">密钥添加</h3>
+<h3 id="密钥添加">密钥添加</h3>
 <p>笔者在上文 <em><a href="/posts/blog_auto/#ssh">添加SSH部署密钥</a></em> 的 <em>注意</em> 中，也提到了因为私钥添加错误导致卡了很久。笔者看到 Actions 报错，本能的以为是其配置文件有问题(Actions 正式发布没多久，所以相应的文档较少)，所以反复尝试: 修改 Github Actions 配置文件，推送至远端，等待&hellip;一如既往的报错。笔者也很沮丧，甚至想放弃 <em><strong><a href="https://gohugo.io/">Hugo</a> + <a href="https://github.com/features/actions">Github Actions</a></strong></em> 重新采用 <em><strong><a href="https://hexo.io/">Hexo</a> + <a href="https://travis-ci.org">Travis-ci</a></strong></em> 。</p>
 <p>等笔者静下心，查看 Actions 的报错信息时，发现前面环境部署以及静态文件的编译都完成了，就最后推送至远端仓库时，写入权限报错。笔者开始逆向查找问题，首先检查的便是 <em>公钥</em> 与 <em>私钥</em> ，很快就发现了问题所在，修复后问题解决。</p>
-<h3 id="git-">Git 子模块</h3>
+<h3 id="git-子模块">Git 子模块</h3>
 <p>在 Actions 完成部署后，笔者访问站点一看傻眼了</p>
 <p><img src="/Image/posts/Blog_Auto/Error_001.png" alt="报错"></p>
 <p>笔者首先利用 <code>hugo server</code> 检查了本地仓库是否正常，本地可以正常生成站点;然后又检查了远端仓库 master 分支，Actions 正确的将静态文件文件推送进来，笔者想不通哪里出了问题。</p>
 <p>笔者根据网页显示的报错信息四处检索，忽然看到有人说是不是站点下没有 HTML 文件。笔者重新检查了 master 分支，的确在根目录下只有 <code>index.xml</code> ，而没有 <code>index.html</code> 。但笔者还是想不明白问什么会这样，继续检索。最后，笔者在 Hugo Github 仓库的 Issues 下看到，有人因为生成 Hugo 标准文件后直接部署而没有添加主题，遇到了与我同样的报错。笔者马上反应过来，在本地尝试 clone 仓库，发现 <code>/themes</code> 文件夹下为空，终于找到问题的根源了。解决也很简单，修改 Actions 的配置文件，在部署前添加 clone 主题仓库的命令即可。重新推送后，查看master 分支，增加了 <code>index.html</code> ，站点访问正常。</p>
-<h2 id="0x04-">0x04 致谢</h2>
+<h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li>
 <p><a href="https://gohugo.io/">HUGO</a></p>
@@ -630,13 +630,13 @@ server="netease"
 type="song"
 id="35625821">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>Raspbian[Lite] 初始化操作</p>
 <p><em><strong>「待完善」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
-<h2 id="0x02-">0x02 流程</h2>
-<h3 id="heading">启动前</h3>
-<h4 id="-wlan">配置 WLAN</h4>
+<h2 id="0x01-简介">0x01 简介</h2>
+<h2 id="0x02-流程">0x02 流程</h2>
+<h3 id="启动前">启动前</h3>
+<h4 id="配置-wlan">配置 WLAN</h4>
 <p>用户可以在未启动树莓派的状态下单独修改 <code>/boot/wpa_supplicant.conf</code> 文件配置 WiFi 的 <em>SSID</em> 和 <em>password</em> ，这样树莓派启动后会自行读取 wpa_supplicant.conf 配置文件连接 WiFi 设备。</p>
 <p>在 boot 分区，也就是树莓派的 <code>/boot</code> 目录下编辑(新建) <code>wpa_supplicant.conf</code> 文件。以下为示例</p>
 <pre><code class="language-conf" data-lang="conf">country=CN
@@ -685,7 +685,7 @@ ssid=&quot;ssid&quot;
 key_mgmt=WPA-PSK
 psk=&quot;password&quot;
 }
-</code></pre><h4 id="-ssh">配置 SSH</h4>
+</code></pre><h4 id="配置-ssh">配置 SSH</h4>
 <p>Raspbian 默认 ssh 服务关闭</p>
 <p>在 <code>boot</code> 分区新建一个文件，空白的即可，文件命名为 <code>ssh</code>。注意要小写且不要有任何扩展名。</p>
 <blockquote>
@@ -693,31 +693,31 @@ psk=&quot;password&quot;
 <p>admin : pi</p>
 <p>password : raspberry</p>
 </blockquote>
-<h3 id="heading1">启动后</h3>
-<h4 id="heading2">更改密码</h4>
+<h3 id="启动后">启动后</h3>
+<h4 id="更改密码">更改密码</h4>
 <p>第一次启动系统后推荐更改 pi 用户密码</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo passwd pi
-</code></pre></div><h4 id="heading3">更改时区</h4>
+</code></pre></div><h4 id="更改时区">更改时区</h4>
 <p>Raspbian 默认时区为中时区 <strong>(UTC)</strong> ，需修改时区为东八区 <strong>(UTC+8)</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre></div><h4 id="heading4">换源</h4>
-<h5 id="raspbian-">Raspbian 源</h5>
+</code></pre></div><h4 id="换源">换源</h4>
+<h5 id="raspbian-源">Raspbian 源</h5>
 <blockquote>
 <p>Raspbian 安装镜像和软件源</p>
 </blockquote>
 <p>将 <code>/etc/apt/sources.list</code> 文件中默认的源地址 <code>http://raspbian.raspberrypi.org/</code> 替换为 <code>http://mirrors.ustc.edu.cn/raspbian/</code> 即可。</p>
 <p>用如下命令替换：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo sed -i <span class="s1">&#39;s|raspbian.raspberrypi.org|mirrors.ustc.edu.cn/raspbian|g&#39;</span> /etc/apt/sources.list
-</code></pre></div><h5 id="raspberrypi-">Raspberrypi 源</h5>
+</code></pre></div><h5 id="raspberrypi-源">Raspberrypi 源</h5>
 <blockquote>
 <p>树莓派的 archive.raspberrypi.org 软件源，也即 <strong>/etc/apt/sources.list.d/raspi.list</strong> ，是由树莓派基金会提供的软件源，包括 ui 相关程序 ( 如 Raspbian 的桌面环境 PIXEL DE) 及部分由树莓派基金会为 树莓派编写的软件，通常与 <strong>archive.raspbian.org</strong> ( 参考 Raspbian 源使用帮助 ) 一起使用。</p>
 </blockquote>
 <p>一般情况下，将 <code>/etc/apt/sources.list.d/raspi.list</code> 文件中默认的源地址 <code>http://archive.raspberrypi.org/</code> 替换为 <code>http://mirrors.ustc.edu.cn/archive.raspberrypi.org/</code> 即可。</p>
 <p>用如下命令替换：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo sed -i <span class="s1">&#39;s|//archive.raspberrypi.org|//mirrors.ustc.edu.cn/archive.raspberrypi.org|g&#39;</span> /etc/apt/sources.list.d/raspi.list
-</code></pre></div><h5 id="heading5">更新</h5>
+</code></pre></div><h5 id="更新">更新</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade
-</code></pre></div><h2 id="0x03-">0x03 致谢</h2>
+</code></pre></div><h2 id="0x03-致谢">0x03 致谢</h2>
 <ul>
 <li>
 <p><a href="http://shumeipai.nxez.com/2017/09/13/raspberry-pi-network-configuration-before-boot.html">无屏幕和键盘配置树莓派WiFi和SSH</a> by <a href="http://shumeipai.nxez.com/">树莓派实验室</a></p>
@@ -733,7 +733,7 @@ psk=&quot;password&quot;
 </li>
 </ul>
 ]]></content></item><item><title>Shell</title><link>https://unsplash.top/posts/shell/</link><pubDate>Thu, 24 Oct 2019 16:54:23 +0800</pubDate><guid>https://unsplash.top/posts/shell/</guid><description>0x00 摘要 Shell 的 &amp;ldquo;ABC&amp;rdquo; 「持续更新」 0x01 简介 0x02 0x0 致谢</description><content type="html"><![CDATA[<hr>
-<h1 id="0x00-">0x00 摘要</h1>
+<h1 id="0x00-摘要">0x00 摘要</h1>
 <p>Shell 的 &ldquo;ABC&rdquo;</p>
 <p><em><strong>「持续更新」</strong></em></p>
 <!-- require APlayer -->
@@ -746,9 +746,9 @@ server="netease"
 type="song"
 id="28923579">
 </meting-js></p>
-<h1 id="0x01-">0x01 简介</h1>
+<h1 id="0x01-简介">0x01 简介</h1>
 <h1 id="0x02">0x02</h1>
-<h1 id="0x0-">0x0 致谢</h1>
+<h1 id="0x0-致谢">0x0 致谢</h1>
 ]]></content></item><item><title>Pi:SenseHat</title><link>https://unsplash.top/posts/pi-sensehat/</link><pubDate>Fri, 18 Oct 2019 23:15:44 +0800</pubDate><guid>https://unsplash.top/posts/pi-sensehat/</guid><description>0x00 摘要 关于树莓派附件：SenseHat 0x01 简介 The Sense HAT is an add-on board for Raspberry Pi, made especially for the Astro Pi mission. Sense HAT 是专门为 Astro Pi 任务而制造的 Raspberry Pi 附加板， P.S. 欧洲 Astro Pi 挑战赛通过编</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -760,9 +760,9 @@ server="netease"
 type="song"
 id="1338149101">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>关于树莓派附件：SenseHat</p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <blockquote>
 <p>The Sense HAT is an add-on board for Raspberry Pi, made especially for the Astro Pi mission.</p>
 <p>Sense HAT 是专门为 Astro Pi 任务而制造的 Raspberry Pi 附加板，</p>
@@ -784,7 +784,7 @@ id="1338149101">
 <li>上电测试图</li>
 </ul>
 <p><img src="/Image/posts/Pi-SenseHat/004.jpg" alt="004"></p>
-<h2 id="0x02-">0x02 硬件</h2>
+<h2 id="0x02-硬件">0x02 硬件</h2>
 <ul>
 <li>
 <p>8×8 RGB LED矩阵</p>
@@ -816,9 +816,9 @@ id="1338149101">
 </ul>
 </li>
 </ul>
-<h2 id="0x03-python-">0x03 Python 库</h2>
+<h2 id="0x03-python-库">0x03 Python 库</h2>
 <p><em><strong>「<a href="https://pythonhosted.org/sense-hat/">SenseHat Python</a>」</strong></em></p>
-<h3 id="heading">安装</h3>
+<h3 id="安装">安装</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update
 sudo apt-get install sense-hat
 sudo reboot
@@ -826,8 +826,8 @@ sudo reboot
 <h4 id="hello-world">Hello world</h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sense_hat</span> <span class="kn">import</span> <span class="n">SenseHat</span>
 
-<span class="n">sense</span> <span class="o">=</span> <span class="n">SenseHat</span><span class="p">(</span><span class="p">)</span>
-<span class="n">sense</span><span class="o">.</span><span class="n">show_message</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;</span><span class="s2">Hello world!</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="n">sense</span> <span class="o">=</span> <span class="n">SenseHat</span><span class="p">()</span>
+<span class="n">sense</span><span class="o">.</span><span class="n">show_message</span><span class="p">(</span><span class="s2">&#34;Hello world!&#34;</span><span class="p">)</span>
 </code></pre></div><h2 id="0x04-faq">0x04 FAQ</h2>
 <h3 id="1">1</h3>
 <h4 id="q">Q.</h4>
@@ -835,7 +835,7 @@ sudo reboot
 OSError Cannot detect RPi-Sense FB device</p>
 <h4 id="a">A.</h4>
 <p>在针脚接触良好和树莓派I2C开启的前提下，报错oserror cannot detect rpi-sense fb device，可以在 /boot/config.txt 最后加上 dtoverlay=rpi-sense 然后重启，刚刚上电的时候显示彩虹图，很快会熄灭，然后就可以正常使用了</p>
-<h2 id="0x-">0x 致谢</h2>
+<h2 id="0x-致谢">0x 致谢</h2>
 <ul>
 <li>
 <p><a href="https://pythonhosted.org/sense-hat/">Sense HAT Doc.</a></p>
@@ -855,10 +855,10 @@ server="netease"
 type="song"
 id="30953009">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>关于音乐外链播放器</p>
 <p><em><strong>「持续更新」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <p>从前，在自己的 Blog 中插入外链音乐播放器很容易，<a href="https://music.163.com/">网易云音乐</a>等等平台会有专门的外链播放器生成通道，复制粘贴就可以，直到&hellip;</p>
 <p><img src="/Image/posts/ExternalChainPlayer-Music/001.png" alt="001"></p>
 <p>但笔者找到了很棒的解决方案</p>
@@ -868,23 +868,23 @@ id="30953009">
 <p>A powerful plugin connect APlayer and Meting</p>
 <p>一个连接 APlayer 和 Meting 强大的插件</p>
 </blockquote>
-<h2 id="0x02-">0x02 使用</h2>
-<h3 id="heading">快速开始</h3>
+<h2 id="0x02-使用">0x02 使用</h2>
+<h3 id="快速开始">快速开始</h3>
 <h4 id="a">A</h4>
 <p><em><strong><code>https://music.163.com/#/playlist?id=60198</code></strong></em></p>
-<h5 id="heading1">代码</h5>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> require APlayer </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!--</span><span class="c"> require MetingJS </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+<h5 id="代码">代码</h5>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- require APlayer --&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- require MetingJS --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">meting-js</span>
         <span class="na">server</span><span class="o">=</span><span class="s">&#34;netease&#34;</span>
         <span class="na">type</span><span class="o">=</span><span class="s">&#34;playlist&#34;</span>
-        <span class="na">id</span><span class="o">=</span><span class="s">&#34;60198&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
-</code></pre></div><h5 id="heading2">实例</h5>
+        <span class="na">id</span><span class="o">=</span><span class="s">&#34;60198&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
+</code></pre></div><h5 id="实例">实例</h5>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -897,17 +897,17 @@ id="60198">
 </meting-js></p>
 <h4 id="b">B</h4>
 <p><em><strong><code>https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html</code></strong></em></p>
-<h5 id="heading3">代码</h5>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> require APlayer </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!--</span><span class="c"> require MetingJS </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+<h5 id="代码-1">代码</h5>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- require APlayer --&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- require MetingJS --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">meting-js</span>
-        <span class="na">auto</span><span class="o">=</span><span class="s">&#34;https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
-</code></pre></div><h5 id="heading4">实例</h5>
+        <span class="na">auto</span><span class="o">=</span><span class="s">&#34;https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
+</code></pre></div><h5 id="实例-1">实例</h5>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -919,20 +919,20 @@ auto="https://y.qq.com/n/yqq/song/001RGrEX3ija5X.html">
 <h4 id="c">C</h4>
 <p><em><strong>for self-hosted media</strong></em></p>
 <p><em><strong>对于自托管媒体</strong></em></p>
-<h5 id="heading5">代码</h5>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> require APlayer </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!--</span><span class="c"> require MetingJS </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+<h5 id="代码-2">代码</h5>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- require APlayer --&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- require MetingJS --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">meting-js</span>
         <span class="na">name</span><span class="o">=</span><span class="s">&#34;rainymood&#34;</span>
         <span class="na">artist</span><span class="o">=</span><span class="s">&#34;rainymood&#34;</span>
         <span class="na">url</span><span class="o">=</span><span class="s">&#34;https://rainymood.com/audio1110/0.m4a&#34;</span>
-        <span class="na">cover</span><span class="o">=</span><span class="s">&#34;https://rainymood.com/i/badge.jpg&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
-</code></pre></div><h5 id="heading6">实例</h5>
+        <span class="na">cover</span><span class="o">=</span><span class="s">&#34;https://rainymood.com/i/badge.jpg&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
+</code></pre></div><h5 id="实例-2">实例</h5>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -947,26 +947,26 @@ cover="https://rainymood.com/i/badge.jpg">
 <h4 id="d">D</h4>
 <p><em><strong>Fixed mode with Lyric text</strong></em></p>
 <p><em><strong>歌词文本固定模式</strong></em></p>
-<h5 id="heading7">代码</h5>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> require APlayer </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="c">&lt;!--</span><span class="c"> require MetingJS </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+<h5 id="代码-3">代码</h5>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- require APlayer --&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- require MetingJS --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">meting-js</span>
         <span class="na">name</span><span class="o">=</span><span class="s">&#34;rainymood&#34;</span>
         <span class="na">artist</span><span class="o">=</span><span class="s">&#34;rainymood&#34;</span>
         <span class="na">url</span><span class="o">=</span><span class="s">&#34;https://rainymood.com/audio1110/0.m4a&#34;</span>
         <span class="na">cover</span><span class="o">=</span><span class="s">&#34;https://rainymood.com/i/badge.jpg&#34;</span>
-        <span class="na">fixed</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p"></span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">pre</span> <span class="na">hidden</span><span class="p"></span><span class="p">&gt;</span>
+        <span class="na">fixed</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">pre</span> <span class="na">hidden</span><span class="p">&gt;</span>
                 [00:00.00]This
                 [00:04.01]is
                 [00:08.02]lyric
-        <span class="p">&lt;</span><span class="p">/</span><span class="nt">pre</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
-</code></pre></div><h5 id="heading8">实例</h5>
+        <span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">meting-js</span><span class="p">&gt;</span>
+</code></pre></div><h5 id="实例-3">实例</h5>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
@@ -984,104 +984,104 @@ fixed="false">
 [00:08.02]lyric
 </pre>
 </meting-js></p>
-<h3 id="heading9">选项</h3>
+<h3 id="选项">选项</h3>
 <table>
 <thead>
 <tr>
-<th align="left">option</th>
-<th align="center">default</th>
-<th align="left">description</th>
+<th style="text-align:left">option</th>
+<th style="text-align:center">default</th>
+<th style="text-align:left">description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">id</td>
-<td align="center"><strong>require</strong></td>
-<td align="left">song id / playlist id / album id / search keyword</td>
+<td style="text-align:left">id</td>
+<td style="text-align:center"><strong>require</strong></td>
+<td style="text-align:left">song id / playlist id / album id / search keyword</td>
 </tr>
 <tr>
-<td align="left">server</td>
-<td align="center"><strong>require</strong></td>
-<td align="left">music platform: <code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code>|</td>
+<td style="text-align:left">server</td>
+<td style="text-align:center"><strong>require</strong></td>
+<td style="text-align:left">music platform: <code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code></td>
 </tr>
 <tr>
-<td align="left">type</td>
-<td align="center"><strong>require</strong></td>
-<td align="left"><code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, <code>artist</code>|</td>
+<td style="text-align:left">type</td>
+<td style="text-align:center"><strong>require</strong></td>
+<td style="text-align:left"><code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, <code>artist</code></td>
 </tr>
 <tr>
-<td align="left">auto</td>
-<td align="center">options</td>
-<td align="left">music link, support: <code>netease</code>, <code>tencent</code>, <code>xiami</code>|</td>
+<td style="text-align:left">auto</td>
+<td style="text-align:center">options</td>
+<td style="text-align:left">music link, support: <code>netease</code>, <code>tencent</code>, <code>xiami</code></td>
 </tr>
 <tr>
-<td align="left">fixed</td>
-<td align="center"><code>false</code></td>
-<td align="left">enable fixed mode</td>
+<td style="text-align:left">fixed</td>
+<td style="text-align:center"><code>false</code></td>
+<td style="text-align:left">enable fixed mode</td>
 </tr>
 <tr>
-<td align="left">mini</td>
-<td align="center"><code>false</code></td>
-<td align="left">enable mini mode</td>
+<td style="text-align:left">mini</td>
+<td style="text-align:center"><code>false</code></td>
+<td style="text-align:left">enable mini mode</td>
 </tr>
 <tr>
-<td align="left">autoplay</td>
-<td align="center"><code>false</code></td>
-<td align="left">audio autoplay</td>
+<td style="text-align:left">autoplay</td>
+<td style="text-align:center"><code>false</code></td>
+<td style="text-align:left">audio autoplay</td>
 </tr>
 <tr>
-<td align="left">theme</td>
-<td align="center"><code>#2980b9</code></td>
-<td align="left">main color</td>
+<td style="text-align:left">theme</td>
+<td style="text-align:center"><code>#2980b9</code></td>
+<td style="text-align:left">main color</td>
 </tr>
 <tr>
-<td align="left">loop</td>
-<td align="center"><code>all</code></td>
-<td align="left">player loop play, values: &lsquo;all&rsquo;, &lsquo;one&rsquo;, &lsquo;none&rsquo;</td>
+<td style="text-align:left">loop</td>
+<td style="text-align:center"><code>all</code></td>
+<td style="text-align:left">player loop play, values: &lsquo;all&rsquo;, &lsquo;one&rsquo;, &lsquo;none&rsquo;</td>
 </tr>
 <tr>
-<td align="left">order</td>
-<td align="center"><code>list</code></td>
-<td align="left">player play order, values: &lsquo;list&rsquo;, &lsquo;random&rsquo;</td>
+<td style="text-align:left">order</td>
+<td style="text-align:center"><code>list</code></td>
+<td style="text-align:left">player play order, values: &lsquo;list&rsquo;, &lsquo;random&rsquo;</td>
 </tr>
 <tr>
-<td align="left">preload</td>
-<td align="center"><code>auto</code></td>
-<td align="left">values: &lsquo;none&rsquo;, &lsquo;metadata&rsquo;, &lsquo;auto&rsquo;</td>
+<td style="text-align:left">preload</td>
+<td style="text-align:center"><code>auto</code></td>
+<td style="text-align:left">values: &lsquo;none&rsquo;, &lsquo;metadata&rsquo;, &lsquo;auto&rsquo;</td>
 </tr>
 <tr>
-<td align="left">volume</td>
-<td align="center"><code>0.7</code></td>
-<td align="left">default volume, notice that player will remember user setting, default volume will not work after user set volume themselves</td>
+<td style="text-align:left">volume</td>
+<td style="text-align:center"><code>0.7</code></td>
+<td style="text-align:left">default volume, notice that player will remember user setting, default volume will not work after user set volume themselves</td>
 </tr>
 <tr>
-<td align="left">mutex</td>
-<td align="center"><code>true</code></td>
-<td align="left">prevent to play multiple player at the same time, pause other players when this player start play</td>
+<td style="text-align:left">mutex</td>
+<td style="text-align:center"><code>true</code></td>
+<td style="text-align:left">prevent to play multiple player at the same time, pause other players when this player start play</td>
 </tr>
 <tr>
-<td align="left">lrc-type</td>
-<td align="center"><code>0</code></td>
-<td align="left">lyric type</td>
+<td style="text-align:left">lrc-type</td>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:left">lyric type</td>
 </tr>
 <tr>
-<td align="left">list-folded</td>
-<td align="center"><code>false</code></td>
-<td align="left">indicate whether list should folded at first</td>
+<td style="text-align:left">list-folded</td>
+<td style="text-align:center"><code>false</code></td>
+<td style="text-align:left">indicate whether list should folded at first</td>
 </tr>
 <tr>
-<td align="left">list-max-height</td>
-<td align="center"><code>340px</code></td>
-<td align="left">list max height</td>
+<td style="text-align:left">list-max-height</td>
+<td style="text-align:center"><code>340px</code></td>
+<td style="text-align:left">list max height</td>
 </tr>
 <tr>
-<td align="left">storage-name</td>
-<td align="center"><code>metingjs</code></td>
-<td align="left">localStorage key that store player setting</td>
+<td style="text-align:left">storage-name</td>
+<td style="text-align:center"><code>metingjs</code></td>
+<td style="text-align:left">localStorage key that store player setting</td>
 </tr>
 </tbody>
 </table>
-<h2 id="0x-">0x 致谢</h2>
+<h2 id="0x-致谢">0x 致谢</h2>
 <ul>
 <li>
 <p><a href="https://github.com/metowolf/MetingJS">MetingJS</a> by <a href="https://github.com/metowolf">metowolf</a></p>
@@ -1104,152 +1104,152 @@ server="netease"
 type="song"
 id="3407088">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>Arduino HID 库 <strong>Keyboard</strong> 与 <strong>Mouse</strong> 简单介绍</p>
 <p><em><strong>「待完善」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <p><code>HID</code> 是 <code>Human Interface Device</code> 的缩写，由其名称可以了解HID设备是直接与人交互的设备，例如键盘、鼠标与游戏杆等。不过HID设备并不一定要有人机接口，只要符合HID类别规范的设备都是HID设备。</p>
 <p>Arduino HID 库包含 <em><strong>Keyboard</strong></em> 与 <em><strong>Mouse</strong></em> 两个库，可分别模拟键盘与鼠标输入，由此可以特定硬件实现模拟键盘 <strong>与/或</strong> 鼠标执行特定操作</p>
-<h2 id="0x02-">0x02 文档</h2>
+<h2 id="0x02-文档">0x02 文档</h2>
 <h3 id="keyboard">Keyboard</h3>
-<h4 id="heading">说明</h4>
+<h4 id="说明">说明</h4>
 <p>键盘功能使基于32u4或SAMD micro的板能够通过其micro的本机USB端口将击键发送到连接的计算机。</p>
 <p>注意：并非所有可能的ASCII字符，特别是非打印的ASCII字符，都可以通过键盘库发送。
 该库支持使用修饰键。同时按下修改键可以更改另一个键的行为。有关支持的键及其使用的其他信息，请参见此处</p>
-<h4 id="heading1">注意和警告</h4>
+<h4 id="注意和警告">注意和警告</h4>
 <p>这些核心库允许基于32u4和SAMD的主板（Leonardo，Esplora，Zero，Due和MKR系列）在连接的计算机上显示为本地鼠标和/或键盘。</p>
 <p>使用鼠标和键盘库时要小心：如果鼠标或键盘库持续运行，将很难对您的电路板进行编程。如功能Mouse.move()和Keyboard.print()将光标移动或击键发送到相连的计算机，当你准备好来处理它们应该只被调用。建议使用控制系统打开此功能，例如物理开关或仅响应您可以控制的特定输入。有关一些解决方法，请参考“鼠标和键盘”示例。</p>
 <p>使用鼠标或键盘库时，最好首先使用Serial.print（）测试输出。这样，您可以确保知道所报告的值。</p>
-<h4 id="heading2">函数</h4>
+<h4 id="函数">函数</h4>
 <h5 id="keyboardbegin">Keyboard.begin()</h5>
-<h6 id="heading3">说明</h6>
+<h6 id="说明-1">说明</h6>
 <p>与 <a href="https://store.arduino.cc/usa/leonardo">Arduino Leonardo</a> 或 <a href="https://store.arduino.cc/usa/due">Arduino Due</a> 一起使用时，<code>Keyboard.begin()</code> 开始模拟连接到计算机的键盘。要结束控制，请使用 <code>Keyboard.end()</code></p>
-<h6 id="heading4">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="p">)</span>
-</code></pre></div><h6 id="heading5">参数</h6>
+<h6 id="语法">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span>
+</code></pre></div><h6 id="参数">参数</h6>
 <p>无</p>
-<h6 id="heading6">返回</h6>
+<h6 id="返回">返回</h6>
 <p>无</p>
 <h5 id="keyboardend">Keyboard.end()</h5>
-<h6 id="heading7">说明</h6>
+<h6 id="说明-2">说明</h6>
 <p>停止对连接的计算机的键盘仿真。要开始键盘仿真，请使用 <code>Keyboard.begin()</code> 。</p>
-<h6 id="heading8">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">end</span><span class="p">(</span><span class="p">)</span>
-</code></pre></div><h6 id="heading9">参数</h6>
+<h6 id="语法-1">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">end</span><span class="p">()</span>
+</code></pre></div><h6 id="参数-1">参数</h6>
 <p>无</p>
-<h6 id="heading10">返回</h6>
+<h6 id="返回-1">返回</h6>
 <p>无</p>
 <h5 id="keyboardpress">Keyboard.press()</h5>
-<h6 id="heading11">说明</h6>
+<h6 id="说明-3">说明</h6>
 <p>调用时，其 <code>Keyboard.press()</code> 功能就像在键盘上按住某个键一样。使用修饰键时很有用。要结束按键，请使用 <code>Keyboard.release()</code> 或 <code>Keyboard.releaseAll()</code></p>
-<h6 id="heading12">语法</h6>
+<h6 id="语法-2">语法</h6>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">press</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</code></pre></div><h6 id="heading13">参数</h6>
+</code></pre></div><h6 id="参数-2">参数</h6>
 <p><code>key</code> : 按下的键</p>
 <p>允许的数据类型：<code>char</code></p>
-<h6 id="heading14">返回</h6>
+<h6 id="返回-2">返回</h6>
 <p>发送的按键数</p>
 <p>数据类型 : <code>size_t</code></p>
 <h5 id="keyboardprint">Keyboard.print()</h5>
-<h6 id="heading15">说明</h6>
+<h6 id="说明-4">说明</h6>
 <p>将击键发送到连接的计算机</p>
-<h6 id="heading16">语法</h6>
+<h6 id="语法-3">语法</h6>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
 </code></pre></div><p>或</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
-</code></pre></div><h6 id="heading17">参数</h6>
+</code></pre></div><h6 id="参数-3">参数</h6>
 <p><code>character</code> : 作为击键发送到计算机的字符或整数</p>
 <p><code>characters</code> : 将作为击键发送到计算机的字符串</p>
-<h6 id="heading18">返回</h6>
+<h6 id="返回-3">返回</h6>
 <p>发送的字节数</p>
 <p>数据类型 : <code>size_t</code></p>
 <h5 id="keyboardprintln">Keyboard.println()</h5>
-<h6 id="heading19">说明</h6>
+<h6 id="说明-5">说明</h6>
 <p>将击键发送到连接的计算机，然后换行和回车</p>
-<h6 id="heading20">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="p">)</span>
+<h6 id="语法-4">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
 </code></pre></div><p>或</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
 </code></pre></div><p>或</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
-</code></pre></div><h6 id="heading21">参数</h6>
+</code></pre></div><h6 id="参数-4">参数</h6>
 <p><code>character</code> : 将作为击键发送给计算机的 <code>char</code>或 <code>int</code>，后跟换行符和回车符</p>
 <p><code>characters</code> : 作为击键发送到计算机的 <code>string</code>，后跟换行符和回车符</p>
-<h6 id="heading22">返回</h6>
+<h6 id="返回-4">返回</h6>
 <p>发送的字节数</p>
 <p>数据类型 : <code>size_t</code></p>
 <h5 id="keyboardrelease">Keyboard.release()</h5>
-<h6 id="heading23">说明</h6>
+<h6 id="说明-6">说明</h6>
 <p>释放指定的键</p>
-<h6 id="heading24">语法</h6>
+<h6 id="语法-5">语法</h6>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</code></pre></div><h6 id="heading25">参数</h6>
+</code></pre></div><h6 id="参数-5">参数</h6>
 <p><code>key</code> : 释放的键</p>
 <p>允许的数据类型：<code>char</code></p>
-<h6 id="heading26">返回</h6>
+<h6 id="返回-5">返回</h6>
 <p>释放的按键数</p>
 <p>数据类型 : <code>size_t</code></p>
 <h5 id="keyboardreleaseall">Keyboard.releaseAll()</h5>
-<h6 id="heading27">说明</h6>
+<h6 id="说明-7">说明</h6>
 <p>释放当前按下的所有键</p>
-<h6 id="heading28">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">releaseAll</span><span class="p">(</span><span class="p">)</span>
-</code></pre></div><h6 id="heading29">参数</h6>
+<h6 id="语法-6">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">releaseAll</span><span class="p">()</span>
+</code></pre></div><h6 id="参数-6">参数</h6>
 <p>无</p>
-<h6 id="heading30">返回</h6>
+<h6 id="返回-6">返回</h6>
 <p>无</p>
 <h5 id="keyboardwrite">Keyboard.write()</h5>
-<h6 id="heading31">说明</h6>
+<h6 id="说明-8">说明</h6>
 <p>将击键发送到连接的计算机。这类似于按下并释放键盘上的键。您可以发送一些ASCII字符或其他键盘修饰符和特殊键。</p>
 <p>仅支持键盘上的ASCII字符。例如，ASCII 8（退格）将起作用，而ASCII 25（替代）则不起作用。发送大写字母时，Keyboard.write()发送移位命令和所需的字符，就像在键盘上键入一样。如果发送数字类型，则将其作为ASCII字符发送（例如，Keyboard.write（97）将发送“ a”）。</p>
 <p>有关ASCII字符的完整列表，请参见ASCIITable.com</p>
-<h6 id="heading32">语法</h6>
+<h6 id="语法-7">语法</h6>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
-</code></pre></div><h6 id="heading33">参数</h6>
+</code></pre></div><h6 id="参数-7">参数</h6>
 <p><code>character</code> : 要发送到计算机的字符或整数。可以以 <code>char</code> 可接受的任何符号发送</p>
 <p>例如，以下所有内容均可接受，并发送相同的值65或ASCII A：</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">65</span><span class="p">)</span><span class="p">;</span>         <span class="c1">// sends ASCII value 65, or A
-</span><span class="c1"></span><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc">A</span><span class="sc">&#39;</span><span class="p">)</span><span class="p">;</span>        <span class="c1">// same thing as a quoted character
-</span><span class="c1"></span><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x41</span><span class="p">)</span><span class="p">;</span>       <span class="c1">// same thing in hexadecimal
-</span><span class="c1"></span><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mb">0b01000001</span><span class="p">)</span><span class="p">;</span> <span class="c1">// same thing in binary (weird choice, but it works)
-</span></code></pre></div><h6 id="heading34">返回</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">65</span><span class="p">);</span>         <span class="c1">// sends ASCII value 65, or A
+</span><span class="c1"></span><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span>        <span class="c1">// same thing as a quoted character
+</span><span class="c1"></span><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0x41</span><span class="p">);</span>       <span class="c1">// same thing in hexadecimal
+</span><span class="c1"></span><span class="n">Keyboard</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mb">0b01000001</span><span class="p">);</span> <span class="c1">// same thing in binary (weird choice, but it works)
+</span></code></pre></div><h6 id="返回-7">返回</h6>
 <p>发送的字节数</p>
 <p>数据类型 : <code>size_t</code></p>
 <h3 id="mouse">Mouse</h3>
-<h4 id="heading35">说明</h4>
+<h4 id="说明-9">说明</h4>
 <p>鼠标功能使基于32u4或SAMD micro的板能够通过其micro的本机USB端口控制所连接计算机上的光标移动。更新光标位置时，它始终相对于光标的先前位置。</p>
-<h4 id="heading36">注意和警告</h4>
+<h4 id="注意和警告-1">注意和警告</h4>
 <p>这些核心库允许基于32u4和SAMD的主板（Leonardo，Esplora，Zero，Due和MKR系列）在连接的计算机上显示为本地鼠标和/或键盘。</p>
 <p>使用鼠标和键盘库时要小心：如果鼠标或键盘库持续运行，将很难对您的电路板进行编程。如功能Mouse.move()和Keyboard.print()将光标移动或击键发送到相连的计算机，当你准备好来处理它们应该只被调用。建议使用控制系统打开此功能，例如物理开关或仅响应您可以控制的特定输入。有关一些解决方法，请参考“鼠标和键盘”示例。</p>
 <p>使用鼠标或键盘库时，最好首先使用Serial.print（）测试输出。这样，您可以确保知道所报告的值。</p>
-<h4 id="heading37">函数</h4>
+<h4 id="函数-1">函数</h4>
 <h5 id="mousebegin">Mouse.begin()</h5>
-<h6 id="heading38">说明</h6>
+<h6 id="说明-10">说明</h6>
 <p>开始模拟连接到计算机的鼠标。必须在控制计算机之前调用 <code>Mouse.begin()</code> 。要结束控制，请使用 <code>Mouse.end()</code></p>
-<h6 id="heading39">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="p">)</span>
-</code></pre></div><h6 id="heading40">参数</h6>
+<h6 id="语法-8">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span>
+</code></pre></div><h6 id="参数-8">参数</h6>
 <p>无</p>
-<h6 id="heading41">返回</h6>
+<h6 id="返回-8">返回</h6>
 <p>无</p>
 <h5 id="mouseend">Mouse.end</h5>
-<h6 id="heading42">说明</h6>
+<h6 id="说明-11">说明</h6>
 <p>停止模拟连接到计算机的鼠标。要开始控制，请使用 <code>Mouse.begin()</code></p>
-<h6 id="heading43">语法</h6>
+<h6 id="语法-9">语法</h6>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">end</span>
-</code></pre></div><h6 id="heading44">参数</h6>
+</code></pre></div><h6 id="参数-9">参数</h6>
 <p>无</p>
-<h6 id="heading45">返回</h6>
+<h6 id="返回-9">返回</h6>
 <p>无</p>
 <h5 id="mouseclick">Mouse.click</h5>
-<h6 id="heading46">说明</h6>
+<h6 id="说明-12">说明</h6>
 <p>在光标所在的位置向计算机发送瞬时单击。这与按下并立即释放鼠标按钮相同。</p>
 <p><code>Mouse.click()</code> 默认为鼠标左键</p>
-<h6 id="heading47">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">click</span><span class="p">(</span><span class="p">)</span>
+<h6 id="语法-10">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">click</span><span class="p">()</span>
 </code></pre></div><p>或</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">click</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-</code></pre></div><h6 id="heading48">参数</h6>
+</code></pre></div><h6 id="参数-10">参数</h6>
 <p><code>button</code> : 要按下的鼠标按钮。</p>
 <p>允许的数据类型 : <code>char</code>。</p>
 <ul>
@@ -1263,31 +1263,31 @@ id="3407088">
 <p><code>MOUSE_MIDDLE</code></p>
 </li>
 </ul>
-<h6 id="heading49">返回</h6>
+<h6 id="返回-10">返回</h6>
 <p>无</p>
 <h5 id="mousemove">Mouse.move</h5>
-<h6 id="heading50">说明</h6>
+<h6 id="说明-13">说明</h6>
 <p>在连接的计算机上移动光标。屏幕上的运动始终相对于光标的当前位置</p>
-<h6 id="heading51">语法</h6>
+<h6 id="语法-11">语法</h6>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">xVal</span><span class="p">,</span> <span class="n">yVal</span><span class="p">,</span> <span class="n">wheel</span><span class="p">)</span>
-</code></pre></div><h6 id="heading52">参数</h6>
+</code></pre></div><h6 id="参数-11">参数</h6>
 <p><code>xVal</code>：沿x轴移动的量</p>
 <p>允许的数据类型：<code>signed char</code></p>
 <p><code>yVal</code>：沿y轴移动的量。</p>
 <p>允许的数据类型：<code>signed char</code></p>
 <p><code>wheel</code>：移动滚轮的数量。</p>
 <p>允许的数据类型：<code>signed char</code></p>
-<h6 id="heading53">返回</h6>
+<h6 id="返回-11">返回</h6>
 <p>无</p>
 <h5 id="mousepress">Mouse.press</h5>
-<h6 id="heading54">说明</h6>
+<h6 id="说明-14">说明</h6>
 <p>将按钮按下发送到连接的计算机。按下相当于单击并连续按住鼠标按钮。通过 <code>Mouse.release()</code> 释放按键。</p>
 <p><code>Mouse.press()</code> 默认为按下左键</p>
-<h6 id="heading55">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">press</span><span class="p">(</span><span class="p">)</span>
+<h6 id="语法-12">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">press</span><span class="p">()</span>
 </code></pre></div><p>或</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">press</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-</code></pre></div><h6 id="heading56">参数</h6>
+</code></pre></div><h6 id="参数-12">参数</h6>
 <p><code>button</code> : 要按下的鼠标按钮。</p>
 <p>允许的数据类型：<code>char</code></p>
 <ul>
@@ -1301,16 +1301,16 @@ id="3407088">
 <p>MOUSE_MIDDLE</p>
 </li>
 </ul>
-<h6 id="heading57">返回</h6>
+<h6 id="返回-12">返回</h6>
 <p>无</p>
 <h5 id="mouserelease">Mouse.release</h5>
-<h6 id="heading58">说明</h6>
+<h6 id="说明-15">说明</h6>
 <p>发送一条消息，指出先前按下的按钮（通过 <code>Mouse.press()</code> 调用）已释放。<code>Mouse.release()</code> 默认为左键</p>
-<h6 id="heading59">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="p">)</span>
+<h6 id="语法-13">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">release</span><span class="p">()</span>
 </code></pre></div><p>或</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-</code></pre></div><h6 id="heading60">参数</h6>
+</code></pre></div><h6 id="参数-13">参数</h6>
 <p><code>button</code> : 要释放的鼠标按钮。</p>
 <p>允许的数据类型：<code>char</code></p>
 <ul>
@@ -1324,18 +1324,18 @@ id="3407088">
 <p>MOUSE_MIDDLE</p>
 </li>
 </ul>
-<h6 id="heading61">返回</h6>
+<h6 id="返回-13">返回</h6>
 <p>无</p>
-<h6 id="heading62">注意和警告</h6>
+<h6 id="注意和警告-2">注意和警告</h6>
 <p>使用该 <code>Mouse.release()</code> 命令时，Arduino将接管您的鼠标！使用命令之前，请确保您具有控制权。切换鼠标控制状态的按钮有效</p>
 <h5 id="mouseispressed">Mouse.isPressed</h5>
-<h6 id="heading63">说明</h6>
+<h6 id="说明-16">说明</h6>
 <p>检查所有鼠标按钮的当前状态，并报告是否按下任何鼠标按钮</p>
-<h6 id="heading64">语法</h6>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">isPressed</span><span class="p">(</span><span class="p">)</span>
+<h6 id="语法-14">语法</h6>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">isPressed</span><span class="p">()</span>
 </code></pre></div><p>或</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">Mouse</span><span class="p">.</span><span class="n">isPressed</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-</code></pre></div><h6 id="heading65">参数</h6>
+</code></pre></div><h6 id="参数-14">参数</h6>
 <p>没有传递任何值时，它将检查鼠标左键的状态</p>
 <p><code>button</code> : 要检查的鼠标按钮。</p>
 <p>允许的数据类型：<code>char</code></p>
@@ -1350,12 +1350,12 @@ id="3407088">
 <p>MOUSE_MIDDLE</p>
 </li>
 </ul>
-<h6 id="heading66">返回</h6>
+<h6 id="返回-14">返回</h6>
 <p>报告是否按下按钮</p>
 <p>数据类型：bool</p>
-<h2 id="0x03-">0x03 引玉</h2>
+<h2 id="0x03-引玉">0x03 引玉</h2>
 <p><em><strong>Keyboard</strong></em> 与 <em><strong>Mouse</strong></em> 有很多用途，但笔者觉得最有趣的应用，莫过于 <em><strong>BadUSB</strong></em>，作为渗透测试的工具，从其原理上讲较难防范，笔者后续会详细介绍该类设备</p>
-<h2 id="0x04-">0x04 致谢</h2>
+<h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li>
 <p><a href="https://www.arduino.cc/reference/en/language/functions/usb/keyboard/">Keyboard Doc</a></p>
@@ -1375,16 +1375,16 @@ server="netease"
 type="song"
 id="1396151812">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>关于 P4wnP1</p>
 <p><em><strong>「未完成」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
-<h3 id="heading">基本情况</h3>
+<h2 id="0x01-简介">0x01 简介</h2>
+<h3 id="基本情况">基本情况</h3>
 <blockquote>
 <p>P4wnP1 is a highly customizable USB attack platform, based on a low cost Raspberry Pi Zero or Raspberry Pi Zero W.</p>
 <p>P4wnP1 是一个基于低成本的树莓派 Zero 或 Zero W的高度可定制的 USB 攻击平台。</p>
 </blockquote>
-<h3 id="heading1">起源</h3>
+<h3 id="起源">起源</h3>
 <p>笔者了解该项目源自于 Bilibili Up主 <a href="https://space.bilibili.com/39602674">取火的普罗米修斯〔无序熵增〕</a>的视频</p>
 <ul>
 <li><a href="https://www.bilibili.com/video/av19905867">P4wnP1搭建电脑后门</a></li>
@@ -1394,10 +1394,10 @@ id="1396151812">
 <li><a href="https://www.bilibili.com/video/av22801556">[硬件黑客]粘滞键后门的安装使用</a></li>
 </ul>
 <p>题外话，笔者接触 Linux 便是从这里开始的，后来逐渐从树莓派，到虚拟机，再到物理机，从 Raspbian 到 Ubuntu ，再到 Manjaro</p>
-<h2 id="0x02-">0x02 硬件</h2>
-<h3 id="heading2">主体</h3>
+<h2 id="0x02-硬件">0x02 硬件</h2>
+<h3 id="主体">主体</h3>
 <h4 id="raspberry-pi-zero-w">Raspberry Pi Zero W</h4>
-<h5 id="heading3">硬件参数</h5>
+<h5 id="硬件参数">硬件参数</h5>
 <ul>
 <li>Broadcom BCM2835 1GHz ARM11内核</li>
 <li>512MB 内存</li>
@@ -1413,12 +1413,12 @@ id="1396151812">
 <li>复位接口接口焊盘</li>
 <li>尺寸：65mm x 30mm x 5mm</li>
 </ul>
-<h5 id="heading4">图片</h5>
+<h5 id="图片">图片</h5>
 <p><img src="/Image/posts/P4wnP1/Zero_W-01.jpg" alt="Zero_W-01"></p>
 <p><img src="/Image/posts/P4wnP1/Zero_W-02.jpg" alt="Zero_W-02"></p>
 <p><img src="/Image/posts/P4wnP1/Zero_W-03.jpg" alt="Zero_W-03"></p>
 <h4 id="raspberry-pi-zero">Raspberry Pi Zero</h4>
-<h5 id="heading5">硬件参数</h5>
+<h5 id="硬件参数-1">硬件参数</h5>
 <ul>
 <li>Broadcom BCM2835 1GHz ARM11内核</li>
 <li>512MB 内存</li>
@@ -1432,68 +1432,68 @@ id="1396151812">
 <li>复位接口接口焊盘</li>
 <li>尺寸：65mm x 30mm x 5mm</li>
 </ul>
-<h5 id="heading6">图片</h5>
+<h5 id="图片-1">图片</h5>
 <p><img src="/Image/posts/P4wnP1/Zero-01.jpg" alt="Zero-01"></p>
 <p><img src="/Image/posts/P4wnP1/Zero-02.jpg" alt="Zero-02"></p>
 <p><img src="/Image/posts/P4wnP1/Zero-03.jpg" alt="Zero-03"></p>
-<h3 id="heading7">附件</h3>
+<h3 id="附件">附件</h3>
 <p>P.S. 附件均为可选项</p>
 <h4 id="usb">USB</h4>
 <p>P.S. 在 Zero (W) PCB 背面引出了 USB(OTG) 四线焊盘 (Vcc,Gnd,Data+,Data-)，如下图</p>
 <p><img src="/Image/posts/P4wnP1/PCB_USB.jpg" alt="PCB_USB"></p>
-<h5 id="a">类型A</h5>
-<h6 id="heading8">介绍</h6>
-<h6 id="heading9">图片</h6>
+<h5 id="类型a">类型A</h5>
+<h6 id="介绍">介绍</h6>
+<h6 id="图片-2">图片</h6>
 <p><img src="/Image/posts/P4wnP1/USB_1-01.jpg" alt="USB_1-01"></p>
 <p><img src="/Image/posts/P4wnP1/USB_1-02.jpg" alt="USB_1-02"></p>
 <p><img src="/Image/posts/P4wnP1/USB_1-03.jpg" alt="USB_1-03"></p>
 <p><img src="/Image/posts/P4wnP1/USB_1-04.jpg" alt="USB_1-04"></p>
 <p><img src="/Image/posts/P4wnP1/USB_1-05.jpg" alt="USB_1-05"></p>
-<h6 id="heading10">购买</h6>
+<h6 id="购买">购买</h6>
 <ul>
 <li><a href="https://m.tb.cn/h.eoKahP7?sm=bc7c78">盛成威科技</a>  <em>「淘宝」</em></li>
 <li><a href="https://m.tb.cn/h.eLRt1j7?sm=1d8a0c">NXEZ 创客商店</a>  <em>「淘宝」</em></li>
 </ul>
-<h5 id="b">类型B</h5>
-<h6 id="heading11">介绍</h6>
-<h6 id="heading12">图片</h6>
+<h5 id="类型b">类型B</h5>
+<h6 id="介绍-1">介绍</h6>
+<h6 id="图片-3">图片</h6>
 <p><img src="/Image/posts/P4wnP1/USB_2-01.jpg" alt="USB_2-01"></p>
 <p><img src="/Image/posts/P4wnP1/USB_2-02.jpg" alt="USB_2-02"></p>
 <p><img src="/Image/posts/P4wnP1/USB_2-03.jpg" alt="USB_2-03"></p>
-<h6 id="heading13">购买</h6>
+<h6 id="购买-1">购买</h6>
 <ul>
 <li><a href="https://c.tb.cn/h.eoeagjA?sm=7fe760">WaveShare 微雪电子</a>  <em>「淘宝」</em></li>
 <li><a href="https://c.tb.cn/h.eo3A2UY?sm=10f8f3">NXEZ 创客商店</a>  <em>「淘宝」</em></li>
 </ul>
 <h4 id="ups">UPS</h4>
-<h5 id="a1">类型A</h5>
-<h6 id="heading14">介绍</h6>
-<h6 id="heading15">图片</h6>
+<h5 id="类型a-1">类型A</h5>
+<h6 id="介绍-2">介绍</h6>
+<h6 id="图片-4">图片</h6>
 <p><img src="/Image/posts/P4wnP1/UPS_1-01.jpg" alt="UPS_1-01"></p>
 <p><img src="/Image/posts/P4wnP1/UPS_1-02.jpg" alt="UPS_1-02"></p>
 <p><img src="/Image/posts/P4wnP1/UPS_1-03.jpg" alt="UPS_1-03"></p>
 <p><img src="/Image/posts/P4wnP1/UPS_1-04.jpg" alt="UPS_1-04"></p>
 <p><img src="/Image/posts/P4wnP1/UPS_1-05.jpg" alt="UPS_1-05"></p>
-<h6 id="heading16">购买</h6>
+<h6 id="购买-2">购买</h6>
 <ul>
 <li><a href="https://c.tb.cn/h.eLRrmC3?sm=8d3d85">XiaoJ工作室</a>  <em>「淘宝」</em></li>
 </ul>
-<h5 id="b1">类型B</h5>
-<h6 id="heading17">介绍</h6>
+<h5 id="类型b-1">类型B</h5>
+<h6 id="介绍-3">介绍</h6>
 <p>P.S. 该 UPS <a href="https://github.com/PiSugar/PiSugar">外壳文件</a>已在 Github 开源</p>
-<h6 id="heading18">图片</h6>
+<h6 id="图片-5">图片</h6>
 <p><img src="/Image/posts/P4wnP1/UPS_2-01.jpg" alt="UPS_2-01"></p>
 <p><img src="/Image/posts/P4wnP1/UPS_2-02.jpg" alt="UPS_2-02"></p>
 <p><img src="/Image/posts/P4wnP1/UPS_2-03.jpg" alt="UPS_2-03"></p>
 <p><img src="/Image/posts/P4wnP1/UPS_2-04.jpg" alt="UPS_2-04"></p>
 <p><img src="/posts/P4wnP1/UPS_2-05.png" alt="UPS_2-05"></p>
-<h6 id="heading19">购买</h6>
+<h6 id="购买-3">购买</h6>
 <ul>
 <li><a href="https://market.m.taobao.com/app/idleFish-F2e/widle-taobao-rax/page-detail?wh_weex=true&amp;wx_navbar_transparent=true&amp;id=575556807426">jdaie</a>  <em>「咸鱼」</em></li>
 </ul>
-<h2 id="0x03-">0x03 软件</h2>
+<h2 id="0x03-软件">0x03 软件</h2>
 <h3 id="p4wnp1-aloa">P4wnP1 A.L.O.A.</h3>
-<h4 id="heading20">简介</h4>
+<h4 id="简介">简介</h4>
 <blockquote>
 <p>P4wnP1 A.L.O.A. by MaMe82 is a framework which turns a Rapsberry Pi Zero W into a flexible, low-cost platform for pentesting, red teaming and physical engagements &hellip; or into &ldquo;A Little Offensive Appliance&rdquo;.</p>
 <p>MaMe82 的 P4wnP1 A.L.O.A 是一个将 Raspberry Pi Zero W 转换成灵活，低成本的用于渗透测试，红方测试，真实攻击的平台，或者变成“一个小小的攻击性工具”</p>
@@ -1506,7 +1506,7 @@ id="1396151812">
 <p>对于最真实的渗透测试模拟来说，一种被称为“红队”的技术，即<strong>测试人员模拟真实世界中的攻击者会做什么</strong>，将是理想的解决方案。通常在安全测试中，渗透测试人员受到允许在范围内的内容的限制，测试更像是一个审计，而不是反映攻击者的企图。因此，客户往往得不到组织安全态势的总体情况。红队采取了一种更现实的方式来攻击组织和利用任何弱点。</p>
 </blockquote>
 </blockquote>
-<h4 id="heading21">安装</h4>
+<h4 id="安装">安装</h4>
 <ul>
 <li>
 <p>下载镜像</p>
@@ -1526,10 +1526,10 @@ Password : <code>toor</code></p>
 </blockquote>
 </li>
 </ul>
-<h4 id="heading22">效果</h4>
+<h4 id="效果">效果</h4>
 <p><em><strong>(由于笔者目前手边没有 Windows 电脑，故不方便展示相关功能，后期可能会完善)</strong></em></p>
 <h3 id="p4wnp1">P4wnP1</h3>
-<h4 id="heading23">简介</h4>
+<h4 id="简介-1">简介</h4>
 <blockquote>
 <p>P4wnP1 is a highly customizable USB attack platform, based on a low cost Raspberry Pi Zero or Raspberry Pi Zero W (required for HID backdoor).</p>
 <p>P4wnP1 是一个基于一个低成本的 Raspberry Pi Zero or Raspberry Pi Zero W 的高度可定制的 USB 攻击平台</p>
@@ -1538,7 +1538,7 @@ Password : <code>toor</code></p>
 <li><code>HID</code> 是 <code>Human Interface Device 〔人机交互设备</code>的缩写</li>
 </ol>
 </blockquote>
-<h4 id="heading24">安装</h4>
+<h4 id="安装-1">安装</h4>
 <ul>
 <li>
 <p>下载镜像</p>
@@ -1550,15 +1550,15 @@ Password : <code>toor</code></p>
 <p>解压 <code>P4wnP1_0_1_alpha.zip</code> ,将 <code>  </code> 烧录至 Micro SD 卡 ，插入树莓派</p>
 </li>
 </ul>
-<h4 id="heading25">效果</h4>
+<h4 id="效果-1">效果</h4>
 <p><em><strong>(由于笔者目前手边没有 Windows 电脑，故不方便展示相关功能，后期可能会完善)</strong></em></p>
-<h2 id="0x03-1">0x03 说明</h2>
+<h2 id="0x03-说明">0x03 说明</h2>
 <ul>
 <li>本文中出现的所有商品均非广告，笔者仅为读者方便了解硬件信息故附以购买链接</li>
 </ul>
-<h2 id="0x04-">0x04 声明</h2>
+<h2 id="0x04-声明">0x04 声明</h2>
 <p><em><strong>本文内容仅作学习交流使用，读者若使用该设备，所造成一切后果自负，与本文作者无关。</strong></em></p>
-<h2 id="0x05-">0x05 致谢</h2>
+<h2 id="0x05-致谢">0x05 致谢</h2>
 <ul>
 <li>
 <p><a href="https://github.com/mame82/P4wnP1_aloa">P4wnP1_aloa</a> by <a href="https://github.com/mame82">mame82</a></p>
@@ -1581,12 +1581,12 @@ server="netease"
 type="song"
 id="1359739972">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>树莓派的简介</p>
 <p><em><strong>「未完成」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
-<h2 id="0x02-">0x02 版本</h2>
-<h3 id="heading">版本代号</h3>
+<h2 id="0x01-简介">0x01 简介</h2>
+<h2 id="0x02-版本">0x02 版本</h2>
+<h3 id="版本代号">版本代号</h3>
 <table>
 <thead>
 <tr>
@@ -1782,10 +1782,10 @@ id="1359739972">
 </tr>
 </tbody>
 </table>
-<h3 id="heading1">版本对比</h3>
+<h3 id="版本对比">版本对比</h3>
 <p><em><strong>Via:「<a href="http://shumeipai.nxez.com/intro-faq">树莓派实验室</a>」</strong></em></p>
 <p><img src="/Image/posts/RaspberryPi/001.png" alt="001"></p>
-<h3 id="heading2">细节</h3>
+<h3 id="细节">细节</h3>
 <h4 id="gpio">GPIO</h4>
 <ul>
 <li>40 PIN</li>
@@ -1796,7 +1796,7 @@ id="1359739972">
 <li>26 PIN</li>
 </ul>
 <p>其引脚对应于上表的前 26 Pin</p>
-<h2 id="0x-">0x 致谢</h2>
+<h2 id="0x-致谢">0x 致谢</h2>
 <ul>
 <li>
 <p><a href="https://github.com/raspberrypi/documentation/tree/master/hardware/raspberrypi/revision-codes">revision-codes</a> by <a href="https://github.com/raspberrypi">Raspberry Pi</a></p>
@@ -1822,12 +1822,12 @@ server="netease"
 type="song"
 id="567145750">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>Ubuntu 有趣的版本代号</p>
 <p><em><strong>「未完成」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <p>Ubuntu 中，每个版本都有一个有趣的名字，由一个形容词和一个动物名称组成，并且，形容词和名词的首字母都是一致的。从D版本开始又增加了一个规则，首字母要顺延上个版本，如果当前版本是 D ，下个版本就要以 E 来起头。</p>
-<h2 id="0x02-">0x02 综述</h2>
+<h2 id="0x02-综述">0x02 综述</h2>
 <table>
 <thead>
 <tr>
@@ -1994,9 +1994,9 @@ id="567145750">
 </tr>
 </tbody>
 </table>
-<h2 id="0x03-">0x03 细节</h2>
+<h2 id="0x03-细节">0x03 细节</h2>
 <h3 id="410-warty-warthog">4.10 〔Warty Warthog〕</h3>
-<h4 id="heading">代号解释</h4>
+<h4 id="代号解释">代号解释</h4>
 <p>〔Warty Warthog〕</p>
 <blockquote>
 <p><em><strong>warty</strong></em></p>
@@ -2005,20 +2005,20 @@ n. (Warty) （美、印）瓦尔蒂（人名）</p>
 <p><em><strong>Warthog</strong></em></p>
 <p>n. 疣猪（一种非洲野猪）</p>
 </blockquote>
-<h4 id="heading1">壁纸</h4>
+<h4 id="壁纸">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/04_10-01.png" alt="4.10-01"></p>
 <h3 id="504-hoary-hedgehog">5.04 〔Hoary Hedgehog〕</h3>
-<h4 id="heading2">代号解释</h4>
+<h4 id="代号解释-1">代号解释</h4>
 <blockquote>
 <p><em><strong>hoary</strong></em></p>
 <p>adj. 久远的，古老的；灰白的</p>
 <p><em><strong>hedgehog</strong></em></p>
 <p>n. 刺猬</p>
 </blockquote>
-<h4 id="heading3">壁纸</h4>
+<h4 id="壁纸-1">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/05_04-01.png" alt="05_04-01"></p>
 <h3 id="510-breezy-badger">5.10 〔Breezy Badger〕</h3>
-<h4 id="heading4">代号解释</h4>
+<h4 id="代号解释-2">代号解释</h4>
 <blockquote>
 <p><em><strong>breezy</strong></em></p>
 <p>adj. 有微风的；轻松愉快的；通风好的；活泼的</p>
@@ -2027,10 +2027,10 @@ n. (Warty) （美、印）瓦尔蒂（人名）</p>
 vt. 纠缠不休；吵着要；烦扰
 n. (Badger)人名；(英)巴杰</p>
 </blockquote>
-<h4 id="heading5">壁纸</h4>
+<h4 id="壁纸-2">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/05_10-01.png" alt="05_10-01"></p>
 <h3 id="606lts-dapper-drake">6.06「LTS」 〔Dapper Drake〕</h3>
-<h4 id="heading6">代号解释</h4>
+<h4 id="代号解释-3">代号解释</h4>
 <blockquote>
 <p><em><strong>dapper</strong></em></p>
 <p>adj. 短小精悍的；衣冠楚楚的；整洁的；整齐的
@@ -2041,10 +2041,10 @@ n. (Dapper)人名；(英)达珀；(意)达珀尔；(德)达佩尔</p>
 <p>n. 公鸭；蜉蝣类（等于drake fly）
 n. (Drake)人名；(德、芬、葡)德拉克；(英)德雷克</p>
 </blockquote>
-<h4 id="heading7">壁纸</h4>
+<h4 id="壁纸-3">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/06_06-01.png" alt="06_06-01"></p>
 <h3 id="610-edgy-eft">6.10 〔Edgy Eft〕</h3>
-<h4 id="heading8">代号解释</h4>
+<h4 id="代号解释-4">代号解释</h4>
 <blockquote>
 <p><em><strong>edgy</strong></em></p>
 <p>adj. 尖利的；紧张的，烦躁不安的；（演奏或文字作品）尖锐的，强烈的；（电影、书籍等）激动人心的；前卫的，尖端的，先进的</p>
@@ -2053,10 +2053,10 @@ n. (Drake)人名；(德、芬、葡)德拉克；(英)德雷克</p>
 <p><em><strong>eft</strong></em></p>
 <p>n. 水蜥；小蜥蜴</p>
 </blockquote>
-<h4 id="heading9">壁纸</h4>
+<h4 id="壁纸-4">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="704-feisty-fawn">7.04 〔Feisty Fawn〕</h3>
-<h4 id="heading10">代号解释</h4>
+<h4 id="代号解释-5">代号解释</h4>
 <blockquote>
 <p><em><strong>feisty</strong></em></p>
 <p>adj. 活跃的；好争吵的；烦躁不安的</p>
@@ -2068,10 +2068,10 @@ v. 讨好；（鹿）生小鹿；（尤指狗）摇尾乞怜
 adj. 浅黄褐色的
 n. (Fawn) （美）福恩（人名）</p>
 </blockquote>
-<h4 id="heading11">壁纸</h4>
+<h4 id="壁纸-5">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="710-gutsy-gibbon">7.10 〔Gutsy Gibbon〕</h3>
-<h4 id="heading12">代号解释</h4>
+<h4 id="代号解释-6">代号解释</h4>
 <blockquote>
 <p><em><strong>gutsy</strong></em></p>
 <p>adj. 勇敢的；贪婪的；有种的；胆大的</p>
@@ -2081,10 +2081,10 @@ n. (Fawn) （美）福恩（人名）</p>
 <p>n. [脊椎] 长臂猿
 n. (Gibbon)人名；(英、葡、匈、塞、巴基)吉本</p>
 </blockquote>
-<h4 id="heading13">壁纸</h4>
+<h4 id="壁纸-6">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="804ltshardy-heron">8.04「LTS」〔Hardy Heron〕</h3>
-<h4 id="heading14">代号解释</h4>
+<h4 id="代号解释-7">代号解释</h4>
 <blockquote>
 <p><em><strong>hardy</strong></em></p>
 <p>adj. 坚强的；勇敢的；能吃苦耐劳的；鲁莽的
@@ -2095,10 +2095,10 @@ n. 强壮的人；耐寒植物；方柄凿</p>
 <p>n. 鹭，苍鹭；深紫灰
 n. (Heron)人名；(英、瑞典)赫伦；(葡)埃龙</p>
 </blockquote>
-<h4 id="heading15">壁纸</h4>
+<h4 id="壁纸-7">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/08_04-01.png" alt="08.04-01"></p>
 <h3 id="810-intrepid-ibex">8.10 〔Intrepid Ibex〕</h3>
-<h4 id="heading16">代号解释</h4>
+<h4 id="代号解释-8">代号解释</h4>
 <blockquote>
 <p><em><strong>intrepid</strong></em></p>
 <p>adj. 无畏的；勇敢的；勇猛的</p>
@@ -2107,10 +2107,10 @@ n. (Heron)人名；(英、瑞典)赫伦；(葡)埃龙</p>
 <p><em><strong>ibex</strong></em></p>
 <p>n. 野生山羊；阿尔卑斯山的野山羊</p>
 </blockquote>
-<h4 id="heading17">壁纸</h4>
+<h4 id="壁纸-8">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/08_10-01.jpg" alt="08_10-01"></p>
 <h3 id="904-jaunty-jackalope">9.04 〔Jaunty Jackalope〕</h3>
-<h4 id="heading18">代号解释</h4>
+<h4 id="代号解释-9">代号解释</h4>
 <blockquote>
 <p><em><strong>jaunty</strong></em></p>
 <p>adj. 快活的；活泼的；洋洋得意的；感到自信和自满的</p>
@@ -2119,10 +2119,10 @@ n. (Heron)人名；(英、瑞典)赫伦；(葡)埃龙</p>
 <p><em><strong>jackalope</strong></em></p>
 <p>鹿角兔</p>
 </blockquote>
-<h4 id="heading19">壁纸</h4>
+<h4 id="壁纸-9">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="910-karmic-koala">9.10 〔Karmic Koala〕</h3>
-<h4 id="heading20">代号解释</h4>
+<h4 id="代号解释-10">代号解释</h4>
 <blockquote>
 <p><em><strong>karmic</strong></em></p>
 <p>业力的</p>
@@ -2131,10 +2131,10 @@ n. (Heron)人名；(英、瑞典)赫伦；(葡)埃龙</p>
 <p><em><strong>koala</strong></em></p>
 <p>n. 树袋熊，无尾熊（产于澳大利亚，又名考拉）</p>
 </blockquote>
-<h4 id="heading21">壁纸</h4>
+<h4 id="壁纸-10">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/09_10-01.png" alt="09.10-01"></p>
 <h3 id="1004-lucid-lynx">10.04 〔Lucid Lynx〕</h3>
-<h4 id="heading22">代号解释</h4>
+<h4 id="代号解释-11">代号解释</h4>
 <blockquote>
 <p><em><strong>lucid</strong></em></p>
 <p>adj. 明晰的；透明的；易懂的；头脑清楚的</p>
@@ -2143,10 +2143,10 @@ n. (Heron)人名；(英、瑞典)赫伦；(葡)埃龙</p>
 <p><em><strong>lynx</strong></em></p>
 <p>n. 猞猁；山猫</p>
 </blockquote>
-<h4 id="heading23">壁纸</h4>
+<h4 id="壁纸-11">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1010-maverick-meerkat">10.10 〔Maverick Meerkat〕</h3>
-<h4 id="heading24">代号解释</h4>
+<h4 id="代号解释-12">代号解释</h4>
 <blockquote>
 <p><em><strong>maverick</strong></em></p>
 <p>n. 没打烙印的动物；持不同意见的人
@@ -2158,10 +2158,10 @@ adj. 未打烙印的；行为不合常规的；特立独行的</p>
 <p><em><strong>meerkat</strong></em></p>
 <p>n. 猫鼬（“蒙哥”的一种）</p>
 </blockquote>
-<h4 id="heading25">壁纸</h4>
+<h4 id="壁纸-12">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/10_10-01.jpg" alt="10_10-01"></p>
 <h3 id="1104-natty-narwhal">11.04 〔Natty Narwhal〕</h3>
-<h4 id="heading26">代号解释</h4>
+<h4 id="代号解释-13">代号解释</h4>
 <blockquote>
 <p><em><strong>natty</strong></em></p>
 <p>adj. 整洁的；敏捷的；考虑周到的；清楚的
@@ -2171,30 +2171,30 @@ n. (Natty)人名；(英)纳蒂</p>
 <p><em><strong>narwhal</strong></em></p>
 <p>n. 独角鲸（等于narwal）；[脊椎] 一角鲸（一种齿鲸，雄性有一长牙）</p>
 </blockquote>
-<h4 id="heading27">壁纸</h4>
+<h4 id="壁纸-13">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1110-oneiric-ocelot">11.10 〔Oneiric Ocelot〕</h3>
-<h4 id="heading28">代号解释</h4>
+<h4 id="代号解释-14">代号解释</h4>
 <blockquote>
 <p><em><strong>oneiric</strong></em></p>
 <p>adj. 梦的</p>
 <p><em><strong>ocelot</strong></em></p>
 <p>n. 豹猫</p>
 </blockquote>
-<h4 id="heading29">壁纸</h4>
+<h4 id="壁纸-14">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1204lts-precise-pangolin">12.04「LTS」 〔Precise Pangolin〕</h3>
-<h4 id="heading30">代号解释</h4>
+<h4 id="代号解释-15">代号解释</h4>
 <blockquote>
 <p><em><strong>precise</strong></em></p>
 <p>adj. 精确的；明确的；严格的</p>
 <p><em><strong>pangolin</strong></em></p>
 <p>n. [脊椎] 穿山甲；[鱼] 鲮鲤</p>
 </blockquote>
-<h4 id="heading31">壁纸</h4>
+<h4 id="壁纸-15">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1210-quantal-quetzal">12.10 〔Quantal Quetzal〕</h3>
-<h4 id="heading32">代号解释</h4>
+<h4 id="代号解释-16">代号解释</h4>
 <blockquote>
 <p><em><strong>quantal</strong></em></p>
 <p>adj. 局量子的</p>
@@ -2203,10 +2203,10 @@ n. (Natty)人名；(英)纳蒂</p>
 <p><em><strong>quetzal</strong></em></p>
 <p>n. 绿咬鹃；格查尔（危地马拉货币单位）</p>
 </blockquote>
-<h4 id="heading33">壁纸</h4>
+<h4 id="壁纸-16">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1304-raring-ringtail">13.04 〔Raring Ringtail〕</h3>
-<h4 id="heading34">代号解释</h4>
+<h4 id="代号解释-17">代号解释</h4>
 <blockquote>
 <p><em><strong>raring</strong></em></p>
 <p>adj. 渴望的；急切的
@@ -2216,10 +2216,10 @@ v. 渴望（rare的ing形式）；用后腿站起</p>
 <p><em><strong>ringtail</strong></em></p>
 <p>n. 浣熊；圈尾猫</p>
 </blockquote>
-<h4 id="heading35">壁纸</h4>
+<h4 id="壁纸-17">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1310-saucy-salamander">13.10 〔Saucy Salamander〕</h3>
-<h4 id="heading36">代号解释</h4>
+<h4 id="代号解释-18">代号解释</h4>
 <blockquote>
 <p><em><strong>saucy</strong></em></p>
 <p>adj. 粗鲁的；不雅的；开色情玩笑的；调皮的；充满活力的；（食物）加调味汁的
@@ -2229,10 +2229,10 @@ n. (Saucy) （美、瑞、法、阿、加）扫克丽（人名）</p>
 <p><em><strong>salamander</strong></em></p>
 <p>n. 火蜥蜴；蝾螈目动物；耐火的人；烤箱</p>
 </blockquote>
-<h4 id="heading37">壁纸</h4>
+<h4 id="壁纸-18">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1404ltstrusty-tahr">14.04「LTS」〔Trusty Tahr〕</h3>
-<h4 id="heading38">代号解释</h4>
+<h4 id="代号解释-19">代号解释</h4>
 <blockquote>
 <p><em><strong>trusty</strong></em></p>
 <p>adj. 可靠的；可信任的
@@ -2243,18 +2243,18 @@ n. (Trusty)人名；(英)特拉斯蒂</p>
 <p><em><strong>tahr</strong></em></p>
 <p>[畜牧] 塔尔羊</p>
 </blockquote>
-<h4 id="heading39">壁纸</h4>
+<h4 id="壁纸-19">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1410-utopic-unicorn">14.10 〔Utopic Unicorn〕</h3>
-<h4 id="heading40">代号解释</h4>
+<h4 id="代号解释-20">代号解释</h4>
 <blockquote>
 <p><em><strong>Utopic Unicorn</strong></em></p>
 <p>乌托邦独角兽 ; 乌托邦的独角兽</p>
 </blockquote>
-<h4 id="heading41">壁纸</h4>
+<h4 id="壁纸-20">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1504-vivid-vervet">15.04 〔Vivid Vervet〕</h3>
-<h4 id="heading42">代号解释</h4>
+<h4 id="代号解释-21">代号解释</h4>
 <blockquote>
 <p><em><strong>vivid</strong></em></p>
 <p>adj. 生动的；鲜明的；鲜艳的</p>
@@ -2263,10 +2263,10 @@ n. (Trusty)人名；(英)特拉斯蒂</p>
 <p><em><strong>vervet</strong></em></p>
 <p>n. 长尾黑颚猴（东南非洲产之一种小猴）</p>
 </blockquote>
-<h4 id="heading43">壁纸</h4>
+<h4 id="壁纸-21">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1510-wily-werewolf">15.10 〔Wily Werewolf〕</h3>
-<h4 id="heading44">代号解释</h4>
+<h4 id="代号解释-22">代号解释</h4>
 <blockquote>
 <p><em><strong>wily</strong></em></p>
 <p>adj. 狡猾的；诡计多端的
@@ -2276,30 +2276,30 @@ n. (Wily)人名；(英)威利</p>
 <p><em><strong>werewolf</strong></em></p>
 <p>n. 狼人；凶人；残忍狡诈的人</p>
 </blockquote>
-<h4 id="heading45">壁纸</h4>
+<h4 id="壁纸-22">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1604ltsxenial-xerus">16.04「LTS」〔Xenial Xerus〕</h3>
-<h4 id="heading46">代号解释</h4>
+<h4 id="代号解释-23">代号解释</h4>
 <blockquote>
 <p><em><strong>xenial</strong></em></p>
 <p>adj. 异花受粉的；主客关系的；款待的</p>
 <p><em><strong>xerus</strong></em></p>
 <p>非洲地松鼠属</p>
 </blockquote>
-<h4 id="heading47">壁纸</h4>
+<h4 id="壁纸-23">壁纸</h4>
 <p><img src="" alt=""></p>
 <h3 id="1610-yakkety-yak">16.10 〔Yakkety Yak〕</h3>
-<h4 id="heading48">代号解释</h4>
+<h4 id="代号解释-24">代号解释</h4>
 <blockquote>
 <p><em><strong>yakkety</strong></em></p>
 <p><em><strong>yak</strong></em></p>
 <p>n. 牦牛
 v. 喋喋不休</p>
 </blockquote>
-<h4 id="heading49">壁纸</h4>
+<h4 id="壁纸-24">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/16_10-01.jpg" alt="16.10-01"></p>
 <h3 id="1704-zesty-zapus">17.04 〔Zesty Zapus〕</h3>
-<h4 id="heading50">代号解释</h4>
+<h4 id="代号解释-25">代号解释</h4>
 <blockquote>
 <p><em><strong>zesty</strong></em></p>
 <p>adj. 兴致很高的
@@ -2307,20 +2307,20 @@ vt. 给…增兴趣</p>
 <p><em><strong>zapus</strong></em></p>
 <p>北美跳鼠属</p>
 </blockquote>
-<h4 id="heading51">壁纸</h4>
+<h4 id="壁纸-25">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/17_04-01.jpg" alt="17.04-01"></p>
 <h3 id="1710-artful-aardvark">17.10 〔Artful Aardvark〕</h3>
-<h4 id="heading52">代号解释</h4>
+<h4 id="代号解释-26">代号解释</h4>
 <blockquote>
 <p><em><strong>artful</strong></em></p>
 <p>adj. 巧妙的；狡猾的；有技巧的；欺诈的</p>
 <p><em><strong>aardvark</strong></em></p>
 <p>n. [脊椎] 土豚；非洲食蚁兽</p>
 </blockquote>
-<h4 id="heading53">壁纸</h4>
+<h4 id="壁纸-26">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/17_10-01.jpg" alt="17.10-01"></p>
 <h3 id="1804ltsbionic-beaver">18.04「LTS」〔Bionic Beaver〕</h3>
-<h4 id="heading54">代号解释</h4>
+<h4 id="代号解释-27">代号解释</h4>
 <blockquote>
 <p><em><strong>bionic</strong></em></p>
 <p>adj. 仿生学的；利用仿生学的</p>
@@ -2328,20 +2328,20 @@ vt. 给…增兴趣</p>
 <p>n. 海狸；海狸皮毛
 n. (Beaver)人名；(英)比弗</p>
 </blockquote>
-<h4 id="heading55">壁纸</h4>
+<h4 id="壁纸-27">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/18_04-01.jpg" alt="18.04-01"></p>
 <h3 id="1810-cosmic-cuttlefish">18.10 〔Cosmic Cuttlefish〕</h3>
-<h4 id="heading56">代号解释</h4>
+<h4 id="代号解释-28">代号解释</h4>
 <blockquote>
 <p><em><strong>cosmic</strong></em></p>
 <p>adj. 宇宙的（等于cosmical）</p>
 <p><em><strong>cuttlefish</strong></em></p>
 <p>n. [无脊椎] 乌贼；墨鱼</p>
 </blockquote>
-<h4 id="heading57">壁纸</h4>
+<h4 id="壁纸-28">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/18_10-01.jpg" alt="18.10-01"></p>
 <h3 id="1904-disco-dingo">19.04 〔Disco Dingo〕</h3>
-<h4 id="heading58">代号解释</h4>
+<h4 id="代号解释-29">代号解释</h4>
 <blockquote>
 <p><em><strong>disco</strong></em></p>
 <p>n. 迪斯科舞厅；的士高
@@ -2349,13 +2349,13 @@ n. (Disco)人名；(意)迪斯科</p>
 <p><em><strong>dingo</strong></em></p>
 <p>n. 澳洲野狗</p>
 </blockquote>
-<h4 id="heading59">壁纸</h4>
+<h4 id="壁纸-29">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/19_04-01.jpg" alt="19.04-01"></p>
 <h3 id="1910---">19.10 〔  〕</h3>
-<h4 id="heading60">代号解释</h4>
-<h4 id="heading61">壁纸</h4>
+<h4 id="代号解释-30">代号解释</h4>
+<h4 id="壁纸-30">壁纸</h4>
 <p><img src="/Image/posts/Ubuntu-Edition/19_10-01.jpg" alt="19.10-01"></p>
-<h2 id="0x04-">0x04 致谢</h2>
+<h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li>
 <p><a href="https://blog.csdn.net/zhengmx100/article/details/78352773">Ubuntu 各版本代号简介</a> by <a href="https://blog.csdn.net/zhengmx100">筋斗云计算</a> 『 遵循CC 4.0 BY-SA 版权协议 』</p>
@@ -2378,19 +2378,19 @@ server="netease"
 type="song"
 id="471411255">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>记录各类帐号注销的方法</p>
 <p><em><strong>「持续更新」</strong></em></p>
-<h2 id="0x01-">0x01 起源</h2>
+<h2 id="0x01-起源">0x01 起源</h2>
 <p>在当下，几乎所有 APP 都要求注册帐号以提供更好的服务(存疑)，同时提供了极为便捷的注册接口(一个手机号+一条短信+一个验证码)，其中不乏存有恶意者(部分APP将短信验证登录与短信验证注册合并，个人认为存在诱导注册的嫌疑)。</p>
 <p>与之形成鲜明对比的是<strong>注销帐号</strong>。目前，国内鲜有平台能将注销帐号的入口摆在“明面”上，甚至压根不提供注销帐号服务。当笔者意识到这个问题时，手机号与主邮箱已经绑定了太多东西，迁移与注销的成本太高</p>
 <p>笔者写下这篇文章的初衷是希望将各个平台注销帐号的方法归档并验证，方便读者在需要时可以快速的注销各类帐号。</p>
-<h2 id="0x02-">0x02 记录</h2>
-<h3 id="alipay--httpswwwalipaycom"><a href="https://www.alipay.com">Alipay / 支付宝</a></h3>
-<h4 id="heading">流程</h4>
-<h4 id="heading1">来源</h4>
+<h2 id="0x02-记录">0x02 记录</h2>
+<h3 id="alipay--支付宝httpswwwalipaycom"><a href="https://www.alipay.com">Alipay / 支付宝</a></h3>
+<h4 id="流程">流程</h4>
+<h4 id="来源">来源</h4>
 <p><em><strong>官方</strong></em> : <strong>「<a href="https://help.alipay.com/lab/help_detail.htm?help_id=249348">注销账户的操作流程</a>」</strong></p>
-<h4 id="heading2">验证</h4>
+<h4 id="验证">验证</h4>
 <ul>
 <li>
 <p>状态 : <code>未验证</code></p>
@@ -2399,17 +2399,17 @@ id="471411255">
 <p>时间戳 ： 2019-10-21T16:32:12+08:00</p>
 </li>
 </ul>
-<h4 id="heading3">备注</h4>
-<h3 id="amazon--httpswwwamazoncom"><a href="https://www.amazon.com/">Amazon / 亚马逊</a></h3>
-<h4 id="heading4">流程</h4>
-<h4 id="heading5">来源</h4>
-<h4 id="heading6">验证</h4>
-<h4 id="heading7">备注</h4>
-<h3 id="bilibili--httpswwwbilibilicom"><a href="https://www.bilibili.com/">Bilibili / 哔哩哔哩</a></h3>
-<h4 id="heading8">流程</h4>
-<h4 id="heading9">来源</h4>
+<h4 id="备注">备注</h4>
+<h3 id="amazon--亚马逊httpswwwamazoncom"><a href="https://www.amazon.com/">Amazon / 亚马逊</a></h3>
+<h4 id="流程-1">流程</h4>
+<h4 id="来源-1">来源</h4>
+<h4 id="验证-1">验证</h4>
+<h4 id="备注-1">备注</h4>
+<h3 id="bilibili--哔哩哔哩httpswwwbilibilicom"><a href="https://www.bilibili.com/">Bilibili / 哔哩哔哩</a></h3>
+<h4 id="流程-2">流程</h4>
+<h4 id="来源-2">来源</h4>
 <p><em><strong>非官方</strong></em> : <strong>「<a href="https://www.bilibili.com/read/cv1060730">如何注销掉自己的b站账号呢？</a>」</strong></p>
-<h4 id="heading10">验证</h4>
+<h4 id="验证-2">验证</h4>
 <ul>
 <li>
 <p>状态 : <code>未验证</code></p>
@@ -2418,12 +2418,12 @@ id="471411255">
 <p>时间戳 ： 2019-10-21T19:02:04+08:00</p>
 </li>
 </ul>
-<h4 id="heading11">备注</h4>
+<h4 id="备注-2">备注</h4>
 <h3 id="csdnhttpswwwcsdnnet"><a href="https://www.csdn.net/">CSDN</a></h3>
-<h4 id="heading12">流程</h4>
-<h4 id="heading13">来源</h4>
+<h4 id="流程-3">流程</h4>
+<h4 id="来源-3">来源</h4>
 <p><em><strong>非官方</strong></em> : <strong>「<a href="https://blog.csdn.net/henu_zyh/article/details/83625669">CSDN注销账号、解绑手机、邮箱问题（已解决）</a>」</strong></p>
-<h4 id="heading14">验证</h4>
+<h4 id="验证-3">验证</h4>
 <ul>
 <li>
 <p>状态 : <code>未验证</code></p>
@@ -2432,72 +2432,72 @@ id="471411255">
 <p>时间戳 ： 2019-10-21T18:53:50+08:00</p>
 </li>
 </ul>
-<h4 id="heading15">备注</h4>
-<h3 id="dangdang--httpwwwdangdangcom"><a href="http://www.dangdang.com/">Dangdang / 当当网</a></h3>
-<h4 id="heading16">流程</h4>
-<h4 id="heading17">来源</h4>
-<h4 id="heading18">验证</h4>
-<h4 id="heading19">备注</h4>
+<h4 id="备注-3">备注</h4>
+<h3 id="dangdang--当当网httpwwwdangdangcom"><a href="http://www.dangdang.com/">Dangdang / 当当网</a></h3>
+<h4 id="流程-4">流程</h4>
+<h4 id="来源-4">来源</h4>
+<h4 id="验证-4">验证</h4>
+<h4 id="备注-4">备注</h4>
 <h3 id="ebayhttpswwwebaycom"><a href="https://www.ebay.com/">Ebay</a></h3>
-<h4 id="heading20">流程</h4>
-<h4 id="heading21">来源</h4>
-<h4 id="heading22">验证</h4>
-<h4 id="heading23">备注</h4>
-<h3 id="gitee--httpsgiteecom"><a href="https://gitee.com">Gitee / 码云</a></h3>
-<h4 id="heading24">流程</h4>
-<h4 id="heading25">来源</h4>
-<h4 id="heading26">验证</h4>
-<h4 id="heading27">备注</h4>
+<h4 id="流程-5">流程</h4>
+<h4 id="来源-5">来源</h4>
+<h4 id="验证-5">验证</h4>
+<h4 id="备注-5">备注</h4>
+<h3 id="gitee--码云httpsgiteecom"><a href="https://gitee.com">Gitee / 码云</a></h3>
+<h4 id="流程-6">流程</h4>
+<h4 id="来源-6">来源</h4>
+<h4 id="验证-6">验证</h4>
+<h4 id="备注-6">备注</h4>
 <h3 id="githubhttpsgithubcom"><a href="https://github.com">Github</a></h3>
-<h4 id="heading28">流程</h4>
-<h4 id="heading29">来源</h4>
-<h4 id="heading30">验证</h4>
-<h4 id="heading31">备注</h4>
+<h4 id="流程-7">流程</h4>
+<h4 id="来源-7">来源</h4>
+<h4 id="验证-7">验证</h4>
+<h4 id="备注-7">备注</h4>
 <h3 id="gitlabhttpsgitlabcom"><a href="https://gitlab.com">Gitlab</a></h3>
-<h4 id="heading32">流程</h4>
-<h4 id="heading33">来源</h4>
-<h4 id="heading34">验证</h4>
-<h4 id="heading35">备注</h4>
-<h3 id="google--"><a href="">Google / 谷歌</a></h3>
-<h4 id="heading36">流程</h4>
-<h4 id="heading37">来源</h4>
-<h4 id="heading38">验证</h4>
-<h4 id="heading39">备注</h4>
+<h4 id="流程-8">流程</h4>
+<h4 id="来源-8">来源</h4>
+<h4 id="验证-8">验证</h4>
+<h4 id="备注-8">备注</h4>
+<h3 id="google--谷歌"><a href="">Google / 谷歌</a></h3>
+<h4 id="流程-9">流程</h4>
+<h4 id="来源-9">来源</h4>
+<h4 id="验证-9">验证</h4>
+<h4 id="备注-9">备注</h4>
 <h3 id="instagram"><a href="">Instagram</a></h3>
-<h4 id="heading40">流程</h4>
-<h4 id="heading41">来源</h4>
-<h4 id="heading42">验证</h4>
-<h4 id="heading43">备注</h4>
-<h3 id="jd--httpsjdcom"><a href="https://jd.com/">JD / 京东</a></h3>
-<h4 id="heading44">流程</h4>
-<h4 id="heading45">来源</h4>
-<h4 id="heading46">验证</h4>
-<h4 id="heading47">备注</h4>
+<h4 id="流程-10">流程</h4>
+<h4 id="来源-10">来源</h4>
+<h4 id="验证-10">验证</h4>
+<h4 id="备注-10">备注</h4>
+<h3 id="jd--京东httpsjdcom"><a href="https://jd.com/">JD / 京东</a></h3>
+<h4 id="流程-11">流程</h4>
+<h4 id="来源-11">来源</h4>
+<h4 id="验证-11">验证</h4>
+<h4 id="备注-11">备注</h4>
 <h3 id="keybase"><a href="">Keybase</a></h3>
-<h4 id="heading48">流程</h4>
-<h4 id="heading49">来源</h4>
-<h4 id="heading50">验证</h4>
-<h4 id="heading51">备注</h4>
-<h3 id="oneplus--httpswwwonepluscom"><a href="https://www.oneplus.com">OnePlus / 一加</a></h3>
-<h4 id="heading52">流程</h4>
-<h4 id="heading53">来源</h4>
-<h4 id="heading54">验证</h4>
-<h4 id="heading55">备注</h4>
+<h4 id="流程-12">流程</h4>
+<h4 id="来源-12">来源</h4>
+<h4 id="验证-12">验证</h4>
+<h4 id="备注-12">备注</h4>
+<h3 id="oneplus--一加httpswwwonepluscom"><a href="https://www.oneplus.com">OnePlus / 一加</a></h3>
+<h4 id="流程-13">流程</h4>
+<h4 id="来源-13">来源</h4>
+<h4 id="验证-13">验证</h4>
+<h4 id="备注-13">备注</h4>
 <h3 id="palpayhttpswwwpaypalcom"><a href="https://www.paypal.com">PalPay</a></h3>
-<h4 id="heading56">流程</h4>
-<h4 id="heading57">来源</h4>
-<h4 id="heading58">验证</h4>
-<h4 id="heading59">备注</h4>
-<h3 id="pinduoduo--httpswwwpaypalcom"><a href="https://www.paypal.com">Pinduoduo / 拼多多</a></h3>
-<h4 id="heading60">流程</h4>
-<h4 id="heading61">来源</h4>
-<h4 id="heading62">验证</h4>
-<h4 id="heading63">备注</h4>
+<h4 id="流程-14">流程</h4>
+<h4 id="来源-14">来源</h4>
+<h4 id="验证-14">验证</h4>
+<h4 id="备注-14">备注</h4>
+<h3 id="pinduoduo--拼多多httpswwwpaypalcom"><a href="https://www.paypal.com">Pinduoduo / 拼多多</a></h3>
+<h4 id="流程-15">流程</h4>
+<h4 id="来源-15">来源</h4>
+<h4 id="验证-15">验证</h4>
+<h4 id="备注-15">备注</h4>
 <h2 id="qqhttpsimqqcom"><a href="https://im.qq.com/">QQ</a></h2>
-<h4 id="heading64">流程</h4>
-<h4 id="heading65">来源</h4>
+<h4 id="流程-16">流程</h4>
+<h4 id="来源-16">来源</h4>
 <p><em><strong>官方</strong></em> : <strong>「<a href="https://kf.qq.com/faq/1803146n2yMr180314MbIfER.html">QQ帐号如何注销？</a>」</strong></p>
-<h4 id="heading66">验证</h4>
+<h4 id="验证-16">验证</h4>
 <ul>
 <li>
 <p>状态 : <code>未验证</code></p>
@@ -2506,54 +2506,54 @@ id="471411255">
 <p>时间戳 ： 2019-10-21T19:04:40+08:00</p>
 </li>
 </ul>
-<h4 id="heading67">备注</h4>
+<h4 id="备注-16">备注</h4>
 <h3 id="samsunghttpswwwsamsungcom"><a href="https://www.samsung.com">Samsung</a></h3>
-<h4 id="heading68">流程</h4>
-<h4 id="heading69">来源</h4>
-<h4 id="heading70">验证</h4>
-<h4 id="heading71">备注</h4>
+<h4 id="流程-17">流程</h4>
+<h4 id="来源-17">来源</h4>
+<h4 id="验证-17">验证</h4>
+<h4 id="备注-17">备注</h4>
 <h3 id="steamhttpsstoresteampoweredcom"><a href="https://store.steampowered.com/">Steam</a></h3>
-<h4 id="heading72">流程</h4>
-<h3 id="heading73">来源</h3>
-<h4 id="heading74">验证</h4>
-<h4 id="heading75">备注</h4>
-<h3 id="supertimetable--httpwwwsupercn"><a href="http://www.super.cn/">SuperTimetable / 超级课程表</a></h3>
-<h4 id="heading76">流程</h4>
-<h4 id="heading77">来源</h4>
-<h4 id="heading78">验证</h4>
-<h4 id="heading79">备注</h4>
-<h3 id="telegram--"><a href="">Telegram / 电报</a></h3>
-<h4 id="heading80">流程</h4>
-<h4 id="heading81">来源</h4>
-<h4 id="heading82">验证</h4>
-<h4 id="heading83">备注</h4>
-<h3 id="twitter--httpstwittercom"><a href="https://twitter.com/">Twitter / 推特</a></h3>
-<h4 id="heading84">流程</h4>
-<h4 id="heading85">来源</h4>
-<h4 id="heading86">验证</h4>
-<h4 id="heading87">备注</h4>
+<h4 id="流程-18">流程</h4>
+<h3 id="来源-18">来源</h3>
+<h4 id="验证-18">验证</h4>
+<h4 id="备注-18">备注</h4>
+<h3 id="supertimetable--超级课程表httpwwwsupercn"><a href="http://www.super.cn/">SuperTimetable / 超级课程表</a></h3>
+<h4 id="流程-19">流程</h4>
+<h4 id="来源-19">来源</h4>
+<h4 id="验证-19">验证</h4>
+<h4 id="备注-19">备注</h4>
+<h3 id="telegram--电报"><a href="">Telegram / 电报</a></h3>
+<h4 id="流程-20">流程</h4>
+<h4 id="来源-20">来源</h4>
+<h4 id="验证-20">验证</h4>
+<h4 id="备注-20">备注</h4>
+<h3 id="twitter--推特httpstwittercom"><a href="https://twitter.com/">Twitter / 推特</a></h3>
+<h4 id="流程-21">流程</h4>
+<h4 id="来源-21">来源</h4>
+<h4 id="验证-21">验证</h4>
+<h4 id="备注-21">备注</h4>
 <h3 id="unsplashhttpsunsplashcom"><a href="https://unsplash.com/">Unsplash</a></h3>
-<h4 id="heading88">流程</h4>
-<h4 id="heading89">来源</h4>
-<h4 id="heading90">验证</h4>
-<h4 id="heading91">备注</h4>
-<h3 id="weibo--httpsweibocom"><a href="https://weibo.com/">Weibo / 微博</a></h3>
-<h4 id="heading92">流程</h4>
-<h4 id="heading93">来源</h4>
-<h4 id="heading94">验证</h4>
-<h4 id="heading95">备注</h4>
-<h3 id="wechat--httpsweixinqqcom"><a href="https://weixin.qq.com/">Wechat / 微信</a></h3>
-<h4 id="heading96">流程</h4>
-<h4 id="heading97">来源</h4>
-<h4 id="heading98">验证</h4>
-<h4 id="heading99">备注</h4>
-<h3 id="xiaomi--httpswwwmicom"><a href="https://www.mi.com/">Xiaomi / 小米</a></h3>
-<h4 id="heading100">流程</h4>
+<h4 id="流程-22">流程</h4>
+<h4 id="来源-22">来源</h4>
+<h4 id="验证-22">验证</h4>
+<h4 id="备注-22">备注</h4>
+<h3 id="weibo--微博httpsweibocom"><a href="https://weibo.com/">Weibo / 微博</a></h3>
+<h4 id="流程-23">流程</h4>
+<h4 id="来源-23">来源</h4>
+<h4 id="验证-23">验证</h4>
+<h4 id="备注-23">备注</h4>
+<h3 id="wechat--微信httpsweixinqqcom"><a href="https://weixin.qq.com/">Wechat / 微信</a></h3>
+<h4 id="流程-24">流程</h4>
+<h4 id="来源-24">来源</h4>
+<h4 id="验证-24">验证</h4>
+<h4 id="备注-24">备注</h4>
+<h3 id="xiaomi--小米httpswwwmicom"><a href="https://www.mi.com/">Xiaomi / 小米</a></h3>
+<h4 id="流程-25">流程</h4>
 <p><em><a href="https://account.xiaomi.com/pass/del">注销入口</a></em></p>
 <p>注销过程中，按照指示操作即可，笔者不做赘述</p>
-<h4 id="heading101">来源</h4>
+<h4 id="来源-25">来源</h4>
 <p><em><strong>非官方</strong></em> : <strong>「<a href="https://zhidao.baidu.com/question/1381617599416453780.html">如何彻底注销小米账号</a>」</strong></p>
-<h4 id="heading102">验证</h4>
+<h4 id="验证-25">验证</h4>
 <ul>
 <li>
 <p>状态 : <code>已验证</code></p>
@@ -2566,13 +2566,13 @@ id="471411255">
 </li>
 </ul>
 <p>P.S. 此处 <strong>耗时</strong> 表示笔者从开始注销流程到彻底注销的总时间</p>
-<h4 id="heading103">备注</h4>
-<h3 id="zhihu--httpswwwzhihucom"><a href="https://www.zhihu.com/">Zhihu / 知乎</a></h3>
-<h4 id="heading104">流程</h4>
-<h5 id="heading105">自助注销</h5>
+<h4 id="备注-25">备注</h4>
+<h3 id="zhihu--知乎httpswwwzhihucom"><a href="https://www.zhihu.com/">Zhihu / 知乎</a></h3>
+<h4 id="流程-26">流程</h4>
+<h5 id="自助注销">自助注销</h5>
 <p>个人帐号使用者本人可登录知乎 APP 端，进入「我的」-「反馈与帮助」-「自助服务」-「帐号注销」，根据提示申请注销。</p>
 <p><img src="/Image/posts/Cancellation/Zhihu/Zhihu-001.jpg" alt="Zhihu-001"></p>
-<h5 id="heading106">人工注销</h5>
+<h5 id="人工注销">人工注销</h5>
 <p>笔者在自助注销中遇到以下问题</p>
 <p><img src="/Image/posts/Cancellation/Zhihu/Zhihu-002.jpg" alt="Zhihu-002"></p>
 <p>站内私信 <em><a href="https://www.zhihu.com/people/zhihuadmin/activities">知乎小管家</a></em> 或 <em><a href="https://www.zhihu.com/people/verycool/activities">知一声</a></em> 寻求解决方案</p>
@@ -2582,9 +2582,9 @@ id="471411255">
 <p>P.S. 上述流程第四步填写 <code>联系手机</code> 时，不可填写与所注销知乎帐号绑定的手机号</p>
 <p>申诉信息提交后，会收到回执短信及站内 [知乎管理员] 私信，等待收到申诉通过的回执后可向 <em><a href="https://www.zhihu.com/people/zhihuadmin/activities">知乎小管家</a></em> 或 <em><a href="https://www.zhihu.com/people/verycool/activities">知一声</a></em> 私信回执 <code>人工申诉帐号验证已通过，我确认申请注销。</code>，之后静待注销帐号完成</p>
 <p><img src="/Image/posts/Cancellation/Zhihu/Zhihu-005.jpg" alt="Zhihu-005"></p>
-<h4 id="heading107">来源</h4>
+<h4 id="来源-26">来源</h4>
 <p><em><strong>官方</strong></em> : <strong>「<a href="https://www.zhihu.com/question/21452645/answer/270590760">如何注销知乎帐号？</a>」</strong></p>
-<h4 id="heading108">验证</h4>
+<h4 id="验证-26">验证</h4>
 <ul>
 <li>
 <p>状态 : <code>已验证</code></p>
@@ -2597,10 +2597,10 @@ id="471411255">
 </li>
 </ul>
 <p>P.S. 此处 <strong>耗时</strong> 表示笔者从开始注销流程到彻底注销的总时间</p>
-<h4 id="heading109">备注</h4>
+<h4 id="备注-26">备注</h4>
 <p>无</p>
-<h2 id="0x-">0x 致谢</h2>
-<h2 id="0x-1">0x 尾巴</h2>
+<h2 id="0x-致谢">0x 致谢</h2>
+<h2 id="0x-尾巴">0x 尾巴</h2>
 ]]></content></item><item><title>Vim</title><link>https://unsplash.top/posts/vim/</link><pubDate>Mon, 16 Sep 2019 23:32:36 +0800</pubDate><guid>https://unsplash.top/posts/vim/</guid><description>0x00 摘要 Vim 的 “ABC” 「待完善」 0x01 起源 话要从上面这张图说起，这张图源自Bilibili Up主 之乎者也-zhzy。笔者虽然知道 Vim 的强大，但从刚刚</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -2612,13 +2612,13 @@ server="netease"
 type="song"
 id="18284330">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>Vim 的 “ABC”</p>
 <p><em><strong>「待完善」</strong></em></p>
-<h2 id="0x01-">0x01 起源</h2>
+<h2 id="0x01-起源">0x01 起源</h2>
 <p><img src="/Image/posts/Vim/001.jpg" alt="001"></p>
 <p>话要从上面这张图说起，这张图源自Bilibili Up主 <a href="https://space.bilibili.com/64648363">之乎者也-zhzy</a>。笔者虽然知道 Vim 的强大，但从刚刚接触 Linux 到现在作为主力系统，始终使用 nano 作终端下的编辑器。因为对于笔者来说，终端下的编辑器仅用于更改配置文件，“又不是不能用”(笑)。其实从根本上来说是懒得学习，毕竟 nano 的学习成本低，但简单往往意味着见简陋。于是，笔者决定详细的了解 Vim 。(题外话：以前找资料，Baidu为首选，现在Bilibili为首选)</p>
-<h2 id="0x02-">0x02 学习</h2>
+<h2 id="0x02-学习">0x02 学习</h2>
 <p>笔者发现 Bilibili Up主 <a href="https://space.bilibili.com/13081489">TheCW</a>的 Vim 系列视频很不错，推荐读者去看看。同时该 Up 主的其他视频也推荐读者去看看，讲解的很透彻。</p>
 <ul>
 <li><a href="https://space.bilibili.com/13081489">TheCW</a>
@@ -2629,7 +2629,7 @@ id="18284330">
 </ul>
 </li>
 </ul>
-<h2 id="0x03-">0x03 安装</h2>
+<h2 id="0x03-安装">0x03 安装</h2>
 <p>以 Manjaro 为例</p>
 <ul>
 <li>
@@ -2697,7 +2697,7 @@ call plug#end()
 </ul>
 </li>
 </ul>
-<h2 id="0x04-">0x04 配置</h2>
+<h2 id="0x04-配置">0x04 配置</h2>
 <p>以下为笔者目前的 Vim 配置</p>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">syntax on                 &#34;语法高亮
 set number                &#34;显示行号
@@ -2731,7 +2731,7 @@ Plug &#39;scrooloose/nerdtree&#39;
 
 call plug#end()
 
-</code></pre></div><h2 id="0x04-1">0x04 致谢</h2>
+</code></pre></div><h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li>
 <p><a href="https://space.bilibili.com/13081489">TheCW</a></p>
@@ -2751,9 +2751,9 @@ server="netease"
 type="song"
 id="27759600">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>Manjaro 的安装与配置</p>
-<h2 id="0x01-">0x01 起源</h2>
+<h2 id="0x01-起源">0x01 起源</h2>
 <p>在看过<a href="https://space.bilibili.com/13081489">TheCW</a>的系列视频后，被其使用的 Linux 发行版 <a href="https://www.manjaro.org/">Manjaro</a> 深深的吸引，更精致的外观，更优雅的操作。</p>
 <p>笔者从接触 Linux 到现在，一直在使用 Debian 及其衍生发行版</p>
 <ul>
@@ -2765,36 +2765,36 @@ id="27759600">
 <li><a href="https://www.kali.org/">Kali</a></li>
 <li><a href="https://parrotlinux.org/">ParrotSec</a></li>
 </ul>
-<h2 id="0x02-">0x02 安装</h2>
-<h3 id="heading">前</h3>
-<h4 id="heading1">获取镜像</h4>
+<h2 id="0x02-安装">0x02 安装</h2>
+<h3 id="前">前</h3>
+<h4 id="获取镜像">获取镜像</h4>
 <p>ISO可从镜像站获取 (<a href="https://mirrors.ustc.edu.cn/">USTC</a>, <a href="https://opsx.alibaba.com/mirror?lang=zh-CN">Aliyun</a>, <a href="https://mirrors.tuna.tsinghua.edu.cn">Tsinghua</a> , etc)</p>
-<h4 id="heading2">烧录镜像</h4>
+<h4 id="烧录镜像">烧录镜像</h4>
 <p>烧录镜像可用 <a href="https://www.balena.io/etcher/">BalenaEtcher</a> 。开源，易用，优雅(当然 dd 命令更优雅，但无奈总是记不住参数)</p>
 <p><img src="/Image/posts/Manjaro/001.png" alt="界面"></p>
-<h3 id="heading3">中</h3>
-<h4 id="heading4">语言</h4>
+<h3 id="中">中</h3>
+<h4 id="语言">语言</h4>
 <p>安装中选择语言为英语，若选择中文， <code>/home/□□□□□/</code> 目录中的文件为中文名，即 <code>Desktop</code> , <code>Documents</code> , <code>Downloads</code> , <code>Music</code> , <code>Pictures</code> , <code>Public</code> , <code>Templates</code> , <code>Videos</code> 文件夹为对应中文，会使在终端中操作文件较为复杂</p>
-<h3 id="heading5">后</h3>
-<h4 id="heading6">禁用独显</h4>
+<h3 id="后">后</h3>
+<h4 id="禁用独显">禁用独显</h4>
 <p>在安装完成后，立即重启会进入假死状态，需要强制重启。在 BIOS 启动后，进入系统前，按 <em>Esc</em> 进入 grub 选择界面，按 <em>E</em> 编辑 grub ，在 quiet 后插入 <code>nouveau.modeset=0</code> ，按 <em>F10</em> 或 <em>Ctrl</em> + <em>X</em> 保存后即可正常启动</p>
 <p>启动后修改 grub 配置文件，默认禁用独显(后文会详述独显驱动安装，该处为方便暂时只用核显)。修改 <code>/etc/default/grub</code> 同上</p>
 <p>更新 grub 配置</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></div><h4 id="heading7">更改语言</h4>
+</code></pre></div><h4 id="更改语言">更改语言</h4>
 <p>在 <code>System Settings</code> - <code>Locale</code> 中双击 <em>中文(中国)</em> ，使 <em>Display Language</em> 与 <em>Formats</em> 选至 <em>中文(中国)</em> 即可，保存</p>
 <p>修改前</p>
 <p><img src="/Image/posts/Manjaro/002.png" alt="修改前"></p>
 <p>修改后</p>
 <p><img src="/Image/posts/Manjaro/003.png" alt="修改后"></p>
 <p>重启后生效</p>
-<h4 id="heading8">配置软件源</h4>
-<h5 id="manjaro">Manjaro源</h5>
+<h4 id="配置软件源">配置软件源</h4>
+<h5 id="manjaro源">Manjaro源</h5>
 <p>生成可用中国镜像站列表，根据实际网络情况选择合适镜像源 (笔者一般首选 USTC 和 Aliyun 镜像站，但目前 Aliyun 没有 Manjaro 镜像，故选择 USTC)</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman-mirrors -i -c China -m rank
 </code></pre></div><p>执行更新(选择项全部默认即可)</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Syyu
-</code></pre></div><h5 id="arch-linux-cn">Arch Linux CN源</h5>
+</code></pre></div><h5 id="arch-linux-cn源">Arch Linux CN源</h5>
 <blockquote>
 <p>简介</p>
 <p>Arch Linux 中文社区仓库是由 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体/美化包等。</p>
@@ -2804,12 +2804,12 @@ id="27759600">
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 </code></pre><p>然后安装 <code>archlinuxcn-keyring</code> 包以导入 GPG key</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy archlinuxcn-keyring
-</code></pre></div><h4 id="heading9">常用软件安装</h4>
+</code></pre></div><h4 id="常用软件安装">常用软件安装</h4>
 <h5 id="yay">yay</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy yay
 </code></pre></div><h5 id="qq">QQ</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yay -Sy linuxqq
-</code></pre></div><h5 id="heading10">中文输入法</h5>
+</code></pre></div><h5 id="中文输入法">中文输入法</h5>
 <ul>
 <li>安装</li>
 </ul>
@@ -2831,7 +2831,7 @@ export XMODIFIERS=”@im=fcitx”
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">export XMODIFIERS=&#34;@im=fcitx&#34;
 export QT_IM_MODULE=&#34;fcitx&#34;
-</code></pre></div><h5 id="chrome-">Chrome 浏览器</h5>
+</code></pre></div><h5 id="chrome-浏览器">Chrome 浏览器</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy google-chrome
 </code></pre></div><h5 id="uget--aria2">uGet &amp;&amp; aria2</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy uget aria2
@@ -2860,14 +2860,14 @@ export QT_IM_MODULE=&#34;fcitx&#34;
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy ranger
 </code></pre></div><h5 id="gimp">GIMP</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy gimp
-</code></pre></div><h5 id="heading11">网易云第三方客户端</h5>
+</code></pre></div><h5 id="网易云第三方客户端">网易云第三方客户端</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy electron-netease-cloud-music
 </code></pre></div><p>P.S. 笔者习惯该客户端，如需官方客户端只需将 <code>electron-netease-cloud-music</code> 替换为 <code>netease-cloud-music</code></p>
 <h5 id="arduino-ide">Arduino IDE</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy arduino
 </code></pre></div><h5 id="cmake">Cmake</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Sy cmake
-</code></pre></div><h4 id="heading12">配置双显卡驱动</h4>
+</code></pre></div><h4 id="配置双显卡驱动">配置双显卡驱动</h4>
 <ul>
 <li>安装依赖</li>
 </ul>
@@ -2930,7 +2930,7 @@ export QT_IM_MODULE=&#34;fcitx&#34;
 </ul>
 <p>P.S. 如需以独立显卡运行某软件，需在指令前加 <code>optirun</code> 。如以独显运行 Chrome 浏览器，需执行以下命令</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">optirun google-chrome-stable
-</code></pre></div><h4 id="heading13">编程环境配置</h4>
+</code></pre></div><h4 id="编程环境配置">编程环境配置</h4>
 <h5 id="nodejs--npm">Nodejs &amp;&amp; npm</h5>
 <ul>
 <li>
@@ -2975,7 +2975,7 @@ index-url = https://mirrors.aliyun.com/pypi/simple/
 </ul>
 </li>
 </ul>
-<h4 id="heading14">非常用软件安装</h4>
+<h4 id="非常用软件安装">非常用软件安装</h4>
 <h5 id="stm32cubemx">STM32CubeMX</h5>
 <ul>
 <li>简介</li>
@@ -2987,7 +2987,7 @@ index-url = https://mirrors.aliyun.com/pypi/simple/
 <li>安装</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yay -Sy stm32cubemx
-</code></pre></div><h5 id="stm32cubeide--jlink">STM32CubeIDE &amp;&amp; J-Link</h5>
+</code></pre></div><h5 id="stm32cubeide--j-link">STM32CubeIDE &amp;&amp; J-Link</h5>
 <ul>
 <li>简介</li>
 </ul>
@@ -3035,18 +3035,18 @@ index-url = https://mirrors.aliyun.com/pypi/simple/
 </li>
 </ul>
 <h2 id="0x03-faq">0x03 FAQ</h2>
-<h3 id="manjaro-">Manjaro 中文显示方块</h3>
+<h3 id="manjaro-中文显示方块">Manjaro 中文显示方块</h3>
 <p>在升级系统后可能出现这个问题</p>
 <p>解决：</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S wqy-microhei
-</code></pre></div><h2 id="0x04-">0x04 趣闻</h2>
-<h3 id="heading15">更新</h3>
+</code></pre></div><h2 id="0x04-趣闻">0x04 趣闻</h2>
+<h3 id="更新">更新</h3>
 <p><img src="/Image/posts/Manjaro/004.jpg" alt="趣闻_1"></p>
 <p>这张图可以说很真实了，2333,笔者每次开机第一件事便是 <code>sudo pacman -Syyu</code></p>
-<h3 id="heading16">”滚炸“</h3>
+<h3 id="滚炸">”滚炸“</h3>
 <p><img src="/Image/posts/Manjaro/005.jpg" alt="趣闻_2"></p>
 <p>由于 Arch Linux 滚动更新的特性，所以每次升级都伴随着风险，常常可以看到抱怨 Arch Linux “滚炸”的，可能会出现各种各样的问题，2333，但到目前为止，笔者还没遇到&quot;滚炸&quot;的情况</p>
-<h2 id="0x05-">0x05 致谢</h2>
+<h2 id="0x05-致谢">0x05 致谢</h2>
 <ul>
 <li>
 <p><a href="http://mirrors.ustc.edu.cn/help/manjaro.html">Manjaro Linux 源使用帮助</a> by <a href="https://lug.ustc.edu.cn/wiki/">科大 LUG</a></p>
@@ -3075,23 +3075,23 @@ server="netease"
 type="song"
 id="19945735">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>记录折腾网络(移动光纤)的过程</p>
-<h2 id="0x01-">0x01 背景</h2>
+<h2 id="0x01-背景">0x01 背景</h2>
 <p>搬校区后，只有交通和网络这两点有所改善，小区宽带运营商只有移动和联通，价格差异不大，都是 700+ 元 / (100M * 年)，笔者看了下入户段情况:联通4芯网线，移动光纤，故选择移动。</p>
 <p>以笔者的路由器做二级路由，5.8 G WIFI 和有线连接测速峰值为 150 Mbps 左右，比理论略高，现目前笔者所在小区人极少，之后全部入住后速度应该会有所下降( 后来这一想法得以验证 )。</p>
 <p>这里忍不住吐槽一下移动自带的光猫:1. 单频段 WIFI ；2. 只有1个 1000M LAN ，其余为 100M LAN</p>
-<h2 id="0x02-">0x02 折腾</h2>
+<h2 id="0x02-折腾">0x02 折腾</h2>
 <p>笔者的路由器仅做二级路由 ，有所浪费，开始折腾。</p>
-<h3 id="1">1.思路</h3>
+<h3 id="1思路">1.思路</h3>
 <ul>
 <li>将光猫 <strong>(型号:H1S-3 以下记作 H1S-3)</strong> 从路由模式转换为桥接模式</li>
 <li>由路由器 <strong>(型号:K2P 以下记作 K2P)</strong> 进行PPPOE拨号</li>
 <li>尝试单线多拨</li>
 <li>尝试 SS/SSR</li>
 </ul>
-<h3 id="2">2.过程</h3>
-<h4 id="-h1s3-">更改 H1S-3 模式</h4>
+<h3 id="2过程">2.过程</h3>
+<h4 id="更改-h1s-3-模式">更改 H1S-3 模式</h4>
 <p>笔者通过默认 <code>user</code> 用户，进入 H1S-3 Web 控制台并没有看到相关选项，便开始查找，很快便找到结果了: 默认的user用户只有很小部分控制权，超级用户才有完整权限。笔者找到了超级用户的账号和密码</p>
 <blockquote>
 <p>admin: CMCCAdmin <br/> password: aDm8H%MdA</p>
@@ -3101,14 +3101,14 @@ id="19945735">
 <p><strong>存疑</strong></p>
 <p>该帐号与密码应该具有普适性</p>
 </blockquote>
-<h4 id="pppoe">准备PPPOE账号及密码</h4>
-<h5 id="heading">已知</h5>
+<h4 id="准备pppoe账号及密码">准备PPPOE账号及密码</h4>
+<h5 id="已知">已知</h5>
 <p>安装时，可向安装人员索要</p>
 <p>P.S. 笔者所在地区的移动宽带的默认密码为帐号后6位</p>
-<h5 id="heading1">未知</h5>
-<h6 id="11">方案1</h6>
+<h5 id="未知">未知</h5>
+<h6 id="方案1">方案1</h6>
 <p>可通过拨打运营商服务电话获取密码</p>
-<h6 id="21">方案2</h6>
+<h6 id="方案2">方案2</h6>
 <ul>
 <li>
 <p>思路:</p>
@@ -3147,21 +3147,21 @@ id="19945735">
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">more /config/worka/backup_lastgood.xml
 </code></pre></div></li>
 </ul>
-<h4 id="heading2">尝试单线多拨</h4>
+<h4 id="尝试单线多拨">尝试单线多拨</h4>
 <p>在多次尝试后，最多能以4拨实现约 400 Mbps ，效果比较理想</p>
 <p>但目前尚不清楚现有架构中瓶颈在哪，笔者觉得很大可能在硬路由，日后有机会组1台软路由再折腾</p>
 <p><img src="/Image/posts/Network_1/001.jpg" alt="多拨测速"></p>
-<h4 id="-ssssr">尝试 SS/SSR</h4>
+<h4 id="尝试-ssssr">尝试 SS/SSR</h4>
 <p>很无奈的是，笔者目前并没有找到一个多拨与 SS/SSR 可以兼顾的 K2P 固件，通过刷写不同固件可分别两项功能。在综合考虑后，笔者选择实现单线多拨，摒弃 SS/SSR</p>
 <hr>
 <hr>
 <hr>
-<h2 id="0x03-">0x03 继续</h2>
+<h2 id="0x03-继续">0x03 继续</h2>
 <p>开学全部入住后，网速有明显下降。笔者在纠结很久后终于下定决心，购买软路由，希望能够改善网络情况。</p>
 <p>在接入软路由后，进行多拨，网速有明显提高</p>
 <p><img src="/Image/posts/Network_1/002.jpg" alt="多拨测速"></p>
 <p>软路由的开放性更高，后续可能会详细写相关专题</p>
-<h2 id="0x04-">0x04 致谢</h2>
+<h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li>
 <p><a href="https://tieba.baidu.com/p/5931041933?pid=122636821539&amp;cid=0&amp;red_tag=3414956069#122636821539">中国移动H1S-3光猫首发破解教程</a> by <a href="">cq5683130</a></p>
@@ -3184,14 +3184,14 @@ server="netease"
 type="song"
 id="451703096">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>Git 的 “ABC”</p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <blockquote>
 <p>Git is the open source distributed version control system.  <br/>  Git是开源的分布式版本控制系统</p>
 </blockquote>
 <h2 id="0x02-git-cheat-sheet">0x02 Git Cheat Sheet</h2>
-<h3 id="a-configure-tooling--">A Configure Tooling  〔配置工具〕</h3>
+<h3 id="a-configure-tooling--配置工具">A Configure Tooling  〔配置工具〕</h3>
 <ul>
 <li>Configure user information for all local repositories  <br/>  为所有本地存储库配置用户信息</li>
 </ul>
@@ -3207,7 +3207,7 @@ id="451703096">
 <p>Enables helpful colorization of command line output  <br/>  启用命令行输出的辅助着色</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git config --global color.ui auto
-</code></pre></div><h3 id="b-create-repository--">B Create Repository  〔创建存储库〕</h3>
+</code></pre></div><h3 id="b-create-repository--创建存储库">B Create Repository  〔创建存储库〕</h3>
 <ul>
 <li>Start a new repository or obtain one from an existing URL  <br/>  启动新的存储库或从现有URL获得一个存储库</li>
 </ul>
@@ -3219,7 +3219,7 @@ id="451703096">
 <p>Downloads a project and its entire version history  <br/>  下载项目及其完整版本历史记录</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git clone <span class="o">[</span>url<span class="o">]</span>
-</code></pre></div><h3 id="c-make-changes--">C Make Changes  〔进行更改〕</h3>
+</code></pre></div><h3 id="c-make-changes--进行更改">C Make Changes  〔进行更改〕</h3>
 <ul>
 <li>Review edits and craft a commit transaction  <br/>  审查编辑并制定提交事务</li>
 </ul>
@@ -3247,7 +3247,7 @@ id="451703096">
 <p>Records file snapshots permanently in version history  <br/>  在版本历史记录中永久记录文件快照</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git commit -m <span class="s2">&#34;[descriptive message]&#34;</span>
-</code></pre></div><h3 id="d-group-changes--">D Group Changes  〔组变更〕</h3>
+</code></pre></div><h3 id="d-group-changes--组变更">D Group Changes  〔组变更〕</h3>
 <blockquote>
 <p>Lists all local branches in the current repository  <br/>  列出当前存储库中的所有本地分支</p>
 </blockquote>
@@ -3268,7 +3268,7 @@ id="451703096">
 <p>Deletes the specified branch  <br/>  删除指定的分支</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git branch -d <span class="o">[</span>branch-name<span class="o">]</span>
-</code></pre></div><h3 id="e-relocate-filenames--">E Relocate Filenames  〔重定位文件名〕</h3>
+</code></pre></div><h3 id="e-relocate-filenames--重定位文件名">E Relocate Filenames  〔重定位文件名〕</h3>
 <ul>
 <li>Relocate and remove versioned files  <br/>  重新定位并删除版本控制的文件</li>
 </ul>
@@ -3284,7 +3284,7 @@ id="451703096">
 <p>Changes the file name and prepares it for commit  <br/>  更改文件名并准备提交</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git mv <span class="o">[</span>file-original<span class="o">]</span> <span class="o">[</span>file-renamed<span class="o">]</span>
-</code></pre></div><h3 id="f-suppress-tracking--">F Suppress Tracking  〔抑制追踪〕</h3>
+</code></pre></div><h3 id="f-suppress-tracking--抑制追踪">F Suppress Tracking  〔抑制追踪〕</h3>
 <ul>
 <li>Exclude temporary files and paths  <br/>  排除临时文件和路径</li>
 </ul>
@@ -3298,7 +3298,7 @@ temp-*
 <p>Lists all ignored files in this project  <br/>  列出该项目中所有忽略的文件</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git ls-files --other --ignored --exclude-standard
-</code></pre></div><h3 id="g-save-fragments--">G Save Fragments  〔保存片段〕</h3>
+</code></pre></div><h3 id="g-save-fragments--保存片段">G Save Fragments  〔保存片段〕</h3>
 <blockquote>
 <p>Temporarily stores all modified tracked files  <br/>  临时存储所有已修改的跟踪文件</p>
 </blockquote>
@@ -3315,7 +3315,7 @@ temp-*
 <p>Discards the most recently stashed changeset  <br/>  丢弃最近保存的变更集</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git stash drop
-</code></pre></div><h3 id="h-review-history--">H Review History  〔回顾历史〕</h3>
+</code></pre></div><h3 id="h-review-history--回顾历史">H Review History  〔回顾历史〕</h3>
 <ul>
 <li>Browse and inspect the evolution of project files  <br/>  浏览并检查项目文件的演变</li>
 </ul>
@@ -3335,7 +3335,7 @@ temp-*
 <p>Outputs metadata and content changes of the specified commit  <br/>  输出指定提交的元数据和内容更改</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git show <span class="o">[</span>commit<span class="o">]</span>
-</code></pre></div><h3 id="i-redo-commits--">I Redo Commits  〔重提交〕</h3>
+</code></pre></div><h3 id="i-redo-commits--重提交">I Redo Commits  〔重提交〕</h3>
 <ul>
 <li>Erase mistakes and craft replacement history  <br/>  清除错误和<em>制作</em> <strong>「存疑」</strong> 更换历史</li>
 </ul>
@@ -3347,7 +3347,7 @@ temp-*
 <p>Discards all history and changes back to the specified commit  <br/>  放弃所有历史记录并更改回指定的提交</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git reset --hard <span class="o">[</span>commit<span class="o">]</span>
-</code></pre></div><h3 id="j-synchronize-changes--">J Synchronize Changes  〔同步变更〕</h3>
+</code></pre></div><h3 id="j-synchronize-changes--同步变更">J Synchronize Changes  〔同步变更〕</h3>
 <ul>
 <li>Register a repository bookmark and exchange version history  <br/>  注册存储库书签并交换版本历史记录</li>
 </ul>
@@ -3367,8 +3367,8 @@ temp-*
 <p>Downloads bookmark history and incorporates changes  <br/>  下载书签历史记录并合并更改</p>
 </blockquote>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git pull
-</code></pre></div><h2 id="0x03-">0x03 常用命令</h2>
-<h3 id="heading">配置</h3>
+</code></pre></div><h2 id="0x03-常用命令">0x03 常用命令</h2>
+<h3 id="配置">配置</h3>
 <ul>
 <li>
 <p>配置名字</p>
@@ -3400,7 +3400,7 @@ temp-*
 </ul>
 </li>
 </ul>
-<h3 id="heading1">使用</h3>
+<h3 id="使用">使用</h3>
 <ul>
 <li>
 <p>提交至暂存区</p>
@@ -3416,7 +3416,7 @@ temp-*
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git push
 </code></pre></div></li>
 </ul>
-<h2 id="0x04-">0x04 致谢</h2>
+<h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li>
 <p><a href="https://git-scm.com">Git for All Platforms</a></p>
@@ -3439,37 +3439,37 @@ server="netease"
 type="song"
 id="19711382">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>有趣的API汇总</p>
 <p><em><strong>「持续更新」</strong></em></p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <p>API(Application Programming Interface，应用程序接口)是一些预先定义的函数，或指软件系统不同组成部分衔接的约定。目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问原码，或理解内部工作机制的细节。</p>
-<h2 id="0x02-api">0x02 优秀的API</h2>
-<h3 id="heading">翻译</h3>
-<h3 id="heading1">摄影</h3>
+<h2 id="0x02-优秀的api">0x02 优秀的API</h2>
+<h3 id="翻译">翻译</h3>
+<h3 id="摄影">摄影</h3>
 <ul>
 <li><a href="https://unsplash.com/">Unsplash</a></li>
 <li><a href="https://picsum.photos/">Lorem Picsum</a></li>
 </ul>
-<h3 id="heading2">天气</h3>
+<h3 id="天气">天气</h3>
 <ul>
 <li><a href="https://www.kancloud.cn/ccjin/yingq/603579">看云</a></li>
 </ul>
-<h3 id="heading3">天文</h3>
+<h3 id="天文">天文</h3>
 <ul>
 <li><a href="https://api.arcsecond.io/">arcsecond.io</a></li>
 <li><a href="https://github.com/r-spacex/SpaceX-API">SpaceX</a></li>
 <li><a href="https://launchlibrary.net/docs/1.3/api.html">Launch Library</a></li>
 </ul>
-<h3 id="heading4">体育</h3>
+<h3 id="体育">体育</h3>
 <ul>
 <li><a href="https://www.football-data.org/index">football-data</a></li>
 </ul>
-<h2 id="0x03-">0x03 工具</h2>
+<h2 id="0x03-工具">0x03 工具</h2>
 <ul>
 <li><a href="https://www.getpostman.com/">Postman</a></li>
 </ul>
-<h2 id="0x04-">0x04 致谢</h2>
+<h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li><a href="https://github.com/public-apis/public-apis">public-apis</a> by <a href="https://github.com/public-apis">public-apis</a></li>
 </ul>
@@ -3484,20 +3484,20 @@ server="netease"
 type="song"
 id="29401226">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>关于Unsplash平台的想法</p>
-<h2 id="0x01-">0x01 简介</h2>
+<h2 id="0x01-简介">0x01 简介</h2>
 <blockquote>
 <p>The internet’s source of freely useable images.<br>
 Powered by creators everywhere.</p>
 </blockquote>
 <p><a href="https://unsplash.com/"><img src="https://images.unsplash.com/moment-1544716590524-4fc5a168786e?dpr=3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=60" alt="Unsplash" title="Unsplash"></a></p>
-<h2 id="0x02-">0x02 决定</h2>
+<h2 id="0x02-决定">0x02 决定</h2>
 <p>在此之前，笔者的照片并没有一个很好的归档方式：1.原始 JPG 和 RAW 定时上传到移动硬盘；2.筛选 JPG 在经过简单的后期处理后，上传至QQ空间、微信朋友圈、Instagram(由于上述平台上传照片时，均会极大地压缩照片画质到不可接受的程度，故目前已基本放弃上传至上述平台)；</p>
 <p>笔者了解Unsplash平台大约是在2018年，那时并不能接受其<a href="https://unsplash.com/license">协议</a>，同时客观来说，那时笔者所拍照片质量确实较低，故仅在该平台获取所需照片；</p>
 <p>前不久，笔者觉得若不进行合理的归档整理，随着时间的推移，照片很可能会丢失。在权衡云端和本地两种归档方式后，笔者决定采用云端的方式整理照片。首先，考虑采用常规网盘，虽然国外平台无论从服务质量还是稳定性上都优于国内平台，但由于 GFW 的存在使得其几乎不可用，而国内平台的上传和下载限速严重，使其也几乎不可用；其次，考虑采用照片分享平台，国内的平台大多充斥着广告或捆绑其他东西，相对不那么“纯净”，而在国外的平台中笔者选中了规模较大的 Unsplash ；</p>
 <p>笔者在认真思考后决定接受 Unsplash 协议。首先，笔者目前并没有照片商业化的需求，而且客观来说，目前所拍的照片并没有商业价值；其次，正是在该协议下，笔者也受益很大，笔者逐渐接受并喜欢这样“开源”的平台。</p>
-<h2 id="0x03-">0x03 迁移</h2>
+<h2 id="0x03-迁移">0x03 迁移</h2>
 <ul>
 <li><a href="https://unsplash.com/@explore_">MyUnsplash</a></li>
 </ul>
@@ -3507,24 +3507,24 @@ Powered by creators everywhere.</p>
 <li>邮件:</li>
 </ul>
 <blockquote>
-<p>From: &ldquo;Annie from Unsplash&quot;<a href="mailto:delivery@unsplash.com">delivery@unsplash.com</a><br>
+<p>From: &ldquo;Annie from Unsplash&rdquo;<a href="mailto:delivery@unsplash.com">delivery@unsplash.com</a><br>
 Date: 2019/6/23 15:32:40<br>
 To: My E-mail<br>
 Subject: Next level Unsplash unlocked</p>
 <blockquote>
 <p>Annie here  <br/>
-Just wanted to let you know that we've been liking your recent submissions so much that we've removed your weekly upload limit on your account!  <br/>
+Just wanted to let you know that we&rsquo;ve been liking your recent submissions so much that we&rsquo;ve removed your weekly upload limit on your account!  <br/>
 Thanks you for contributing such awesome photos to the Unsplash community and for being part of the Unsplash family.  <br/> <br/>
 Annie<br>
 Head of Editorial<br>
 @unsplash</p>
 </blockquote>
 </blockquote>
-<h2 id="0x04-">0x04 扩展</h2>
-<h3 id="heading">背景</h3>
+<h2 id="0x04-扩展">0x04 扩展</h2>
+<h3 id="背景">背景</h3>
 <p>Unsplash中的图片主要有两种下载方式:常规下载和API下载。常规下载虽没有数量限制，但效率较低；官方提供的API在程序Demo阶段有<a href="https://unsplash.com/documentation#rate-limiting">速度限制</a> 50张/h ，故也几乎不可用。</p>
-<h3 id="heading1">实现</h3>
-<h4 id="heading2">分析网站</h4>
+<h3 id="实现">实现</h3>
+<h4 id="分析网站">分析网站</h4>
 <p>在API文档中，发现有个<a href="https://unsplash.com/documentation#list-photos">List Collections</a>功能，用JSON的格式返回照片列表。该API的GET的参数有page，per_page。尝试枚举，发现最大的per_page(每页显示的照片数量)为30张，page(页码)最大值为4067(截止至 2019-07-05 10:00:00)，所以整站大概有 122K 张摄影作品。</p>
 <p>Unsplash推出了一款名为<a href="https://instant.unsplash.com/?utm_campaign=api-feature&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash Instant</a>的Chrome插件</p>
 <p>安装完成后尝试寻找保存在插件中的Public Key，发现其保存在了插件目录下的js\main.js文件中。虽然JS代码经过压缩，但并不难找。其官方的Client_ID为：</p>
@@ -3533,15 +3533,15 @@ Head of Editorial<br>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">https://api.unsplash.com/photos/?client_id=fa60305aa82e74134cabc7093ef54c8e2c370c47e73152f72371c828daedfcd7&amp;page=1&amp;per_page=30
 </code></pre></div><p>其中page, per_page在爬取时修改</p>
 <p>访问api地址,可得到包含图片url的json , 包括种类raw, full, regular, small, thumb. 最终取raw</p>
-<h4 id="scrapy">Scrapy实现</h4>
+<h4 id="scrapy实现">Scrapy实现</h4>
 <p>(省略)</p>
-<h4 id="heading3">多线程下载器</h4>
+<h4 id="多线程下载器">多线程下载器</h4>
 <p>(省略)</p>
-<h3 id="heading4">源码</h3>
+<h3 id="源码">源码</h3>
 <p><a href="https://github.com/Explore-Space/UnsplashDownload">UnsplasDownload</a></p>
 <h3 id="todo">Todo</h3>
 <p>[ ] 重构 download.py</p>
-<h3 id="heading5">致谢</h3>
+<h3 id="致谢">致谢</h3>
 <ul>
 <li>
 <p><a href="https://zhuanlan.zhihu.com/p/24855089">写只爬虫，把Unsplash的2W摄影素材扒个精光</a></p>
@@ -3550,7 +3550,7 @@ Head of Editorial<br>
 <p><a href="https://blog.csdn.net/baidu_21802103/article/details/81147050">python-Scrapy爬取unsplash美图(壁纸)</a></p>
 </li>
 </ul>
-<h2 id="0x05-">0x05 尾巴</h2>
+<h2 id="0x05-尾巴">0x05 尾巴</h2>
 <p>随着时间的推移，笔者渐渐的接受并追求“开源”平台，“开源”也逐渐成为笔者的人生信条。</p>
 <blockquote>
 <p>我期待一个完全开源的世界</p>
@@ -3566,27 +3566,27 @@ server="netease"
 type="song"
 id="5113327">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>简述Markdown基本操作</p>
-<h2 id="0x01-">0x01 前言</h2>
+<h2 id="0x01-前言">0x01 前言</h2>
 <p>在笔者搭建Blog之前，一直以为其中的文章都要像写前端那样写，心中不由觉得很麻烦。后来才了解到Markdown语言，很快笔者就能熟练的用Markdown直接写Blog了，其功能性与简洁性恰巧处于平衡点。</p>
-<h2 id="0x02-">0x02 简介</h2>
+<h2 id="0x02-简介">0x02 简介</h2>
 <blockquote>
 <p><a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is a lightweight markup language with plain text formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. Since the initial description of Markdown contained ambiguities and unanswered questions, the implementations that appeared over the years have subtle differences and many come with syntax extensions.</p>
 <p>Markdown 是一种具有纯文本格式语法的轻量级标记语言。它的设计允许将其转换为多种输出格式，但原来同名的工具只支持html。标记通常用于格式化自述文件、在在线论坛中编写消息以及使用纯文本编辑器创建富文本。由于最初对标记的描述包含含糊不清和未回答的问题，多年来出现的实现有微妙的差异，许多都带有语法扩展</p>
 </blockquote>
-<h2 id="0x03-">0x03 语法</h2>
-<h3 id="heading">标题</h3>
-<h4 id="heading1">规则</h4>
+<h2 id="0x03-语法">0x03 语法</h2>
+<h3 id="标题">标题</h3>
+<h4 id="规则">规则</h4>
 <p>在想要设置为标题的文字前面加#来表示.一个#是一级标题，二个#是二级标题,以此类推.支持六级标题。</p>
-<h4 id="heading2">示例</h4>
+<h4 id="示例">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># 一级标题
 ## 二级标题
 ### 三级标题
-</code></pre></div><h4 id="heading3">效果</h4>
+</code></pre></div><h4 id="效果">效果</h4>
 <p>(省略)</p>
-<h3 id="heading4">字体</h3>
-<h4 id="heading5">规则</h4>
+<h3 id="字体">字体</h3>
+<h4 id="规则-1">规则</h4>
 <ul>
 <li>
 <p><strong>加粗</strong>:加粗的文字左右分别用两个 * 包起来</p>
@@ -3601,25 +3601,25 @@ id="5113327">
 <p><del>删除线</del>:加删除线的文字左右分别用两个 ~ 包起来</p>
 </li>
 </ul>
-<h4 id="heading6">示例</h4>
+<h4 id="示例-1">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">**加粗**
 *斜体*
 ***斜体加粗***
 ~~删除线~~
-</code></pre></div><h4 id="heading7">效果</h4>
+</code></pre></div><h4 id="效果-1">效果</h4>
 <p><strong>加粗</strong>
 <em>斜体</em>
 <em><strong>斜体加粗</strong></em>
 <del>删除线</del></p>
-<h3 id="heading8">引用</h3>
-<h4 id="heading9">规则</h4>
+<h3 id="引用">引用</h3>
+<h4 id="规则-2">规则</h4>
 <p>在引用的文字前加 &gt; 即可。引用也可以嵌套，层数不限制。</p>
-<h4 id="heading10">示例</h4>
+<h4 id="示例-2">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">&gt;引用1
 &gt;&gt;引用2
 &gt;&gt;&gt;引用3
 &gt;&gt;&gt;&gt;引用4
-</code></pre></div><h4 id="heading11">效果</h4>
+</code></pre></div><h4 id="效果-2">效果</h4>
 <blockquote>
 <p>引用1</p>
 <blockquote>
@@ -3632,52 +3632,52 @@ id="5113327">
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="heading12">分割线</h3>
-<h4 id="heading13">规则</h4>
+<h3 id="分割线">分割线</h3>
+<h4 id="规则-3">规则</h4>
 <p>三个或者三个以上的 - 或者 * 都可以.</p>
-<h4 id="heading14">示例</h4>
+<h4 id="示例-3">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">---
 ----
 ***
 ****
-</code></pre></div><h4 id="heading15">效果</h4>
+</code></pre></div><h4 id="效果-3">效果</h4>
 <hr>
 <hr>
 <hr>
 <hr>
-<h3 id="heading16">图片</h3>
-<h4 id="heading17">规则</h4>
+<h3 id="图片">图片</h3>
+<h4 id="规则-4">规则</h4>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">alt</span>](<span class="na">图片地址 &#39;&#39;title&#39;&#39;</span>)
 </code></pre></div><ul>
 <li>alt:显示在图片下面的文字，相当于对图片内容的解释。</li>
 <li>title:图片的标题，当鼠标移到图片上时显示的内容，该参数可选</li>
 </ul>
-<h4 id="heading18">示例</h4>
+<h4 id="示例-4">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">GitHub</span>](<span class="na">/Image/posts/Markdown-α/001.jpeg &#34;Git&#34;</span>)
-</code></pre></div><h4 id="heading19">效果</h4>
+</code></pre></div><h4 id="效果-4">效果</h4>
 <p><img src="/Image/posts/Markdown-%CE%B1/001.jpeg" alt="GitHub" title="Git"></p>
-<h3 id="heading20">超链接</h3>
-<h4 id="heading21">规则</h4>
+<h3 id="超链接">超链接</h3>
+<h4 id="规则-5">规则</h4>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">alt</span>](<span class="na">超链接地址 &#34;超链接title&#34;</span>)
 </code></pre></div><ul>
 <li>alt:显示的文字，相当于超链接名。</li>
 <li>title:超链接的标题，当鼠标移到超链接上时显示的内容，该参数可选</li>
 </ul>
-<h4 id="heading22">示例</h4>
+<h4 id="示例-5">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">GitHub</span>](<span class="na">https://github.com/</span>)
 [<span class="nt">GitLab</span>](<span class="na">https://about.gitlab.com/ &#34;Title&#34;</span>)
-</code></pre></div><h4 id="heading23">效果</h4>
+</code></pre></div><h4 id="效果-5">效果</h4>
 <p><a href="https://github.com/">GitHub</a>
 <a href="https://about.gitlab.com/" title="Title">GitLab</a></p>
-<h3 id="heading24">列表</h3>
-<h4 id="heading25">无序列表</h4>
-<h5 id="heading26">规则</h5>
+<h3 id="列表">列表</h3>
+<h4 id="无序列表">无序列表</h4>
+<h5 id="规则-6">规则</h5>
 <p>在无序列表内容前加 - + * 任何一种</p>
-<h5 id="heading27">示例</h5>
+<h5 id="示例-6">示例</h5>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="k">-</span> 无序列表1
 + 无序列表2
 <span class="k">*</span> 无序列表3
-</code></pre></div><h5 id="heading28">效果</h5>
+</code></pre></div><h5 id="效果-6">效果</h5>
 <ul>
 <li>无序列表1</li>
 </ul>
@@ -3687,21 +3687,21 @@ id="5113327">
 <ul>
 <li>无序列表3</li>
 </ul>
-<h4 id="heading29">有序列表</h4>
-<h5 id="heading30">规则</h5>
+<h4 id="有序列表">有序列表</h4>
+<h5 id="规则-7">规则</h5>
 <p>在有序列表内容前加数字加点</p>
-<h5 id="heading31">示例</h5>
+<h5 id="示例-7">示例</h5>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">1.有序列表1
 2.有序列表2
 3.有序列表3
-</code></pre></div><h5 id="heading32">效果</h5>
+</code></pre></div><h5 id="效果-7">效果</h5>
 <p>1.有序列表1
 2.有序列表2
 3.有序列表3</p>
-<h4 id="heading33">列表嵌套</h4>
-<h5 id="heading34">规则</h5>
+<h4 id="列表嵌套">列表嵌套</h4>
+<h5 id="规则-8">规则</h5>
 <p>上一级和下一级之间敲三个空格即可</p>
-<h5 id="heading35">示例</h5>
+<h5 id="示例-8">示例</h5>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="k">-</span> 一级无序列表1
    + 二级无序列表1
    <span class="k">-</span> 二级无序列表2
@@ -3714,7 +3714,7 @@ id="5113327">
 <span class="k">2.</span> 一级有序列表2
    <span class="k">1.</span> 二级有序列表1
    <span class="k">2.</span> 二级有序列表2
-</code></pre></div><h5 id="heading36">效果</h5>
+</code></pre></div><h5 id="效果-8">效果</h5>
 <ul>
 <li>一级无序列表1
 <ul>
@@ -3747,8 +3747,8 @@ id="5113327">
 <li>二级有序列表1</li>
 <li>二级有序列表2</li>
 </ol>
-<h3 id="heading37">表格</h3>
-<h4 id="heading38">规则</h4>
+<h3 id="表格">表格</h3>
+<h4 id="规则-9">规则</h4>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">表头|表头|表头
 -|-|-
 内容|内容|内容
@@ -3759,51 +3759,51 @@ id="5113327">
 <li>-:表示内容和标题栏居右对齐，:-表示内容和标题栏居左对齐，:-:表示内容和标题栏居中对齐。</li>
 <li>内容和|之间的多余空格会被忽略，每行第一个|和最后一个|可以省略，-的数量至少有一个。</li>
 </ol>
-<h4 id="heading39">示例</h4>
+<h4 id="示例-9">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">表头1|表头2|表头3
 -|-|-
 (1,1)|(1,2)|(1,3)
 (2,1)|(2,2)|(2,3)
 (3,1)|(3,2)|(3,3)
-</code></pre></div><h4 id="heading40">效果</h4>
+</code></pre></div><h4 id="效果-9">效果</h4>
 <table>
 <thead>
 <tr>
 <th>表头1</th>
-<th align="center">表头2</th>
-<th align="right">表头3</th>
+<th style="text-align:center">表头2</th>
+<th style="text-align:right">表头3</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>(1,1)</td>
-<td align="center">(1,2)</td>
-<td align="right">(1,3)</td>
+<td style="text-align:center">(1,2)</td>
+<td style="text-align:right">(1,3)</td>
 </tr>
 <tr>
 <td>(2,1)</td>
-<td align="center">(2,2)</td>
-<td align="right">(2,3)</td>
+<td style="text-align:center">(2,2)</td>
+<td style="text-align:right">(2,3)</td>
 </tr>
 <tr>
 <td>(3,1)</td>
-<td align="center">(3,2)</td>
-<td align="right">(3,3)</td>
+<td style="text-align:center">(3,2)</td>
+<td style="text-align:right">(3,3)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="heading41">代码</h3>
-<h4 id="heading42">单行代码</h4>
-<h5 id="heading43">规则</h5>
+<h3 id="代码">代码</h3>
+<h4 id="单行代码">单行代码</h4>
+<h5 id="规则-10">规则</h5>
 <p>代码之间分别用一个反引号包起来</p>
-<h5 id="heading44">示例</h5>
+<h5 id="示例-10">示例</h5>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="sb">`Hello World!`</span>
-</code></pre></div><h5 id="heading45">效果</h5>
+</code></pre></div><h5 id="效果-10">效果</h5>
 <p><code>Hello World!</code></p>
-<h4 id="heading46">代码块</h4>
-<h5 id="heading47">规则</h5>
+<h4 id="代码块">代码块</h4>
+<h5 id="规则-11">规则</h5>
 <p>代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
-<h5 id="heading48">示例</h5>
+<h5 id="示例-11">示例</h5>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="sb">` * 3
 </span><span class="sb">package main  //Golang
 </span><span class="sb">import &#34;fmt&#34;
@@ -3811,21 +3811,21 @@ id="5113327">
 </span><span class="sb">fmt.Println(&#34;Hello World !&#34;)
 </span><span class="sb">}
 </span><span class="sb">`</span> * 3
-</code></pre></div><h5 id="heading49">效果</h5>
+</code></pre></div><h5 id="效果-11">效果</h5>
 <div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>  <span class="c1">//Golang
 </span><span class="c1"></span><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
 <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello World !&#34;</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div><h4 id="heading50">通用</h4>
-<h5 id="heading51">规则</h5>
+</code></pre></div><h4 id="通用">通用</h4>
+<h5 id="规则-12">规则</h5>
 <p>每行代码前缩进四个空格</p>
-<h5 id="heading52">示例</h5>
+<h5 id="示例-12">示例</h5>
 <p>(省略)</p>
-<h5 id="heading53">效果</h5>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Hello World!</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1">#Python3</span>
-</code></pre></div><h3 id="heading54">流程图</h3>
-<h4 id="heading55">示例</h4>
+<h5 id="效果-12">效果</h5>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>  <span class="c1">#Python3</span>
+</code></pre></div><h3 id="流程图">流程图</h3>
+<h4 id="示例-13">示例</h4>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="sb">` * 3 flow
 </span><span class="sb">st=&gt;start: 开始
 </span><span class="sb">op=&gt;operation: My Operation
@@ -3835,10 +3835,10 @@ id="5113327">
 </span><span class="sb">cond(yes)-&gt;e
 </span><span class="sb">cond(no)-&gt;op
 </span><span class="sb">&amp; `</span> * 3
-</code></pre></div><h4 id="heading56">效果</h4>
+</code></pre></div><h4 id="效果-13">效果</h4>
 <p>略</p>
 <p>(注:由于 Blog 目前所使用 Markdown 中不支持流程图)</p>
-<h2 id="0x04-">0x04 致谢</h2>
+<h2 id="0x04-致谢">0x04 致谢</h2>
 <ul>
 <li>
 <p><a href="https://www.jianshu.com/p/191d1e21f7ed">Markdown基本语法</a> by <a href="https://www.jianshu.com/u/1f5ac0cf6a8b">高鸿祥</a></p>
@@ -3847,7 +3847,7 @@ id="5113327">
 <p><a href="https://www.runoob.com/markdown/md-tutorial.html">Markdown 教程</a> by <a href="https://www.runoob.com/">菜鸟教程</a></p>
 </li>
 </ul>
-<h2 id="0x05-">0x05 尾巴</h2>
+<h2 id="0x05-尾巴">0x05 尾巴</h2>
 <p>Markdown能极大地简化文档书写，相比 Word ，使用 Markdown 可以专注于内容，而非无关紧要但繁杂的格式问题。</p>
 ]]></content></item><item><title>Ubuntu</title><link>https://unsplash.top/posts/ubuntu/</link><pubDate>Fri, 07 Dec 2018 23:55:03 +0800</pubDate><guid>https://unsplash.top/posts/ubuntu/</guid><description>0x00 摘要 Ubuntu 的安装与配置 0x01 前言 虽然在虚拟机和备用机上多次安装过许多Linux发行版，但在物理机上安装 Ubuntu ，还是免不了遇到各种各样的问题，所以写下这</description><content type="html"><![CDATA[<hr>
 <!-- require APlayer -->
@@ -3860,11 +3860,11 @@ server="netease"
 type="song"
 id="32019002">
 </meting-js></p>
-<h2 id="0x00-">0x00 摘要</h2>
+<h2 id="0x00-摘要">0x00 摘要</h2>
 <p>Ubuntu 的安装与配置</p>
-<h2 id="0x01-">0x01 前言</h2>
+<h2 id="0x01-前言">0x01 前言</h2>
 <p>虽然在虚拟机和备用机上多次安装过许多Linux发行版，但在物理机上安装 Ubuntu ，还是免不了遇到各种各样的问题，所以写下这篇文章记录过程。</p>
-<h2 id="0x02-">0x02 内容</h2>
+<h2 id="0x02-内容">0x02 内容</h2>
 <ul>
 <li>基本情况
 <ul>
@@ -3910,9 +3910,9 @@ id="32019002">
 </ul>
 </li>
 </ul>
-<h3 id="heading">引导</h3>
+<h3 id="引导">引导</h3>
 <p>常见的引导方式有两种 <em>BIOS + MBR</em> ， <em>UEFI + GPT</em>，后者相较于前者有着诸多优点，也是未来的趋势，故笔者选用后者</p>
-<h3 id="heading1">硬盘</h3>
+<h3 id="硬盘">硬盘</h3>
 <p>在 BIOS 硬盘相关设置中</p>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">SATA Controller Mode
 
@@ -3925,63 +3925,63 @@ Set SATA controller to Interl RST Premium(RAID) mode.
 <p><strong>存疑</strong></p>
 <p>后来查阅资料后发现后者好像是需要驱动才可用，似乎对固态性能影响不大，故没有再关注这个问题</p>
 </blockquote>
-<h3 id="heading2">显卡</h3>
-<h4 id="heading3">现象</h4>
+<h3 id="显卡">显卡</h3>
+<h4 id="现象">现象</h4>
 <p>安装完成后，重启过程中报错</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">kernel:NMI watchdog: BUG: soft lockup - CPU#0 stuck <span class="k">for</span> 26s
 </code></pre></div><p>强制关机后重启进入桌面，有明显卡顿感，几秒后系统进入假死状态</p>
-<h4 id="heading4">原因</h4>
+<h4 id="原因">原因</h4>
 <blockquote>
 <p><strong>存疑</strong></p>
 <p>CPU 过度使用， Linux 的内核锁死或者死循环导不能进入系统。最新的内核已经把视频模式设置嵌入内核中，所以所有显卡硬件程序的指定时钟和寄存器当图形服务器启动时在内核进行而不是图形设备运行，这使得在启动时可以看到不闪的和高分辨率的好看的启动界面，但是，在某些视频卡它不能正常工作而现实黑屏。</p>
 </blockquote>
-<h4 id="heading5">解决</h4>
-<h5 id="heading6">启用核显</h5>
+<h4 id="解决">解决</h4>
+<h5 id="启用核显">启用核显</h5>
 <p>在 BIOS 启动后，进入系统前，按 <em>Esc</em>  进入 grub 选择界面，按 <em>E</em> 编辑 grub ，在 <code>quiet splash</code> 后插入 <code>nomodeset</code> ，按 <em>F10</em> 或 <em>Ctrl</em> + <em>X</em> 保存后即可正常启动</p>
 <p>启动后修改 grub 配置文件，默认禁用独显(后文会详述独显驱动安装，该处为方便暂时只用核显)。修改 <code>/etc/default/grub</code> 同上</p>
 <p>更新 grub 配置</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
-</code></pre></div><h5 id="heading7">启用独显</h5>
+</code></pre></div><h5 id="启用独显">启用独显</h5>
 <p>安装NVIDIA驱动(Ubuntu 18.04/18.10中可在 软件和更新 → 附加驱动 中找到开源和闭源驱动)</p>
 <p>还原 grub 配置文件，即删除 <code>/etc/default/grub</code> 中 <code>quiet splash</code> 后的 <code>nomodeset</code></p>
 <p>更新 grub 配置</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo update-grub
 </code></pre></div><p>如图,安装成功
 <img src="/Image/posts/Ubuntu/001.png" alt="效果"></p>
-<h5 id="heading8">插曲</h5>
+<h5 id="插曲">插曲</h5>
 <blockquote>
 <p>Linux creator Linus Torvalds talked in front of students at the Aalto University Center for Entrepreneurship in Otaniemi, Finland. The chat and its Q&amp;A session was around an hour long and while the bulk of it is probably quite interesting, the best bit — by far — occurs at the 49-minute mark when Torvalds delivers his very frank opinion of NVIDIA and its support for Linux.</p>
 <p>Linux的创造者Linus Torvalds在芬兰奥塔涅米的阿尔托大学创业中心的学生面前讲话。聊天和问答环节大约有一个小时，虽然大部分内容可能都很有趣，但迄今为止最好的一点发生在49分钟的时候，当时torvalds发表了他对nvidia及其对linux支持的非常坦率的意见。</p>
-<p>One of the students asks for Torvalds&rsquo; thoughts on NVIDIA and its reportedly poor support for its Optimus technology in Linux. The purpose of Optimus is to allow notebooks to dynamically switch between an Intel integrated graphics chip and an NVIDIA one, as performance requirements demand.</p>
+<p>One of the students asks for Torvalds' thoughts on NVIDIA and its reportedly poor support for its Optimus technology in Linux. The purpose of Optimus is to allow notebooks to dynamically switch between an Intel integrated graphics chip and an NVIDIA one, as performance requirements demand.</p>
 <p>其中一名学生询问了torvalds对nvidia的看法，以及据说nvidia在linux中对optimus技术的支持不足。optimus的目的是允许笔记本电脑根据性能要求在英特尔集成图形芯片和nvidia芯片之间动态切换。</p>
-<p>Here's his reply:</p>
+<p>Here&rsquo;s his reply:</p>
 <p>他的回答是：</p>
 <blockquote>
-<p>I know exactly what you're talking about and I'm happy to say that it's the exception rather than the rule. I'm also happy to very publicly point out that NVIDIA has been one of the worst trouble spots we've had with hardware manufacturers.</p>
+<p>I know exactly what you&rsquo;re talking about and I&rsquo;m happy to say that it&rsquo;s the exception rather than the rule. I&rsquo;m also happy to very publicly point out that NVIDIA has been one of the worst trouble spots we&rsquo;ve had with hardware manufacturers.</p>
 <p>我很清楚你在说什么，我很高兴地说这是个例外，而不是规则。我也很高兴非常公开地指出，nvidia一直是我们与硬件制造商之间最糟糕的问题之一。</p>
-<p>And that is really sad because NVIDIA tries to sell chips — a lot of chips — into the Android market and NVIDIA has been the single worst company we've every dealt with. So, NVIDIA, fuck you!</p>
+<p>And that is really sad because NVIDIA tries to sell chips — a lot of chips — into the Android market and NVIDIA has been the single worst company we&rsquo;ve every dealt with. So, NVIDIA, fuck you!</p>
 <p>这真的很可悲，因为英伟达试图把芯片——很多芯片——卖给安卓市场，而且英伟达是我们所有交易中最糟糕的公司。所以，英伟达，**！</p>
 </blockquote>
 </blockquote>
 <h3 id="lan">LAN</h3>
-<h4 id="heading9">现象</h4>
+<h4 id="现象-1">现象</h4>
 <p>Ubuntu 18.04 / 18.10 中，无法直接通过 设置 新建PPPOE连接</p>
-<h4 id="heading10">原因</h4>
+<h4 id="原因-1">原因</h4>
 <p>Ubuntu 18.04 / 18.10 中，采用 GNOME3 作为默认桌面环境，该问题为 GNOME3 的固有问题</p>
-<h4 id="heading11">解决</h4>
-<h5 id="1">方案1(推荐)</h5>
+<h4 id="解决-1">解决</h4>
+<h5 id="方案1推荐">方案1(推荐)</h5>
 <p>其实在 Gnome3 的 NetworkManager 中包含 PPPOE 连接方式，不过无法直接通过桌面环境操作，执行以下命令</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nm-connection-editor
 </code></pre></div><p>在弹出的管理窗口中即可新建PPPOE连接</p>
-<h5 id="2">方案2</h5>
+<h5 id="方案2">方案2</h5>
 <p>使用 pppoeconf 建立 PPPOE 连接</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pppoeconf
 </code></pre></div><p>P.S. 该方法在使用过程不稳定，故不推荐该方法</p>
 <h3 id="wlan">WLAN</h3>
-<h4 id="heading12">现象</h4>
+<h4 id="现象-2">现象</h4>
 <p>安装完成后，无线连接不可用，如图</p>
 <p><img src="/Image/posts/Ubuntu/002.png" alt="效果"></p>
-<h4 id="heading13">原因</h4>
+<h4 id="原因-2">原因</h4>
 <p>执行以下命令</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">~$ rfkill list all
 </code></pre></div><p>输出以下内容</p>
@@ -3998,13 +3998,13 @@ Hard blocked:no
 Soft blocked: yes
 Hard blocked: no
 </code></pre></div><p>可以看到，优先级前的 ideapad_wlan 的 Hard blocked 默认为 yes ，即 Ubuntu 默认关闭了硬件 WLAN 开关，而 R720 这样机型的并没有硬件 WLAN 开关，所以导致 WLAN 无法开启。</p>
-<h4 id="heading14">解决</h4>
-<h5 id="heading15">暂时</h5>
+<h4 id="解决-2">解决</h4>
+<h5 id="暂时">暂时</h5>
 <p>执行以下命令</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo modprobe -r ideapad_laptop
-</code></pre></div><h5 id="heading16">永久</h5>
+</code></pre></div><h5 id="永久">永久</h5>
 <p>在 <code>/etc/modprobe.d/ideapad.conf</code> 中添加 <code>blacklist ideapad_laptop</code> ， 重启</p>
-<h2 id="0x03-">0x03 尾巴</h2>
+<h2 id="0x03-尾巴">0x03 尾巴</h2>
 <p>今天西安初雪，听说初雪许的愿望想的祝福都会实现,嗯~</p>
 <p><img src="/Image/posts/Ubuntu/003.jpeg" alt="雪景 (Photo by 谭浩声)"></p>
 ]]></content></item></channel></rss>
