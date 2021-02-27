@@ -2,7 +2,7 @@
 
 ![HUGO](/Image/Hugo-logo.svg)
 
-***[An's Blog](https://explore-space.github.io/)***
+***[An's Blog](https://zincnode.github.io/)***
 
 记录生活~~
 
